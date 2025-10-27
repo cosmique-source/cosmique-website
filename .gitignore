@@ -1,0 +1,17 @@
+# Dependencies
+website/node_modules/
+
+# Build output
+website/_site/
+
+# macOS
+.DS_Store
+
+# Editor directories
+.vscode/
+.idea/
+
+# Temp files
+*.swp
+*.swo
+*~

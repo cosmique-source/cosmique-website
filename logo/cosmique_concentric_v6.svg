@@ -1,0 +1,32 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="400" fill="#F5F5F0"/>
+  
+  <!-- Full center circle -->
+  <circle cx="200" cy="160" r="35" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+  
+  <!-- Radiating arcs (signal waves) -->
+  <path d="M 200 90 A 70 70 0 0 1 270 160" 
+        fill="none" stroke="#1A1A1A" stroke-width="1.5"/>
+  <path d="M 200 75 A 85 85 0 0 1 285 160" 
+        fill="none" stroke="#1A1A1A" stroke-width="1"/>
+  <path d="M 200 230 A 70 70 0 0 1 130 160" 
+        fill="none" stroke="#1A1A1A" stroke-width="1.5"/>
+  <path d="M 200 245 A 85 85 0 0 1 115 160" 
+        fill="none" stroke="#1A1A1A" stroke-width="1"/>
+  
+  <!-- Center point -->
+  <circle cx="200" cy="160" r="8" fill="#E63946"/>
+  
+  <!-- Typography -->
+  <text x="200" y="295" 
+        font-family="Helvetica, Arial, sans-serif" 
+        font-size="32" 
+        font-weight="300" 
+        fill="#1A1A1A" 
+        text-anchor="middle"
+        letter-spacing="4">COSMIQUE</text>
+  
+  <!-- Minimal underline -->
+  <line x1="120" y1="305" x2="280" y2="305" stroke="#1A1A1A" stroke-width="0.5"/>
+</svg>

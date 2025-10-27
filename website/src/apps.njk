@@ -1,0 +1,66 @@
+---
+pagination:
+  data: site.apps
+  size: 1
+  alias: app
+permalink: "/apps/{{ app.slug }}/"
+layout: base.njk
+---
+
+<div class="container">
+  <header>
+    <a href="/">
+      <img src="/assets/logo.svg" alt="{{ site.site.title }}" class="logo">
+    </a>
+  </header>
+
+  <main>
+    <nav class="breadcrumb">
+      <a href="/">apps</a> / {{ app.name }}
+    </nav>
+
+    <article class="app-detail">
+      <h1 class="app-detail-title">{{ app.name }}</h1>
+      <p class="app-detail-tagline">{{ app.description }}</p>
+
+      <div class="app-detail-content">
+        <section class="app-section">
+          <h2 class="section-title">About</h2>
+          <p class="app-detail-description">{{ app.fullDescription }}</p>
+        </section>
+
+        <section class="app-section">
+          <h2 class="section-title">Features</h2>
+          <ul class="feature-list">
+            {% for feature in app.features %}
+            <li>{{ feature }}</li>
+            {% endfor %}
+          </ul>
+        </section>
+
+        <section class="app-section">
+          <h2 class="section-title">Platform</h2>
+          <p class="platform-badge">{{ app.platform }}</p>
+        </section>
+
+        {% if app.link %}
+        <section class="app-section">
+          <a href="{{ app.link }}" class="app-link" target="_blank" rel="noopener">
+            View on App Store →
+          </a>
+        </section>
+        {% endif %}
+      </div>
+
+      <nav class="app-nav">
+        <a href="/" class="back-link">← Back to all apps</a>
+      </nav>
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>{{ site.site.title }}</p>
+    </div>
+  </footer>
+</div>

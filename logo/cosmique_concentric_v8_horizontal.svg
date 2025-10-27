@@ -1,0 +1,23 @@
+<svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="600" height="200" fill="#F5F5F0"/>
+  
+  <!-- Outer circles -->
+  <circle cx="100" cy="100" r="55" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+  <circle cx="100" cy="100" r="40" fill="none" stroke="#1A1A1A" stroke-width="1.5"/>
+  
+  <!-- Solid center circle -->
+  <circle cx="100" cy="100" r="16" fill="#1A1A1A"/>
+  
+  <!-- Small red center dot -->
+  <circle cx="100" cy="100" r="3" fill="#E63946"/>
+  
+  <!-- Typography -->
+  <text x="210" y="110" 
+        font-family="Helvetica, Arial, sans-serif" 
+        font-size="48" 
+        font-weight="300" 
+        fill="#1A1A1A" 
+        text-anchor="start"
+        letter-spacing="6">COSMIQUE</text>
+</svg>
