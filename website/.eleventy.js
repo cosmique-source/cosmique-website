@@ -2,6 +2,7 @@ module.exports = function(eleventyConfig) {
   // Copy static assets
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/CNAME");
 
   // Add content.json as global data
   eleventyConfig.addGlobalData("site", require("./content.json"));
@@ -15,7 +16,6 @@ module.exports = function(eleventyConfig) {
     },
     templateFormats: ["njk", "html", "md"],
     htmlTemplateEngine: "njk",
-    markdownTemplateEngine: "njk",
-    pathPrefix: "/cosmique-website/"
+    markdownTemplateEngine: "njk"
   };
 };
