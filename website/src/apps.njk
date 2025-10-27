@@ -9,14 +9,14 @@ layout: base.njk
 
 <div class="container">
   <header>
-    <a href="/">
-      <img src="/assets/logo.svg" alt="{{ site.site.title }}" class="logo">
+    <a href="{{ '/' | url }}">
+      <img src="{{ '/assets/logo.svg' | url }}" alt="{{ site.site.title }}" class="logo">
     </a>
   </header>
 
   <main>
     <nav class="breadcrumb">
-      <a href="/">apps</a> / {{ app.name }}
+      <a href="{{ '/' | url }}">apps</a> / {{ app.name }}
     </nav>
 
     <article class="app-detail">
@@ -53,7 +53,7 @@ layout: base.njk
       </div>
 
       <nav class="app-nav">
-        <a href="/" class="back-link">← Back to all apps</a>
+        <a href="{{ '/' | url }}" class="back-link">← Back to all apps</a>
       </nav>
     </article>
   </main>

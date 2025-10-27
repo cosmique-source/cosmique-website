@@ -56,6 +56,27 @@ The built site will be in the `_site` directory.
 
 ## Deployment to GitHub Pages
 
+The site is automatically deployed to GitHub Pages when you push to the main branch.
+
+**Live URL:** https://cosmique-source.github.io/cosmique-website/
+
+### Pushing Changes
+
+Since this repo uses a specific SSH key, use one of these methods:
+
+**Option 1: Use the SSH key each time**
+```bash
+GIT_SSH_COMMAND='ssh -i ~/.ssh/id_ed25519_cosmique -o IdentitiesOnly=yes' git push
+```
+
+**Option 2: Configure it once for this repo (recommended)**
+```bash
+git config core.sshCommand "ssh -i ~/.ssh/id_ed25519_cosmique -o IdentitiesOnly=yes"
+# Then just use: git push
+```
+
+### Manual Setup (if needed)
+
 1. Push your code to GitHub
 2. Go to your repository Settings > Pages
 3. Under "Build and deployment", select "GitHub Actions" as the source
