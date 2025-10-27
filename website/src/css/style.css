@@ -253,6 +253,20 @@ footer {
   text-align: center;
 }
 
+.footer-content p {
+  margin-bottom: var(--space-xs);
+}
+
+.footer-content a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-content a:hover {
+  color: var(--color-text);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   :root {
