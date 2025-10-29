@@ -50,6 +50,14 @@ layout: base.njk
           </a>
         </section>
         {% endif %}
+
+        {% if app.slug == 'punkt' %}
+        <section class="app-section">
+          <a href="{{ '/apps/punkt/privacy/' | url }}" class="app-link">
+            Privacy Policy →
+          </a>
+        </section>
+        {% endif %}
       </div>
 
       <nav class="app-nav">

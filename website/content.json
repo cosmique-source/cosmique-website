@@ -6,20 +6,6 @@
   },
   "apps": [
     {
-      "name": "sshed",
-      "description": "an ssh text editor",
-      "slug": "sshed",
-      "fullDescription": "A powerful SSH text editor for iOS. Edit files directly on your remote servers with a clean, minimal interface.",
-      "features": [
-        "Native iOS text editing",
-        "Multiple server connections",
-        "Syntax highlighting",
-        "Dark mode support"
-      ],
-      "platform": "iOS",
-      "link": ""
-    },
-    {
       "name": "punkt",
       "description": "an rss reader for apple watch",
       "slug": "punkt",
@@ -31,48 +17,6 @@
         "Minimalist design"
       ],
       "platform": "watchOS",
-      "link": ""
-    },
-    {
-      "name": "receiver",
-      "description": "a subsonic ios client",
-      "slug": "receiver",
-      "fullDescription": "A beautiful Subsonic client for iOS. Stream your music library anywhere.",
-      "features": [
-        "Subsonic compatible",
-        "Offline playback",
-        "AirPlay support",
-        "Clean interface"
-      ],
-      "platform": "iOS",
-      "link": ""
-    },
-    {
-      "name": "moonlight commander",
-      "description": "a midnight commander file manager for ios",
-      "slug": "moonlight-commander",
-      "fullDescription": "A powerful file manager for iOS inspired by Midnight Commander.",
-      "features": [
-        "Dual-pane interface",
-        "FTP/SFTP support",
-        "File operations",
-        "Archive support"
-      ],
-      "platform": "iOS",
-      "link": ""
-    },
-    {
-      "name": "echo",
-      "description": "a zero-friction ios text capture tool",
-      "slug": "echo",
-      "fullDescription": "Capture thoughts instantly with Echo. The fastest way to save text on iOS.",
-      "features": [
-        "Instant launch",
-        "Widget support",
-        "iCloud sync",
-        "Export options"
-      ],
-      "platform": "iOS",
       "link": ""
     }
   ]
