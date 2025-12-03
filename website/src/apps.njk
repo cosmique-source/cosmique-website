@@ -20,8 +20,41 @@ layout: base.njk
     </nav>
 
     <article class="app-detail">
-      <h1 class="app-detail-title">{{ app.name }}</h1>
-      <p class="app-detail-tagline">{{ app.description }}</p>
+      <header class="app-header">
+        {% if app.icon %}
+        <img src="{{ ('/assets/punkt/' + app.icon) | url }}" alt="{{ app.name }} icon" class="app-icon">
+        {% endif %}
+        <div class="app-header-text">
+          <h1 class="app-detail-title">{{ app.name }}</h1>
+          <p class="app-detail-tagline">{{ app.description }}</p>
+        </div>
+      </header>
+
+      {% if app.watchScreenshots %}
+      <section class="app-screenshots app-screenshots-featured">
+        <div class="screenshots-watch-grid">
+          {% for screenshot in app.watchScreenshots %}
+          <div class="screenshot-item screenshot-watch">
+            <img src="{{ ('/assets/punkt/' + screenshot) | url }}" alt="{{ app.name }} on Apple Watch" loading="lazy">
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+
+      {% if app.iphoneScreenshots %}
+      <section class="app-screenshots app-screenshots-companion">
+        <h2 class="section-title">iPhone Companion App</h2>
+        <p class="companion-description">Manage your feeds on iPhone. They sync instantly to your watch.</p>
+        <div class="screenshots-row">
+          {% for screenshot in app.iphoneScreenshots %}
+          <div class="screenshot-item screenshot-phone">
+            <img src="{{ ('/assets/punkt/' + screenshot) | url }}" alt="{{ app.name }} on iPhone" loading="lazy">
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
 
       <div class="app-detail-content">
         <section class="app-section">
@@ -52,8 +85,11 @@ layout: base.njk
         {% endif %}
 
         {% if app.slug == 'punkt' %}
-        <section class="app-section">
-          <a href="{{ '/apps/punkt/privacy/' | url }}" class="app-link">
+        <section class="app-section app-links-row">
+          <a href="{{ '/apps/punkt/support/' | url }}" class="app-link">
+            Support →
+          </a>
+          <a href="{{ '/apps/punkt/privacy/' | url }}" class="app-link app-link-secondary">
             Privacy Policy →
           </a>
         </section>

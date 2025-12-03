@@ -7,17 +7,32 @@
   "apps": [
     {
       "name": "punkt",
-      "description": "an rss reader for apple watch",
+      "description": "News on your wrist. Nothing more.",
       "slug": "punkt",
-      "fullDescription": "Stay informed on the go with Punkt, an RSS reader designed specifically for Apple Watch.",
+      "fullDescription": "Punkt is a minimalist RSS reader for Apple Watch. Your feeds, synced from your iPhone, readable at a glance. No phone required. Your phone is a distraction machine. Every time you reach for it to check the news, you're three notifications away from losing 20 minutes. Punkt keeps it simple: glance at your watch, read a headline, move on with your day.",
       "features": [
-        "Apple Watch native",
-        "Offline reading",
-        "Customizable feeds",
-        "Minimalist design"
+        "Minimal by design — No ads, no algorithmic feeds, no engagement tricks. Just your news, in chronological order.",
+        "Instant sync — Add a feed on your iPhone and it's on your watch within seconds.",
+        "Swipe to browse — Navigate through articles with a simple swipe.",
+        "Listen when your eyes are busy — Tap the Listen button and Punkt reads the article aloud. Adjust speed and volume right from your wrist.",
+        "Multilingual — Punkt handles feeds in any language.",
+        "No account required, no tracking, no social features, no infinite scroll."
       ],
-      "platform": "watchOS",
-      "link": ""
+      "platform": "Apple Watch & iPhone",
+      "link": "",
+      "icon": "punkt-icon.svg",
+      "watchScreenshots": [
+        "punkt-watch-2.png",
+        "punkt-watch-3.png",
+        "punkt-watch-4.png",
+        "punkt-watch-1.png",
+        "punkt-watch-5.png"
+      ],
+      "iphoneScreenshots": [
+        "punkt-iphone-1.png",
+        "punkt-iphone-2.png",
+        "punkt-iphone-3.png"
+      ]
     }
   ]
 }

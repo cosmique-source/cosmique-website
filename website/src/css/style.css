@@ -150,6 +150,46 @@ main {
   max-width: 720px;
 }
 
+.app-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.app-icon {
+  width: 96px;
+  height: 96px;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.app-header-text {
+  flex: 1;
+}
+
+.app-header-text .app-detail-title {
+  margin-bottom: var(--space-xs);
+}
+
+.app-header-text .app-detail-tagline {
+  margin-bottom: 0;
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .app-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+  }
+}
+
 .app-detail-title {
   font-size: 2.5rem;
   font-weight: 500;
@@ -163,6 +203,88 @@ main {
   color: var(--color-muted);
   margin-bottom: var(--space-lg);
   line-height: 1.5;
+}
+
+/* App Screenshots Gallery */
+.app-screenshots {
+  margin-bottom: var(--space-lg);
+}
+
+/* Featured Watch Screenshots - Hero section */
+.app-screenshots-featured {
+  margin-bottom: var(--space-xl);
+}
+
+.screenshots-watch-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  justify-content: center;
+  align-items: center;
+}
+
+.screenshot-watch {
+  flex-shrink: 0;
+}
+
+.screenshot-watch img {
+  display: block;
+  height: auto;
+  max-height: 340px;
+  width: auto;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* iPhone Companion Screenshots - Secondary section */
+.app-screenshots-companion {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+.companion-description {
+  font-size: 1rem;
+  color: var(--color-muted);
+  margin-bottom: var(--space-md);
+}
+
+.screenshots-row {
+  display: flex;
+  gap: var(--space-md);
+  overflow-x: auto;
+  padding-bottom: var(--space-sm);
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.screenshot-item {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+
+.screenshot-phone img {
+  display: block;
+  height: auto;
+  max-height: 420px;
+  width: auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .screenshots-watch-grid {
+    gap: var(--space-sm);
+  }
+
+  .screenshot-watch img {
+    max-height: 240px;
+    border-radius: 18px;
+  }
+
+  .screenshot-phone img {
+    max-height: 360px;
+  }
 }
 
 .app-detail-content {
@@ -221,6 +343,84 @@ main {
 .app-link:hover {
   background: var(--color-accent);
   color: white;
+}
+
+.app-links-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.app-link-secondary {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-muted);
+}
+
+.app-link-secondary:hover {
+  background: var(--color-hover);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* Support Form */
+.support-form {
+  max-width: 480px;
+}
+
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--space-sm);
+  font-family: var(--font-main);
+  font-size: 1rem;
+  border: 1px solid var(--color-border);
+  background: white;
+  color: var(--color-text);
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.form-input::placeholder {
+  color: var(--color-muted);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-submit {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-main);
+  font-size: 1rem;
+  font-weight: 500;
+  border: 1px solid var(--color-accent);
+  background: var(--color-accent);
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.form-submit:hover {
+  background: var(--color-text);
+  border-color: var(--color-text);
 }
 
 .app-nav {
