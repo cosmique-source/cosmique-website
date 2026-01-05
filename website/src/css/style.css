@@ -119,9 +119,14 @@ main {
 .app-card-icon {
   width: 64px;
   height: 64px;
+  min-width: 64px;
+  min-height: 64px;
+  max-width: 64px;
+  max-height: 64px;
   border-radius: 14px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   flex-shrink: 0;
+  object-fit: cover;
 }
 
 .app-card-text {
