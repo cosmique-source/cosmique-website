@@ -22,7 +22,7 @@ layout: base.njk
     <article class="app-detail">
       <header class="app-header">
         {% if app.icon %}
-        <img src="{{ ('/assets/punkt/' + app.icon) | url }}" alt="{{ app.name }} icon" class="app-icon">
+        <img src="{{ ('/assets/' + app.slug + '/' + app.icon) | url }}" alt="{{ app.name }} icon" class="app-icon">
         {% endif %}
         <div class="app-header-text">
           <h1 class="app-detail-title">{{ app.name }}</h1>
@@ -35,7 +35,7 @@ layout: base.njk
         <div class="screenshots-watch-grid">
           {% for screenshot in app.watchScreenshots %}
           <div class="screenshot-item screenshot-watch">
-            <img src="{{ ('/assets/punkt/' + screenshot) | url }}" alt="{{ app.name }} on Apple Watch" loading="lazy">
+            <img src="{{ ('/assets/' + app.slug + '/' + screenshot) | url }}" alt="{{ app.name }} on Apple Watch" loading="lazy">
           </div>
           {% endfor %}
         </div>
@@ -43,13 +43,15 @@ layout: base.njk
       {% endif %}
 
       {% if app.iphoneScreenshots %}
-      <section class="app-screenshots app-screenshots-companion">
+      <section class="app-screenshots {% if app.watchScreenshots %}app-screenshots-companion{% else %}app-screenshots-featured{% endif %}">
+        {% if app.watchScreenshots %}
         <h2 class="section-title">iPhone Companion App</h2>
         <p class="companion-description">Manage your feeds on iPhone. They sync instantly to your watch.</p>
+        {% endif %}
         <div class="screenshots-row">
           {% for screenshot in app.iphoneScreenshots %}
           <div class="screenshot-item screenshot-phone">
-            <img src="{{ ('/assets/punkt/' + screenshot) | url }}" alt="{{ app.name }} on iPhone" loading="lazy">
+            <img src="{{ ('/assets/' + app.slug + '/' + screenshot) | url }}" alt="{{ app.name }} on iPhone" loading="lazy">
           </div>
           {% endfor %}
         </div>
@@ -84,12 +86,12 @@ layout: base.njk
         </section>
         {% endif %}
 
-        {% if app.slug == 'punkt' %}
+        {% if app.hasSupport %}
         <section class="app-section app-links-row">
-          <a href="{{ '/apps/punkt/support/' | url }}" class="app-link">
+          <a href="{{ '/apps/' + app.slug + '/support/' | url }}" class="app-link">
             Support →
           </a>
-          <a href="{{ '/apps/punkt/privacy/' | url }}" class="app-link app-link-secondary">
+          <a href="{{ '/apps/' + app.slug + '/privacy/' | url }}" class="app-link app-link-secondary">
             Privacy Policy →
           </a>
         </section>

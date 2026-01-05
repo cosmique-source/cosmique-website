@@ -20,6 +20,7 @@
       ],
       "platform": "Apple Watch & iPhone",
       "link": "https://apps.apple.com/au/app/punkt/id6756031512",
+      "hasSupport": true,
       "icon": "punkt-icon.svg",
       "watchScreenshots": [
         "punkt-watch-2.png",
@@ -33,6 +34,25 @@
         "punkt-iphone-2.png",
         "punkt-iphone-3.png"
       ]
+    },
+    {
+      "name": "Bulletin",
+      "description": "RSS Reader for Miniflux",
+      "slug": "bulletin",
+      "fullDescription": "Bulletin is a thoughtfully designed RSS reader built exclusively for Miniflux. If you've chosen to self-host your feeds, you deserve a client that respects that decision.",
+      "features": [
+        "Two ways to read — Switch between Accordion mode for quick scanning and Editorial mode for immersive, magazine-style reading. Five intelligent layouts adapt to your content.",
+        "Filter the noise — Create blocklist and keeplist rules per feed. Block sponsored content, keep only the articles you care about. Your rules sync with Miniflux.",
+        "Reddit & YouTube, simplified — Paste any subreddit or YouTube channel URL and subscribe directly. No third-party services, no workarounds.",
+        "Designed with intention — Six themes ranging from warm cream to dark amber. Typography that respects long-form reading with 8 font families and adjustable sizing.",
+        "Smart features — Mark-as-read on scroll, Read Later list, feed health monitoring, full content fetching, offline reading with automatic sync, and per-feed display settings.",
+        "No account required, no tracking, no analytics. All data stored locally and on your Miniflux server."
+      ],
+      "platform": "iPhone & iPad",
+      "link": "",
+      "hasSupport": true,
+      "icon": "bulletin-icon.svg",
+      "iphoneScreenshots": []
     }
   ]
 }

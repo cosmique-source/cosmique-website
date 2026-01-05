@@ -1,0 +1,104 @@
+---
+permalink: "/apps/bulletin/privacy/"
+layout: base.njk
+---
+
+<div class="container">
+  <header>
+    <a href="{{ '/' | url }}">
+      <img src="{{ '/assets/logo.svg' | url }}" alt="{{ site.site.title }}" class="logo">
+    </a>
+  </header>
+
+  <main>
+    <nav class="breadcrumb">
+      <a href="{{ '/' | url }}">apps</a> / <a href="{{ '/apps/bulletin/' | url }}">Bulletin</a> / privacy policy
+    </nav>
+
+    <article class="app-detail">
+      <h1 class="app-detail-title">Privacy Policy for Bulletin</h1>
+      <p class="app-detail-tagline">Last updated: January 5, 2026</p>
+
+      <div class="app-detail-content">
+        <section class="app-section">
+          <h2 class="section-title">Overview</h2>
+          <p class="app-detail-description">Bulletin is committed to protecting your privacy. This privacy policy explains our data practices for the Bulletin RSS feed reader application.</p>
+        </section>
+
+        <section class="app-section">
+          <h2 class="section-title">Data Collection</h2>
+          <p class="app-detail-description"><strong>We do not collect any data.</strong> Bulletin does not collect, store, transmit, or process any personal information or usage data from our users. We have no servers, no analytics, and no tracking.</p>
+        </section>
+
+        <section class="app-section">
+          <h2 class="section-title">Your Miniflux Server</h2>
+          <p class="app-detail-description">Bulletin connects directly to your self-hosted Miniflux server using credentials you provide. All communication occurs directly between your device and your server. We do not have access to:</p>
+          <ul class="feature-list">
+            <li>Your Miniflux server URL or credentials</li>
+            <li>Your feed subscriptions or content</li>
+            <li>Your reading history or preferences</li>
+            <li>Any data stored on your Miniflux server</li>
+          </ul>
+        </section>
+
+        <section class="app-section">
+          <h2 class="section-title">Local Data Storage</h2>
+          <p class="app-detail-description">All data in Bulletin is stored locally on your device, including:</p>
+          <ul class="feature-list">
+            <li>Your Miniflux server connection details</li>
+            <li>Your reading preferences, themes, and settings</li>
+            <li>Feed content cached for offline reading</li>
+            <li>Your Read Later list and reading progress</li>
+            <li>Feed filtering rules (blocklists and keeplists)</li>
+          </ul>
+        </section>
+
+        <section class="app-section">
+          <h2 class="section-title">Third-Party Content</h2>
+          <p class="app-detail-description">When you browse feeds, Bulletin may fetch images and content from third-party websites referenced in your feeds. These connections are made directly between your device and the content providers.</p>
+        </section>
+
+        <section class="app-section">
+          <h2 class="section-title">Analytics and Tracking</h2>
+          <p class="app-detail-description">Bulletin does not use any analytics, tracking, or advertising services. We do not track your usage, behavior, or any other metrics. There are no third-party SDKs in the app.</p>
+        </section>
+
+        <section class="app-section">
+          <h2 class="section-title">Data Sharing</h2>
+          <p class="app-detail-description">Since we do not collect any data, we do not share, sell, or transfer any data to third parties.</p>
+        </section>
+
+        <section class="app-section">
+          <h2 class="section-title">Children's Privacy</h2>
+          <p class="app-detail-description">Bulletin does not knowingly collect any information from anyone, including children under the age of 13.</p>
+        </section>
+
+        <section class="app-section">
+          <h2 class="section-title">Changes to This Policy</h2>
+          <p class="app-detail-description">We may update this privacy policy from time to time. Any changes will be posted on this page with an updated "Last updated" date.</p>
+        </section>
+
+        <section class="app-section">
+          <h2 class="section-title">Contact Us</h2>
+          <p class="app-detail-description">If you have any questions about this privacy policy, please contact us at:</p>
+          <p class="app-detail-description"><strong><a href="mailto:support@cosmique.io">support@cosmique.io</a></strong></p>
+        </section>
+
+        <section class="app-section">
+          <p class="app-detail-description"><em>Bulletin is developed independently and is not affiliated with Miniflux or any RSS feed providers.</em></p>
+        </section>
+      </div>
+
+      <nav class="app-nav">
+        <a href="{{ '/apps/bulletin/' | url }}" class="back-link">← Back to Bulletin</a>
+      </nav>
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>{{ site.site.title }}</p>
+      <p><a href="mailto:hello@cosmique.io">hello@cosmique.io</a></p>
+    </div>
+  </footer>
+</div>
