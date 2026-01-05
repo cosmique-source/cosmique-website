@@ -111,6 +111,22 @@ main {
 
 .app-card-content {
   padding: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.app-card-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.app-card-text {
+  flex: 1;
+  min-width: 0;
 }
 
 .app-name {

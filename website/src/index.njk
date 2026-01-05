@@ -16,8 +16,13 @@ layout: base.njk
       <a href="{{ ('/apps/' + app.slug + '/') | url }}" class="app-card-link">
         <article class="app-card">
           <div class="app-card-content">
-            <h2 class="app-name">{{ app.name }}</h2>
-            <p class="app-description">{{ app.description }}</p>
+            {% if app.icon %}
+            <img src="{{ ('/assets/' + app.slug + '/' + app.icon) | url }}" alt="{{ app.name }} icon" class="app-card-icon">
+            {% endif %}
+            <div class="app-card-text">
+              <h2 class="app-name">{{ app.name }}</h2>
+              <p class="app-description">{{ app.description }}</p>
+            </div>
           </div>
         </article>
       </a>
