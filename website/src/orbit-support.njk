@@ -1,0 +1,74 @@
+---
+permalink: "/apps/orbit/support/"
+layout: base.njk
+---
+
+<div class="container">
+  <header>
+    <a href="{{ '/' | url }}">
+      <img src="{{ '/assets/logo.svg' | url }}" alt="{{ site.site.title }}" class="logo">
+    </a>
+  </header>
+
+  <main>
+    <nav class="breadcrumb">
+      <a href="{{ '/' | url }}">apps</a> / <a href="{{ '/apps/orbit/' | url }}">Orbit</a> / support
+    </nav>
+
+    <article class="app-detail">
+      <h1 class="app-detail-title">Support</h1>
+      <p class="app-detail-tagline">We're here to help with Orbit</p>
+
+      <div class="app-detail-content">
+        <section class="app-section">
+          <h2 class="section-title">Contact Us</h2>
+          <p class="app-detail-description">Having trouble with Orbit? Found a bug? Have a feature request? We'd love to hear from you.</p>
+        </section>
+
+        <section class="app-section">
+          <a href="mailto:support@cosmique.io?subject=Orbit%20support" class="app-link">
+            Email support@cosmique.io
+          </a>
+        </section>
+
+        <section class="app-section">
+          <h2 class="section-title">When contacting us</h2>
+          <p class="app-detail-description">Please include:</p>
+          <ul class="feature-list">
+            <li>A description of the issue or your feedback</li>
+            <li>Your operating system and version (macOS, Linux, Windows)</li>
+            <li>Your Orbit version number</li>
+            <li>Whether you're running natively or with Docker</li>
+            <li>Relevant log output (if applicable)</li>
+            <li>Steps to reproduce the issue (if applicable)</li>
+          </ul>
+        </section>
+
+        <section class="app-section">
+          <h2 class="section-title">Documentation</h2>
+          <p class="app-detail-description">For setup guides, configuration options, and API documentation, visit the official documentation.</p>
+        </section>
+
+        <section class="app-section">
+          <h2 class="section-title">Common Issues</h2>
+          <ul class="feature-list">
+            <li><strong>Library not scanning</strong> — Check that the music directory path in your config file is correct and accessible.</li>
+            <li><strong>Metadata not matching</strong> — Ensure your files have basic tags. Orbit uses these for initial matching against MusicBrainz.</li>
+            <li><strong>DSD files not playing</strong> — Verify your playback device supports native DSD or enable transcoding in settings.</li>
+          </ul>
+        </section>
+      </div>
+
+      <nav class="app-nav">
+        <a href="{{ '/apps/orbit/' | url }}" class="back-link">Back to Orbit</a>
+      </nav>
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>{{ site.site.title }}</p>
+      <p><a href="mailto:hello@cosmique.io">hello@cosmique.io</a></p>
+    </div>
+  </footer>
+</div>

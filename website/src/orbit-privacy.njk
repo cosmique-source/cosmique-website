@@ -1,0 +1,106 @@
+---
+permalink: "/apps/orbit/privacy/"
+layout: base.njk
+---
+
+<div class="container">
+  <header>
+    <a href="{{ '/' | url }}">
+      <img src="{{ '/assets/logo.svg' | url }}" alt="{{ site.site.title }}" class="logo">
+    </a>
+  </header>
+
+  <main>
+    <nav class="breadcrumb">
+      <a href="{{ '/' | url }}">apps</a> / <a href="{{ '/apps/orbit/' | url }}">Orbit</a> / privacy policy
+    </nav>
+
+    <article class="app-detail">
+      <h1 class="app-detail-title">Privacy Policy for Orbit</h1>
+      <p class="app-detail-tagline">Last updated: January 8, 2026</p>
+
+      <div class="app-detail-content">
+        <section class="app-section">
+          <h2 class="section-title">Overview</h2>
+          <p class="app-detail-description">Orbit is committed to protecting your privacy. This privacy policy explains our data practices for the Orbit music server application.</p>
+        </section>
+
+        <section class="app-section">
+          <h2 class="section-title">Self-Hosted Software</h2>
+          <p class="app-detail-description"><strong>Orbit runs entirely on your own hardware.</strong> Your music library, metadata, and all configuration data remain on your computer or server. We have no access to your system or any data you create with Orbit.</p>
+        </section>
+
+        <section class="app-section">
+          <h2 class="section-title">Data Collection</h2>
+          <p class="app-detail-description"><strong>We do not collect any data.</strong> Orbit does not phone home, send telemetry, or transmit any information to our servers. There are no analytics, no usage tracking, and no crash reporting sent to us.</p>
+        </section>
+
+        <section class="app-section">
+          <h2 class="section-title">Third-Party Services</h2>
+          <p class="app-detail-description">Orbit can optionally connect to external services for metadata enrichment. These connections are made directly from your server to these services:</p>
+          <ul class="feature-list">
+            <li><strong>MusicBrainz</strong> — For album and track identification</li>
+            <li><strong>Discogs</strong> — For vinyl pressing information (requires your own API key)</li>
+            <li><strong>OpenOpus</strong> — For classical music metadata</li>
+            <li><strong>fanart.tv</strong> — For artist images (optional)</li>
+            <li><strong>Spotify</strong> — For library comparison (optional, requires your authorization)</li>
+          </ul>
+          <p class="app-detail-description">Each integration is optional and can be disabled. When enabled, these services receive only the queries necessary for metadata matching. Refer to each service's privacy policy for their data practices.</p>
+        </section>
+
+        <section class="app-section">
+          <h2 class="section-title">Local Data Storage</h2>
+          <p class="app-detail-description">All data created by Orbit is stored locally on your system:</p>
+          <ul class="feature-list">
+            <li>Your music library database (SQLite or PostgreSQL)</li>
+            <li>Cached metadata and artwork</li>
+            <li>Your ratings, tags, and preferences</li>
+            <li>Vinyl pressing and equipment chain documentation</li>
+            <li>Play history and statistics</li>
+          </ul>
+        </section>
+
+        <section class="app-section">
+          <h2 class="section-title">License Validation</h2>
+          <p class="app-detail-description">Orbit validates your license key at the time of activation. This is a one-time check that verifies your license is valid. No personal information is transmitted during this process, and no ongoing connection to our servers is required after activation.</p>
+        </section>
+
+        <section class="app-section">
+          <h2 class="section-title">Updates</h2>
+          <p class="app-detail-description">Orbit may check for available updates. This check transmits only your current version number to determine if an update is available. No personal information or usage data is included.</p>
+        </section>
+
+        <section class="app-section">
+          <h2 class="section-title">Data Sharing</h2>
+          <p class="app-detail-description">Since we do not collect any data, we do not share, sell, or transfer any data to third parties.</p>
+        </section>
+
+        <section class="app-section">
+          <h2 class="section-title">Changes to This Policy</h2>
+          <p class="app-detail-description">We may update this privacy policy from time to time. Any changes will be posted on this page with an updated "Last updated" date.</p>
+        </section>
+
+        <section class="app-section">
+          <h2 class="section-title">Contact Us</h2>
+          <p class="app-detail-description">If you have any questions about this privacy policy, please contact us at:</p>
+          <p class="app-detail-description"><strong><a href="mailto:support@cosmique.io">support@cosmique.io</a></strong></p>
+        </section>
+
+        <section class="app-section">
+          <p class="app-detail-description"><em>Orbit is developed independently and is not affiliated with MusicBrainz, Discogs, OpenOpus, or any other metadata providers.</em></p>
+        </section>
+      </div>
+
+      <nav class="app-nav">
+        <a href="{{ '/apps/orbit/' | url }}" class="back-link">Back to Orbit</a>
+      </nav>
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>{{ site.site.title }}</p>
+      <p><a href="mailto:hello@cosmique.io">hello@cosmique.io</a></p>
+    </div>
+  </footer>
+</div>

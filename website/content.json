@@ -53,6 +53,25 @@
       "hasSupport": true,
       "icon": "bulletin-icon.png",
       "iphoneScreenshots": []
+    },
+    {
+      "name": "Orbit",
+      "description": "The music server built for serious collectors.",
+      "slug": "orbit",
+      "fullDescription": "Orbit is a self-hosted music server designed for audiophiles, vinyl collectors, and classical music enthusiasts who demand more than basic playback. Most music servers treat your library as a flat collection of files. They don't understand that your 1975 original pressing sounds different from your 2015 Mobile Fidelity remaster. They can't tell the difference between Beethoven's Symphony No. 5 conducted by Karajan versus Furtwängler. Orbit does.",
+      "features": [
+        "Multiple versions per album — Every pressing, remaster, and edition tracked separately. Mark your favorite with a note explaining why.",
+        "Vinyl-first design — Track pressing details, label, matrix number, condition, equipment chain. Full Discogs integration.",
+        "Classical hierarchy — Proper Composer → Work → Movement → Recording structure. OpenOpus integration for authoritative metadata.",
+        "Hi-res audio support — Native DSD, SACD ISO extraction, full sample rate and bit depth tracking from 44.1kHz to 384kHz.",
+        "In-place mode — Read your existing library without moving or renaming files. Your organization, your rules.",
+        "Smart playlists — Filter by format, source, quality, ratings, custom tags. Combine rules with AND/OR logic.",
+        "Self-hosted — Your music, your hardware, no cloud required. SQLite or PostgreSQL. Full GraphQL API."
+      ],
+      "platform": "macOS, Linux, Windows & Docker",
+      "link": "",
+      "hasSupport": true,
+      "icon": "orbit-icon.svg"
     }
   ]
 }
