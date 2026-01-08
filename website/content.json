@@ -71,6 +71,8 @@
       "platform": "macOS, Linux, Windows & Docker",
       "link": "",
       "hasSupport": true,
+      "hasPricing": true,
+      "hasTerms": true,
       "icon": "orbit-icon.svg"
     }
   ]

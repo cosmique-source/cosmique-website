@@ -86,6 +86,14 @@ layout: base.njk
         </section>
         {% endif %}
 
+        {% if app.hasPricing %}
+        <section class="app-section app-links-row">
+          <a href="{{ '/apps/' + app.slug + '/pricing/' | url }}" class="app-link">
+            Pricing →
+          </a>
+        </section>
+        {% endif %}
+
         {% if app.hasSupport %}
         <section class="app-section app-links-row">
           <a href="{{ '/apps/' + app.slug + '/support/' | url }}" class="app-link">
@@ -94,6 +102,11 @@ layout: base.njk
           <a href="{{ '/apps/' + app.slug + '/privacy/' | url }}" class="app-link app-link-secondary">
             Privacy Policy →
           </a>
+          {% if app.hasTerms %}
+          <a href="{{ '/apps/' + app.slug + '/terms/' | url }}" class="app-link app-link-secondary">
+            Terms of Service →
+          </a>
+          {% endif %}
         </section>
         {% endif %}
       </div>
