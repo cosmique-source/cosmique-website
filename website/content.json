@@ -48,11 +48,19 @@
         "Smart features — Mark-as-read on scroll, Read Later list, feed health monitoring, full content fetching, offline reading with automatic sync, and per-feed display settings.",
         "No account required, no tracking, no analytics. All data stored locally and on your Miniflux server."
       ],
-      "platform": "iPhone & iPad",
+      "platform": "iPhone",
       "link": "",
       "hasSupport": true,
       "icon": "bulletin-icon.png",
-      "iphoneScreenshots": []
+      "iphoneScreenshots": [
+        "screenshot-1-editorial.png",
+        "screenshot-2-organized.png",
+        "screenshot-3-folder.png",
+        "screenshot-4-themes.png",
+        "screenshot-5-feed.png",
+        "screenshot-6-article.png",
+        "screenshot-7-beautiful.png"
+      ]
     },
     {
       "name": "Orbit",
