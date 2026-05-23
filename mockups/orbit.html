@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orbit — A music server for people who listen closely. · Cosmique</title>
+<link rel="stylesheet" href="../design-system/css/cosmique.css">
+<script src="../design-system/js/theme.js"></script>
+<style>
+  /* page-local only — shared patterns come from the design system */
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;padding:54px 0 70px}
+  .hero h1{font-size:50px;line-height:1.04;font-weight:var(--weight-bold);letter-spacing:var(--tracking-tight)}
+  .hero .badge{margin-bottom:26px}
+  .hero .sub{margin-top:22px;font-size:18px;max-width:22em;color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper))}
+  .hero .sub b{color:var(--color-accent);font-weight:var(--weight-medium)}
+  .cta-row{display:flex;align-items:center;gap:24px;margin-top:34px;flex-wrap:wrap}
+
+  /* orbital vinyl */
+  .system{position:relative;aspect-ratio:1;max-width:440px;width:100%;justify-self:center}
+  .system svg{width:100%;height:100%;overflow:visible}
+  .system .orb{fill:none;stroke:var(--color-ink);stroke-width:1;opacity:.3}
+  .system .orb.hot{stroke:var(--color-accent);opacity:.5}
+  .vchip{position:absolute;transform:translate(-50%,-50%);background:var(--color-card);border:1px solid var(--color-hair);
+         padding:5px 10px;font-size:10px;letter-spacing:.06em;white-space:nowrap;border-radius:var(--radius-sm)}
+  .vchip b{color:var(--color-accent)}
+  .vchip.c1{left:50%;top:1%} .vchip.c2{left:97%;top:50%} .vchip.c3{left:74%;top:96%} .vchip.c4{left:18%;top:92%} .vchip.c5{left:2%;top:38%}
+
+  /* technical strip */
+  .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--color-hair);border:1px solid var(--color-hair);margin:64px 0 0}
+  .strip div{background:var(--color-paper);padding:26px 22px}
+  .strip .t{font-size:14px;font-weight:var(--weight-bold);margin-bottom:7px}
+  .strip .d{font-size:12.5px;line-height:1.55;color:color-mix(in srgb,var(--color-ink) 70%,var(--color-paper))}
+
+  /* audience */
+  .audience{padding:96px 0 0}
+  .aud{display:grid;grid-template-columns:200px 1fr;gap:40px;padding:38px 0;border-top:1px solid var(--color-hair)}
+  .aud .for{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-muted)}
+  .aud h3{font-size:26px;font-weight:var(--weight-bold);letter-spacing:-.01em;margin-bottom:14px}
+  .aud p{font-size:15.5px;line-height:1.7;max-width:42em;color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper))}
+  .aud p + p{margin-top:12px}
+
+  /* versions */
+  .versions{margin-top:96px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .versions .lead{font-size:24px;font-weight:var(--weight-medium);line-height:1.4;letter-spacing:-.01em}
+  .versions .lead b{color:var(--color-accent)}
+  .versions p.note{margin-top:18px;font-size:15px;color:color-mix(in srgb,var(--color-ink) 70%,var(--color-paper))}
+  .vlist{border-top:1px solid var(--color-hair)}
+  .vlist .row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--color-hair);font-size:14.5px}
+  .vlist .row .y{color:var(--color-muted);font-size:12px;letter-spacing:.04em;white-space:nowrap}
+  .vlist .row.fav{color:var(--color-accent);font-weight:var(--weight-medium)}
+  .vlist .row.fav .y{color:var(--color-accent)}
+
+  /* classical hierarchy */
+  .hier{margin-top:96px}
+  .tree{background:var(--color-card);border:1px solid var(--color-hair);padding:30px 32px;margin-top:8px;font-size:14px;line-height:2;color:var(--color-ink)}
+  .tree .lv2{padding-left:2.5em}.tree .lv3{padding-left:5em}.tree .lv4{padding-left:7.5em;color:var(--color-accent)}
+  .tree .arr{color:var(--color-muted)}
+
+  .compare{margin-top:96px}
+  .pricing{margin-top:96px}
+
+  /* lower cta */
+  .lower{margin:96px 0 0;border:1px solid var(--color-hair);background:var(--color-card);padding:48px 44px;text-align:center}
+  .lower h3{font-size:28px;font-weight:var(--weight-bold);letter-spacing:-.01em}
+  .lower p{margin-top:10px;font-size:15px;color:color-mix(in srgb,var(--color-ink) 70%,var(--color-paper))}
+  .lower .cmd{display:inline-block;margin-top:24px;background:var(--color-ink);color:var(--color-paper);font-size:13px;padding:14px 22px;border-radius:var(--radius-sm);letter-spacing:.02em}
+  .lower .cmd .p{color:var(--color-sage)}
+  .lower .guide{display:block;margin-top:18px;font-size:13px;color:var(--color-accent)}
+  .lower .guide:hover{text-decoration:underline}
+
+  @media (max-width:880px){
+    .hero{grid-template-columns:1fr;gap:46px;padding:30px 0 50px}
+    .hero h1{font-size:38px}
+    .strip{grid-template-columns:1fr 1fr}
+    .aud{grid-template-columns:1fr;gap:10px}
+    .versions{grid-template-columns:1fr;gap:36px}
+    .compare{overflow-x:auto}
+    .spec-table{min-width:560px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="ds-header">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="3" style="color:var(--color-ink)"/>
+        <circle cx="100" cy="100" r="44" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--color-ink)"/>
+        <circle cx="100" cy="100" r="18" style="fill:var(--color-ink)"/>
+        <circle cx="100" cy="100" r="4" style="fill:var(--color-accent)"/>
+      </svg>
+      <a href="home.html"><b>Cosmique</b></a>&nbsp;<span>/</span>&nbsp;<span>Orbit</span>
+    </div>
+    <nav class="nav">
+      <a href="#features">Features</a>
+      <a href="orbit-vinyl.html">Vinyl</a>
+      <a href="orbit-classical.html">Classical</a>
+      <a href="orbit-pricing.html">Pricing</a>
+      <a href="orbit-about.html">About</a>
+      <button class="theme-toggle" id="themeToggle">◑&nbsp;Theme</button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="lede">
+      <span class="chip badge"><span class="dot"></span> Cosmique · Music server</span>
+      <h1>A music server for people who listen closely.</h1>
+      <p class="sub">Self-hosted. Vinyl-native. Classical-literate. <b>Free.</b></p>
+      <div class="cta-row">
+        <a href="#download" class="btn">Get the server →</a>
+        <a href="#features" class="btn-secondary">See what's inside</a>
+      </div>
+    </div>
+
+    <div class="system" aria-label="An album with five pressings in orbit">
+      <svg viewBox="0 0 400 400" aria-hidden="true">
+        <ellipse class="orb" cx="200" cy="200" rx="195" ry="92"/>
+        <ellipse class="orb hot" cx="200" cy="200" rx="92" ry="195"/>
+        <ellipse class="orb" cx="200" cy="200" rx="160" ry="160"/>
+        <circle cx="200" cy="200" r="64" fill="#26231C"/>
+        <circle cx="200" cy="200" r="56" fill="none" stroke="#EBE6D7" stroke-width="1"/>
+        <circle cx="200" cy="200" r="48" fill="none" stroke="#EBE6D7" stroke-width="1"/>
+        <circle cx="200" cy="200" r="40" fill="none" stroke="#EBE6D7" stroke-width="1"/>
+        <circle cx="200" cy="200" r="22" fill="#BC4630"/>
+        <circle cx="200" cy="200" r="4" fill="#EBE6D7"/>
+      </svg>
+      <span class="vchip c1">1973 UK · <b>original</b></span>
+      <span class="vchip c2">MoFi UHQR</span>
+      <span class="vchip c3">2003 SACD</span>
+      <span class="vchip c4">2016 reissue</span>
+      <span class="vchip c5">your vinyl rip</span>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section class="pillars">
+    <div>
+      <h3>Your library, on your hardware.</h3>
+      <p>Runs on anything that runs Docker. No cloud. No account required. Your files never leave your network unless you choose.</p>
+    </div>
+    <div>
+      <h3>Vinyl and digital, side by side.</h3>
+      <p>Track pressings, matrix numbers, condition, equipment chain, and Discogs identifiers alongside your digital library. The tool you'd build for yourself if you had the time.</p>
+    </div>
+    <div>
+      <h3>Classical music done properly.</h3>
+      <p>Composers, works, movements, performers, and catalog numbers (BWV, K., Op.). Three recordings of the Goldberg Variations stay three recordings.</p>
+    </div>
+  </section>
+
+  <!-- TECHNICAL STRIP -->
+  <section id="features" class="strip">
+    <div><div class="t">Bit-perfect.</div><div class="d">Native CoreAudio on macOS. Exclusive device access. Your DAC sees the bits you meant to send it.</div></div>
+    <div><div class="t">SACD &amp; DSD.</div><div class="d">DFF, DSF, and SACD ISO playback without converting to PCM.</div></div>
+    <div><div class="t">Multi-room.</div><div class="d">Synchronise playback across every zone in the house.</div></div>
+    <div><div class="t">Apple everywhere.</div><div class="d">iPhone, iPad, Apple TV, Apple Watch, and CarPlay from one app.</div></div>
+  </section>
+
+  <!-- AUDIENCE -->
+  <section class="audience">
+    <h2 class="kick" style="margin-bottom:0">Who it's for</h2>
+
+    <div class="aud" id="vinyl">
+      <div class="for">For vinyl collectors</div>
+      <div>
+        <h3>The tool you'd build yourself if you had the time.</h3>
+        <p>Discogs is a marketplace. Your spreadsheet is a spreadsheet. Roon doesn't know what a matrix number is.</p>
+        <p>Orbit treats vinyl as first-class data. Every pressing tracked separately — label, catalog number, matrix/runout. Every rip tagged with the cartridge that made it. Every piece of condition language you cared to write, preserved.</p>
+      </div>
+    </div>
+
+    <div class="aud" id="classical">
+      <div class="for">For classical listeners</div>
+      <div>
+        <h3>Three recordings of a symphony are three recordings.</h3>
+        <p>Most music apps insist your library is a list of albums by artists. That model breaks on the first box set of Mahler symphonies.</p>
+        <p>Orbit is built on the hierarchy classical actually uses: composer, work, movement, performance. Catalog numbers — BWV, K., Op., HWV, D., Hob. — read straight out of your tags and filenames.</p>
+      </div>
+    </div>
+
+    <div class="aud">
+      <div class="for">For audiophiles</div>
+      <div>
+        <h3>Every remaster, every version.</h3>
+        <p>Most servers see "Dark Side of the Moon" and call it a day. Orbit sees each pressing as its own entry, with its own metadata, its own rating — and you mark your favourite with a note explaining why.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERSIONS -->
+  <section class="versions">
+    <div>
+      <h2 class="kick">One album, every pressing</h2>
+      <div class="lead">Other servers store one “Dark Side of the Moon.” <b>Orbit stores six.</b></div>
+      <p class="note">Each version carries its own format, source, sample rate, and rating. Mark the one you reach for — and record why.</p>
+    </div>
+    <div class="vlist">
+      <div class="row fav"><span>Original 1973 UK pressing — Harvest SHVL 804</span><span class="y">★ favourite</span></div>
+      <div class="row"><span>1979 Mobile Fidelity UHQR</span><span class="y">vinyl rip · 24/96</span></div>
+      <div class="row"><span>2003 SACD</span><span class="y">DSD64</span></div>
+      <div class="row"><span>2011 Immersion Box Set</span><span class="y">FLAC · 24/96</span></div>
+      <div class="row"><span>2016 vinyl reissue</span><span class="y">vinyl rip · 24/192</span></div>
+      <div class="row"><span>Your vinyl rip from the UHQR</span><span class="y">FLAC · 24/192</span></div>
+    </div>
+  </section>
+
+  <!-- CLASSICAL HIERARCHY -->
+  <section class="hier">
+    <h2 class="kick">A hierarchy that fits</h2>
+    <div class="tree mono">
+      Composer<br>
+      <span class="lv2"><span class="arr">└─</span> Work &nbsp;<span style="color:var(--color-muted)">— Symphony No. 5 in C minor, Op. 67</span></span><br>
+      <span class="lv3"><span class="arr">└─</span> Movement &nbsp;<span style="color:var(--color-muted)">— I. Allegro con brio</span></span><br>
+      <span class="lv4"><span class="arr">└─</span> Recording &nbsp;— Karajan, Berlin Phil, 1962</span>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section class="compare">
+    <h2 class="kick">What makes Orbit different</h2>
+    <table class="spec-table">
+      <thead>
+        <tr><th>&nbsp;</th><th class="is-own">Orbit</th><th>Plex</th><th>Navidrome</th><th>Roon</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Vinyl pressing tracking</td><td class="is-own"><span class="yes">●</span></td><td><span class="no">–</span></td><td><span class="no">–</span></td><td><span class="no">–</span></td></tr>
+        <tr><td>Equipment chain per rip</td><td class="is-own"><span class="yes">●</span></td><td><span class="no">–</span></td><td><span class="no">–</span></td><td><span class="no">–</span></td></tr>
+        <tr><td>Multiple versions per album</td><td class="is-own"><span class="yes">●</span></td><td><span class="no">–</span></td><td><span class="no">–</span></td><td><span class="yes" style="color:var(--color-ink)">●</span></td></tr>
+        <tr><td>Classical composer/work hierarchy</td><td class="is-own"><span class="yes">●</span></td><td><span class="no">–</span></td><td><span class="no">–</span></td><td><span class="yes" style="color:var(--color-ink)">●</span></td></tr>
+        <tr><td>SACD ISO extraction</td><td class="is-own"><span class="yes">●</span></td><td><span class="no">–</span></td><td><span class="no">–</span></td><td><span class="no">–</span></td></tr>
+        <tr><td>In-place library mode</td><td class="is-own"><span class="yes">●</span></td><td><span class="no">–</span></td><td><span class="yes" style="color:var(--color-ink)">●</span></td><td><span class="no">–</span></td></tr>
+        <tr><td>Self-hosted</td><td class="is-own"><span class="yes">●</span></td><td><span class="yes" style="color:var(--color-ink)">●</span></td><td><span class="yes" style="color:var(--color-ink)">●</span></td><td><span class="no">–</span></td></tr>
+        <tr><td>Free / one-time</td><td class="is-own"><span class="yes">●</span></td><td><span class="yes" style="color:var(--color-ink)">●</span></td><td><span class="yes" style="color:var(--color-ink)">●</span></td><td><span class="no">–</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="pricing">
+    <h2 class="kick">Pricing</h2>
+    <div class="tiers">
+      <div class="tier feature-tier">
+        <div class="name">The server</div>
+        <div class="price free">Free<small> · forever</small></div>
+        <ul>
+          <li>Run it on a NAS, home server, Pi, or miniPC</li>
+          <li>No account, no trial countdown, no licence key</li>
+          <li>No telemetry unless you turn it on</li>
+          <li>Open source — audit it yourself</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <div class="name">iOS — Pro</div>
+        <div class="price">$24<small> / yr</small></div>
+        <ul>
+          <li>Free tier covers a room; Pro covers the house</li>
+          <li>Multi-room, offline downloads, remote access</li>
+          <li>Apple TV, Watch standalone, advanced CarPlay</li>
+          <li>$79 lifetime · $3.99 monthly · 7-day trial</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <div class="name">macOS desktop</div>
+        <div class="price free">Free</div>
+        <ul>
+          <li>Bit-perfect CoreAudio player</li>
+          <li>Full library browsing, multi-zone control</li>
+          <li>Exclusive device access</li>
+          <li>No ads. Ever.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOWER CTA -->
+  <section id="download" class="lower">
+    <h3>Try the server.</h3>
+    <p>One command, five minutes, no sign-up.</p>
+    <div class="cmd mono"><span class="p">$</span> docker run -d -p 3001:3001 -v /music:/music:ro orbit/server</div>
+    <a href="#" class="guide">Full install guide →</a>
+  </section>
+
+  <footer class="ds-footer">
+    <span>Orbit — a Cosmique original · built by one person</span>
+    <div class="links">
+      <a href="#">Privacy</a>
+      <a href="#">Docs</a>
+      <a href="#">GitHub</a>
+      <a href="mailto:contact@cosmique.io">Contact</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

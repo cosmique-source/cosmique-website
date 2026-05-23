@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cosmique — Concept 5 · Kosmos</title>
+<style>
+  :root{
+    --paper:#EBE6D7;
+    --card:#EFEBDD;
+    --ink:#26231C;
+    --muted:#827C6C;
+    --hair:#D6D0BE;
+    --brick:#BC4630;
+    --sage:#A8AD98;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.55;
+  }
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.07;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='130' height='130' filter='url(%23n)'/%3E%3C/svg%3E")}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 40px;position:relative;z-index:1}
+
+  header{display:flex;align-items:center;justify-content:space-between;padding:32px 0}
+  .brand{display:flex;align-items:center;gap:13px;font-weight:600;letter-spacing:.24em;font-size:14px}
+  nav{display:flex;gap:28px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  nav a:hover{color:var(--ink)}
+
+  /* hero */
+  .hero{display:grid;grid-template-columns:1.4fr 1fr;gap:50px;align-items:center;
+        padding:64px 0 56px;border-bottom:1px solid var(--hair)}
+  .hero .ey{display:flex;align-items:center;gap:11px;font-size:11px;letter-spacing:.22em;
+            text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+  .hero .ey i{color:var(--brick);letter-spacing:.3em}
+  .hero h1{font-size:50px;line-height:1.04;font-weight:700;letter-spacing:-.02em}
+  .hero h1 .b{color:var(--brick)}
+  .hero p{margin-top:24px;color:#544f43;max-width:28em;font-size:16px;line-height:1.75}
+  .hero .orbit{justify-self:center;width:100%;max-width:280px}
+  .hero .orbit svg{width:100%;height:auto;display:block}
+
+  /* poster set */
+  .set{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:46px 0 8px}
+  .poster{border:1px solid var(--hair);background:var(--card);color:var(--ink);
+           display:flex;flex-direction:column;transition:.2s}
+  .poster:hover{transform:translateY(-4px);border-color:var(--ink)}
+  .poster .topbar{display:flex;justify-content:space-between;padding:14px 18px 0;
+                  font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .poster .topbar .s{color:var(--brick)}
+  .poster .art{margin:14px 18px 0;aspect-ratio:1/.78;background:var(--paper);position:relative;
+               overflow:hidden;border:1px solid var(--hair)}
+  .poster .art svg{position:absolute;inset:0;width:100%;height:100%}
+  .poster .ic{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);
+              width:54px;height:54px;border-radius:12px;border:1px solid var(--hair);background:#fff;
+              box-shadow:0 4px 14px -8px rgba(0,0,0,.4)}
+  .poster .body{padding:20px 18px 24px;flex:1;display:flex;flex-direction:column}
+  .poster h3{font-size:23px;font-weight:700;letter-spacing:-.01em}
+  .poster .slog{color:var(--brick);font-size:12px;letter-spacing:.04em;margin-top:5px}
+  .poster p{font-size:13.5px;color:#56544a;margin-top:13px;line-height:1.6;flex:1}
+  .poster .foot{margin-top:18px;border-top:1px solid var(--hair);padding-top:12px;
+                font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+
+  footer{display:flex;justify-content:space-between;align-items:center;padding:38px 0 60px;margin-top:30px;
+          border-top:1px solid var(--hair);font-size:12px;letter-spacing:.12em;color:var(--muted)}
+  footer a:hover{color:var(--ink)}
+
+  @media (max-width:880px){
+    .wrap{padding:0 22px}
+    .hero{grid-template-columns:1fr;gap:34px;padding:40px 0}
+    .hero h1{font-size:38px}
+    .hero .orbit{max-width:200px}
+    .set{grid-template-columns:1fr}
+    nav{display:none}
+    footer{flex-direction:column;gap:12px;align-items:flex-start}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <a href="#" class="brand">
+      <svg width="32" height="32" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="62" fill="none" stroke="#26231C" stroke-width="3"/>
+        <circle cx="100" cy="100" r="44" fill="none" stroke="#26231C" stroke-width="2"/>
+        <circle cx="100" cy="100" r="18" fill="#26231C"/>
+        <circle cx="100" cy="100" r="4" fill="#BC4630"/>
+      </svg>
+      COSMIQUE
+    </a>
+    <nav>
+      <a href="#">Catalogue</a>
+      <a href="#">Approach</a>
+      <a href="mailto:hello@cosmique.io">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="l">
+      <div class="ey"><i>★</i> A small fleet, in service</div>
+      <h1>Progress in the name of <span class="b">good software.</span></h1>
+      <p>A solo studio building a handful of honest tools. No tracking, no accounts, no noise — just instruments that do their job and last.</p>
+    </div>
+    <div class="orbit" aria-hidden="true">
+      <svg viewBox="0 0 300 300">
+        <g fill="none" stroke="#26231C" stroke-width="1" opacity=".4">
+          <ellipse cx="150" cy="150" rx="135" ry="52"/>
+          <ellipse cx="150" cy="150" rx="135" ry="52" transform="rotate(60 150 150)"/>
+          <ellipse cx="150" cy="150" rx="135" ry="52" transform="rotate(120 150 150)"/>
+        </g>
+        <circle cx="150" cy="150" r="22" fill="none" stroke="#26231C" stroke-width="1.4"/>
+        <circle cx="150" cy="150" r="6" fill="#BC4630"/>
+        <circle cx="285" cy="150" r="5" fill="#26231C"/>
+        <circle cx="82" cy="267" r="5" fill="#26231C"/>
+        <circle cx="82" cy="33" r="5" fill="#26231C"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="set">
+
+    <a href="#" class="poster">
+      <div class="topbar"><span>Cosmique</span><span class="s">No. 01</span></div>
+      <div class="art">
+        <svg viewBox="0 0 200 160" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <circle cx="100" cy="62" r="46" fill="none" stroke="#BC4630" stroke-width="2"/>
+          <circle cx="100" cy="62" r="30" fill="none" stroke="#26231C" stroke-width="1" opacity=".5"/>
+          <g stroke="#26231C" stroke-width="1.4" opacity=".7"><line x1="50" y1="34" x2="150" y2="34"/></g>
+        </svg>
+        <img class="ic" src="../website/src/assets/punkt/punkt-icon.svg" alt="">
+      </div>
+      <div class="body">
+        <h3>Punkt</h3>
+        <div class="slog">News from orbit</div>
+        <p>News on your wrist. Nothing more. A minimalist RSS reader for Apple Watch — glance, read, get on with your day.</p>
+        <div class="foot">watchOS · iOS</div>
+      </div>
+    </a>
+
+    <a href="#" class="poster">
+      <div class="topbar"><span>Cosmique</span><span class="s">No. 02</span></div>
+      <div class="art">
+        <svg viewBox="0 0 200 160" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <path d="M100 22 L120 110 L80 110 Z" fill="none" stroke="#26231C" stroke-width="1.6"/>
+          <path d="M100 22 L120 110 L100 110 Z" fill="#BC4630" opacity=".85"/>
+          <path d="M80 110 L70 132 L130 132 L120 110 Z" fill="none" stroke="#26231C" stroke-width="1.6"/>
+          <g stroke="#26231C" stroke-width="1" opacity=".5"><line x1="44" y1="46" x2="44" y2="92"/><line x1="156" y1="46" x2="156" y2="92"/></g>
+        </svg>
+        <img class="ic" src="../website/src/assets/bulletin/bulletin-icon.png" alt="">
+      </div>
+      <div class="body">
+        <h3>Bulletin</h3>
+        <div class="slog">Self-hosted &amp; free</div>
+        <p>A thoughtfully designed RSS reader, built exclusively for Miniflux. For people who self-host and deserve a client that respects it.</p>
+        <div class="foot">iOS</div>
+      </div>
+    </a>
+
+    <a href="#" class="poster">
+      <div class="topbar"><span>Cosmique</span><span class="s">No. 03</span></div>
+      <div class="art">
+        <svg viewBox="0 0 200 160" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <g fill="none" stroke="#26231C" stroke-width="1.4">
+            <ellipse cx="100" cy="76" rx="60" ry="22"/>
+            <ellipse cx="100" cy="76" rx="60" ry="22" transform="rotate(60 100 76)"/>
+            <ellipse cx="100" cy="76" rx="60" ry="22" transform="rotate(120 100 76)"/>
+          </g>
+          <circle cx="100" cy="76" r="9" fill="#BC4630"/>
+        </svg>
+        <img class="ic" src="../website/src/assets/orbit/orbit-icon.svg" alt="">
+      </div>
+      <div class="body">
+        <h3>Orbit</h3>
+        <div class="slog">For serious collectors</div>
+        <p>The self-hosted music server that knows your 1975 pressing is not your 2015 remaster — and treats them accordingly.</p>
+        <div class="foot">macOS · Linux · Win</div>
+      </div>
+    </a>
+
+  </section>
+
+  <footer>
+    <span>Cosmique — the future is waiting for new tools</span>
+    <a href="mailto:hello@cosmique.io">hello@cosmique.io</a>
+  </footer>
+
+</div>
+</body>
+</html>

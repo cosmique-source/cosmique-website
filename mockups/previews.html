@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>App previews — Cosmique design language</title>
+<link rel="stylesheet" href="../design-system/css/cosmique.css">
+<script src="../design-system/js/theme.js"></script>
+<style>
+  /* page-local: in-screen app UIs (device/browser frames come from the design system) */
+  .lead-row{padding:50px 0 52px;max-width:48em}
+  .lead-row h1{font-size:40px;line-height:1.08;font-weight:var(--weight-bold);letter-spacing:var(--tracking-tight)}
+  .lead-row p{margin-top:20px;font-size:17px;line-height:1.7;color:color-mix(in srgb,var(--color-ink) 74%,var(--color-paper))}
+  .lead-row code{font-family:var(--font-mono);font-size:13px;background:var(--color-card);border:1px solid var(--color-hair);border-radius:4px;padding:2px 7px}
+
+  .wall{display:flex;gap:54px;flex-wrap:wrap;align-items:flex-start;padding:6px 0 0}
+  .unit{flex:0 0 auto}
+  .ios-status{display:flex;justify-content:space-between;align-items:center;padding:13px 22px 4px;font-size:12px;font-weight:var(--weight-medium)}
+  .num{font-variant-numeric:tabular-nums}
+
+  /* Bulletin — reading list */
+  .bx{padding:4px 18px 16px}
+  .bx .kick2{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-muted);margin-top:8px}
+  .bx h4{font-size:27px;font-weight:var(--weight-bold);letter-spacing:-.01em;margin:1px 0 12px}
+  .bx .item{padding:12px 0;border-top:1px solid var(--color-hair);display:flex;gap:10px}
+  .bx .item:first-of-type{border-top:none}
+  .bx .dot{width:7px;height:7px;border-radius:50%;background:var(--color-accent);margin-top:5px;flex:none}
+  .bx .item.read .dot{background:transparent;border:1px solid var(--color-hair)}
+  .bx .it-t{font-size:13.5px;font-weight:var(--weight-medium);line-height:1.3}
+  .bx .it-m{font-size:11px;color:var(--color-muted);margin-top:4px}
+
+  /* Orbit iOS — now playing */
+  .ob{padding:16px 18px 20px}
+  .ob-art{aspect-ratio:1;border-radius:14px;position:relative;overflow:hidden;margin:6px 0 18px;border:1px solid var(--color-hair);background:#15110e}
+  .ob-art svg{position:absolute;inset:0;width:100%;height:100%}
+  .ob h5{font-size:17px;font-weight:var(--weight-bold);letter-spacing:-.01em}
+  .ob .sub{font-size:13px;color:var(--color-muted);margin-top:3px}
+  .ob .ver{display:inline-block;margin-top:12px;font-size:10px;letter-spacing:.06em;color:var(--color-accent);border:1px solid var(--color-hair);border-radius:var(--radius-sm);padding:4px 9px}
+  .ob .bar{height:3px;background:var(--color-hair);border-radius:2px;margin:18px 0 8px;position:relative;overflow:hidden}
+  .ob .bar i{position:absolute;left:0;top:0;bottom:0;width:42%;background:var(--color-accent)}
+  .ob .times{display:flex;justify-content:space-between;font-size:11px;color:var(--color-muted)}
+  .ob .ctrl{display:flex;justify-content:center;align-items:center;gap:30px;margin-top:18px;font-size:15px;color:var(--color-ink)}
+  .ob .ctrl .play{width:46px;height:46px;border-radius:50%;background:var(--color-accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px}
+
+  /* Punkt — watch */
+  .pk{padding:15px 14px;height:100%;display:flex;flex-direction:column}
+  .pk-top{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--color-muted)}
+  .pk-top b{color:var(--color-accent);letter-spacing:.2em}
+  .pk-head{font-size:16px;font-weight:var(--weight-bold);line-height:1.2;letter-spacing:-.01em;margin-top:12px;flex:1}
+  .pk-src{font-size:10.5px;color:var(--color-muted)}
+  .pk-dots{display:flex;gap:5px;margin-top:11px}
+  .pk-dots i{width:5px;height:5px;border-radius:50%;background:var(--color-hair)}
+  .pk-dots i.on{background:var(--color-accent)}
+
+  /* Frequence — audio library + mini player */
+  .fq{display:flex;flex-direction:column;height:100%}
+  .fq-top{padding:4px 18px 2px}
+  .fq-top .kick2{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-muted);margin-top:6px}
+  .fq-top h4{font-size:26px;font-weight:var(--weight-bold);letter-spacing:-.01em;margin:1px 0 10px}
+  .fq-filters{display:flex;gap:6px;padding:0 18px 8px}
+  .fq-filters .c{font-size:10px;letter-spacing:.04em;border:1px solid var(--color-hair);border-radius:20px;padding:4px 10px;color:var(--color-muted)}
+  .fq-filters .c.on{border-color:var(--color-accent);color:var(--color-accent)}
+  .fq-list{flex:1;overflow:hidden;padding:0 18px}
+  .fq-ep{display:flex;gap:11px;padding:11px 0;border-top:1px solid var(--color-hair)}
+  .fq-ep .art{width:44px;height:44px;border-radius:8px;flex:none;border:1px solid var(--color-hair)}
+  .fq-ep .t{font-size:13px;font-weight:var(--weight-medium);line-height:1.25}
+  .fq-ep .m{font-size:10.5px;color:var(--color-muted);margin-top:3px}
+  .fq-ep.now .t{color:var(--color-accent)}
+  .fq-bar{margin-top:auto;border-top:1px solid var(--color-hair);background:var(--color-card);padding:10px 14px;display:flex;align-items:center;gap:11px;position:relative}
+  .fq-bar .pbar{position:absolute;top:0;left:0;height:2px;background:var(--color-accent);width:38%}
+  .fq-bar .art{width:34px;height:34px;border-radius:6px;flex:none;border:1px solid var(--color-hair)}
+  .fq-bar .info{flex:1;min-width:0}
+  .fq-bar .ti{font-size:11.5px;font-weight:var(--weight-medium);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .fq-bar .so{font-size:10px;color:var(--color-muted)}
+  .fq-bar .cc{display:flex;gap:13px;font-size:12px}
+
+  /* Bilan iOS — finance summary */
+  .bl{padding:8px 18px 16px;display:flex;flex-direction:column;height:100%}
+  .ml{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted)}
+  .bl .cash{font-size:40px;font-weight:var(--weight-bold);letter-spacing:-.03em;margin:4px 0 2px;color:var(--color-negative)}
+  .bl-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+  .bl-stat{border:1px solid var(--color-hair);border-radius:10px;padding:11px 12px}
+  .bl-stat .v{font-size:17px;font-weight:var(--weight-bold);margin-top:5px}
+  .bl-stat .v.pos{color:var(--color-positive)} .bl-stat .v.neg{color:var(--color-negative)}
+  .bl-sec{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-muted);margin:6px 0 2px}
+  .bl-row{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px solid var(--color-hair);font-size:12.5px}
+  .bl-row .d{color:var(--color-muted);font-family:var(--font-mono);font-size:11px}
+  .bl-row .amt{font-family:var(--font-mono);font-weight:var(--weight-medium)}
+  .bl-row .amt.pos{color:var(--color-positive)} .bl-row .amt.neg{color:var(--color-negative)}
+
+  /* Orbit web */
+  .ow{display:grid;grid-template-columns:188px 1fr;min-height:444px}
+  .ow-side{border-right:1px solid var(--color-hair);padding:20px 16px;background:var(--color-card)}
+  .ow-brand{display:flex;align-items:center;gap:9px;font-weight:var(--weight-bold);letter-spacing:.04em;margin-bottom:20px}
+  .ow-nav a{display:block;font-size:13px;color:var(--color-muted);padding:8px 11px;border-radius:6px}
+  .ow-nav a.active{background:var(--color-paper);color:var(--color-ink);font-weight:var(--weight-medium)}
+  .ow-main{padding:22px 26px}
+  .ow-stats{display:flex;gap:22px;font-size:11px;color:var(--color-muted);font-family:var(--font-mono);margin-bottom:22px}
+  .ow-stats b{color:var(--color-ink);font-weight:var(--weight-bold)}
+  .ow-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:16px}
+  .ow-head h4{font-size:22px;font-weight:var(--weight-bold);letter-spacing:-.01em}
+  .ow-search{font-size:12px;color:var(--color-muted);border:1px solid var(--color-hair);background:var(--color-paper);border-radius:6px;padding:8px 14px;min-width:170px}
+  .ow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .ow-card .cover{aspect-ratio:1;border-radius:8px;position:relative;overflow:hidden;border:1px solid rgba(0,0,0,.12)}
+  .ow-card .cover svg{position:absolute;right:-22%;top:50%;transform:translateY(-50%);height:130%}
+  .ow-card .t{font-size:12.5px;font-weight:var(--weight-medium);margin-top:9px;line-height:1.25}
+  .ow-card .a{font-size:11px;color:var(--color-muted);margin-top:2px}
+
+  /* Bilan web — dashboard */
+  .bn-top{display:flex;justify-content:space-between;align-items:center;padding:16px 28px;border-bottom:1px solid var(--color-hair);background:var(--color-paper)}
+  .bn-top .logo{font-weight:var(--weight-bold);letter-spacing:.06em}
+  .bn-top nav a{font-size:11px;color:var(--color-muted);margin-left:18px;text-transform:uppercase;letter-spacing:.1em}
+  .bn-body{padding:26px 28px 30px}
+  .bn-month{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px}
+  .bn-month h4{font-size:28px;font-weight:var(--weight-bold);letter-spacing:-.01em;text-transform:uppercase}
+  .bn-month .nav{font-size:12px;color:var(--color-muted)}
+  .bn-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:30px}
+  .bn-card{border:1px solid var(--color-hair);background:var(--color-card);padding:15px 16px}
+  .bn-card .l{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted)}
+  .bn-card .v{font-size:25px;font-weight:var(--weight-bold);margin-top:8px;font-variant-numeric:tabular-nums}
+  .bn-card .v.pos{color:var(--color-positive)} .bn-card .v.neg{color:var(--color-negative)}
+  .bn-card .d{font-size:11px;margin-top:6px;color:var(--color-muted)}
+  .bn-sec{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-muted);padding-bottom:8px;border-bottom:1px solid var(--color-ink);margin-bottom:4px}
+  .bn-brow{display:grid;grid-template-columns:1fr 150px 70px 56px;gap:14px;align-items:center;padding:11px 0;border-bottom:1px solid var(--color-hair);font-size:13px}
+  .bn-brow .cat{text-transform:lowercase}
+  .bn-track{height:8px;background:var(--color-hair);border-radius:2px;position:relative;overflow:hidden}
+  .bn-track i{position:absolute;left:0;top:0;bottom:0;background:var(--color-positive)}
+  .bn-track i.over{background:var(--color-negative)}
+  .bn-pct{font-family:var(--font-mono);font-size:12px;text-align:right}
+  .bn-pct.over{color:var(--color-negative);font-weight:var(--weight-bold)}
+  .bn-trow{display:grid;grid-template-columns:70px 1fr 130px 90px;gap:14px;align-items:center;padding:10px 0;border-bottom:1px solid var(--color-hair);font-size:13px}
+  .bn-trow .date{font-family:var(--font-mono);font-size:11px;color:var(--color-muted)}
+  .bn-trow .cat{font-size:12px;color:var(--color-muted)}
+  .bn-trow .amt{font-family:var(--font-mono);text-align:right;font-variant-numeric:tabular-nums}
+  .bn-trow .amt.pos{color:var(--color-positive)} .bn-trow .amt.neg{color:var(--color-ink)}
+  .bn-secwrap{margin-bottom:26px}
+
+  /* Orbit web — detail screens (album / work / multi-room) */
+  .od{padding:24px 28px}
+  .od-bc{font-size:12px;color:var(--color-muted);margin-bottom:16px}
+  .od-bc b{color:var(--color-ink)}
+  .od-sec{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-muted);padding-bottom:8px;border-bottom:1px solid var(--color-ink);margin:24px 0 2px}
+  .oad-head{display:flex;gap:20px;align-items:flex-start}
+  .oad-head .cover{width:116px;height:116px;border-radius:8px;flex:none;position:relative;overflow:hidden;border:1px solid rgba(0,0,0,.12)}
+  .oad-head .cover svg{position:absolute;right:-22%;top:50%;transform:translateY(-50%);height:130%}
+  .oad-head h4{font-size:24px;font-weight:var(--weight-bold);letter-spacing:-.01em}
+  .oad-head .sub{font-size:13px;color:var(--color-muted);margin-top:4px}
+  .oad-head .love{margin-top:14px;font-size:11px;color:var(--color-accent);border:1px solid var(--color-hair);border-radius:var(--radius-sm);padding:5px 11px;display:inline-block}
+  .prow{display:grid;grid-template-columns:1fr auto auto 16px;gap:14px;align-items:center;padding:11px 0;border-bottom:1px solid var(--color-hair);font-size:13px}
+  .prow .fmt,.prow .yr{font-family:var(--font-mono);font-size:11px;color:var(--color-muted)}
+  .prow .star{color:var(--color-hair)}
+  .prow.fav .star{color:var(--color-accent)} .prow.fav>div:first-child{color:var(--color-accent);font-weight:var(--weight-medium)}
+  .trow{display:grid;grid-template-columns:22px 1fr auto;gap:14px;padding:9px 0;border-bottom:1px solid var(--color-hair);font-size:13px}
+  .trow .n,.trow .dur{color:var(--color-muted);font-family:var(--font-mono);font-size:11px}
+  .omr{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .zone{border:1px solid var(--color-hair);background:var(--color-card);padding:16px}
+  .zone .zt{display:flex;justify-content:space-between;align-items:baseline}
+  .zone .zn{font-size:15px;font-weight:var(--weight-bold)}
+  .zone .zs{font-size:11px;color:var(--color-muted)} .zone .zs.on{color:var(--color-accent)}
+  .zone .vol{height:6px;background:var(--color-hair);border-radius:3px;margin-top:16px;position:relative}
+  .zone .vol i{position:absolute;left:0;top:0;bottom:0;background:var(--color-ink);border-radius:3px}
+  .zone .vol .knob{position:absolute;top:50%;width:14px;height:14px;border-radius:50%;background:var(--color-ink);transform:translate(-50%,-50%)}
+  .zone .link{display:inline-block;margin-top:13px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--color-muted);border:1px solid var(--color-hair);border-radius:20px;padding:3px 9px}
+  .zone .link.on{color:var(--color-accent);border-color:var(--color-accent)}
+
+  /* Frequence web (its palette already matches the tokens) */
+  .ftop{display:flex;justify-content:space-between;align-items:center;padding:16px 28px;border-bottom:1px solid var(--color-hair);background:var(--color-paper)}
+  .ftop .logo{font-weight:var(--weight-bold);letter-spacing:.14em}
+  .ftop nav a{font-size:11px;color:var(--color-muted);margin-left:18px;text-transform:uppercase;letter-spacing:.1em}
+  .ftop nav a.on{color:var(--color-ink)}
+  .fbody{padding:24px 28px 30px}
+  .fsec{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-muted);margin:0 0 14px}
+  .fsec.mt{margin-top:30px}
+  .fcont{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .fcard{border:1px solid var(--color-hair);background:var(--color-card);border-radius:10px;padding:12px;display:flex;gap:12px}
+  .fcard .art{width:52px;height:52px;border-radius:8px;flex:none;border:1px solid var(--color-hair)}
+  .fcard .t{font-size:13px;font-weight:var(--weight-medium);line-height:1.25}
+  .fcard .s{font-size:11px;color:var(--color-muted);margin-top:3px}
+  .fcard .pb{height:3px;background:var(--color-hair);border-radius:2px;margin-top:9px;position:relative;overflow:hidden}
+  .fcard .pb i{position:absolute;left:0;top:0;bottom:0;background:var(--color-accent)}
+  .fup .r{display:grid;grid-template-columns:1fr auto;gap:12px;padding:10px 0;border-bottom:1px solid var(--color-hair);font-size:13px}
+  .fup .r .d{font-family:var(--font-mono);font-size:11px;color:var(--color-muted)}
+  .fshows{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+  .fshow .cov{aspect-ratio:1;border-radius:10px;border:1px solid var(--color-hair);position:relative;overflow:hidden}
+  .fshow .badge{position:absolute;top:6px;right:6px;background:var(--color-accent);color:#fff;font-size:10px;font-weight:var(--weight-bold);border-radius:20px;padding:2px 7px}
+  .fshow .t{font-size:12px;font-weight:var(--weight-medium);margin-top:8px;line-height:1.2}
+  .fshow .s{font-size:10.5px;color:var(--color-muted);margin-top:2px}
+  .cap-l{margin-top:14px;font-size:var(--size-small);color:var(--color-muted)}
+  .cap-l b{color:var(--color-ink);font-weight:var(--weight-medium)}
+
+  /* Orbit iOS — albums library */
+  .olib{display:flex;flex-direction:column;height:100%}
+  .olib .h{padding:4px 16px 10px}
+  .olib .h .k{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-muted);margin-top:6px}
+  .olib .h h4{font-size:25px;font-weight:var(--weight-bold);letter-spacing:-.01em;margin-top:1px}
+  .olib-grid{flex:1;overflow:hidden;padding:0 16px;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:start}
+  .olib-card .cv{aspect-ratio:1;border-radius:8px;border:1px solid var(--color-hair);position:relative;overflow:hidden}
+  .olib-card .cv svg{position:absolute;right:-20%;top:50%;transform:translateY(-50%);height:128%}
+  .olib-card .t{font-size:12px;font-weight:var(--weight-medium);margin-top:7px;line-height:1.2}
+  .olib-card .a{font-size:10.5px;color:var(--color-muted)}
+  .omini{margin-top:auto;border-top:1px solid var(--color-hair);background:var(--color-card);padding:9px 13px;display:flex;align-items:center;gap:10px;position:relative}
+  .omini .pbar{position:absolute;top:0;left:0;height:2px;background:var(--color-accent);width:42%}
+  .omini .art{width:34px;height:34px;border-radius:6px;flex:none;border:1px solid var(--color-hair)}
+  .omini .info{flex:1;min-width:0}.omini .ti{font-size:11.5px;font-weight:var(--weight-medium);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.omini .so{font-size:10px;color:var(--color-muted)}
+  .omini .cc{display:flex;gap:13px;font-size:12px}
+
+  /* Orbit iOS — album detail */
+  .oal{padding:6px 16px 16px;overflow:hidden;height:100%}
+  .oal .cv{width:100%;aspect-ratio:1;border-radius:12px;border:1px solid var(--color-hair);position:relative;overflow:hidden;margin-bottom:13px;background:#15110e}
+  .oal .cv svg{position:absolute;inset:0;width:100%;height:100%}
+  .oal h5{font-size:18px;font-weight:var(--weight-bold);letter-spacing:-.01em}
+  .oal .sub{font-size:12.5px;color:var(--color-muted);margin-top:3px}
+  .oal .sec{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-muted);border-bottom:1px solid var(--color-ink);padding-bottom:6px;margin:16px 0 2px}
+  .oal .pr{display:grid;grid-template-columns:1fr auto;gap:8px;padding:8px 0;border-bottom:1px solid var(--color-hair);font-size:12px}
+  .oal .pr .f{font-family:var(--font-mono);font-size:10px;color:var(--color-muted)}
+  .oal .pr.fav>div:first-child{color:var(--color-accent);font-weight:var(--weight-medium)}
+  .oal .tk{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--color-hair);font-size:12px}
+  .oal .tk .d{font-family:var(--font-mono);font-size:10px;color:var(--color-muted)}
+
+  /* Orbit iOS — editorial browse */
+  .oed{height:100%;display:flex;flex-direction:column}
+  .oed .top{position:relative;height:60%;overflow:hidden}
+  .oed .top svg{position:absolute;inset:0;width:100%;height:100%}
+  .oed .top .grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.78),transparent 58%)}
+  .oed .top .cap{position:absolute;left:18px;right:18px;bottom:16px}
+  .oed .top .k{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent)}
+  .oed .top h3{font-size:24px;font-weight:var(--weight-bold);line-height:1.06;letter-spacing:-.01em;margin-top:6px}
+  .oed .top .a{font-size:12.5px;color:var(--color-muted);margin-top:4px}
+  .oed .strip{flex:1;display:flex;gap:12px;padding:14px 18px;overflow:hidden}
+  .oed .strip .it{flex:0 0 84px}
+  .oed .strip .it .c{aspect-ratio:1;border-radius:8px;border:1px solid var(--color-hair);position:relative;overflow:hidden}
+  .oed .strip .it .c svg{position:absolute;right:-20%;top:50%;transform:translateY(-50%);height:128%}
+  .oed .strip .it .t{font-size:10.5px;font-weight:var(--weight-medium);margin-top:6px;line-height:1.15}
+
+  /* Bulletin iOS — article reader */
+  .brd{padding:6px 20px 16px;overflow:hidden;height:100%}
+  .brd .bc{font-size:11px;color:var(--color-muted);letter-spacing:.04em}
+  .brd .ttl{font-family:Georgia,"Times New Roman",serif;font-size:23px;line-height:1.18;font-weight:700;margin-top:10px;letter-spacing:-.01em}
+  .brd .meta{font-size:10px;color:var(--color-muted);margin-top:10px;letter-spacing:.06em;text-transform:uppercase}
+  .brd .img{height:94px;border-radius:8px;border:1px solid var(--color-hair);margin:13px 0;background:linear-gradient(120deg,#8A8C6F,#3B4A3A)}
+  .brd .body{font-family:Georgia,"Times New Roman",serif;font-size:14px;line-height:1.6}
+  .brd .body p{margin-bottom:9px}
+  .brd .pq{font-family:Georgia,serif;font-style:italic;font-size:15.5px;line-height:1.4;border-left:2px solid var(--color-accent);padding-left:12px;margin:11px 0}
+
+  /* Bulletin iOS — editorial mode */
+  .bed{padding:6px 18px 16px;overflow:hidden;height:100%}
+  .bed .k{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-muted);margin-top:6px}
+  .bed h4{font-size:26px;font-weight:var(--weight-bold);letter-spacing:-.01em;margin:1px 0 12px}
+  .bed .lead .img{height:108px;border-radius:8px;border:1px solid var(--color-hair);background:linear-gradient(120deg,#4A6275,#15110e)}
+  .bed .lead .t{font-size:17px;font-weight:var(--weight-bold);margin-top:10px;line-height:1.2;letter-spacing:-.01em}
+  .bed .lead .m{font-size:10.5px;color:var(--color-muted);margin-top:4px}
+  .bed .two{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:14px}
+  .bed .two .img{height:62px;border-radius:6px;border:1px solid var(--color-hair)}
+  .bed .two .t{font-size:12px;font-weight:var(--weight-medium);margin-top:6px;line-height:1.2}
+  .bed .two .m{font-size:10px;color:var(--color-muted);margin-top:3px}
+
+  /* Bulletin iOS — Braun theme picker */
+  .bth{padding:6px 18px 16px;overflow:hidden;height:100%}
+  .bth .k{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-muted);margin-top:6px}
+  .bth h4{font-size:25px;font-weight:var(--weight-bold);letter-spacing:-.01em;margin:1px 0 12px}
+  .bth-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .bth-card{border:1px solid var(--color-hair);border-radius:10px;padding:9px;position:relative}
+  .bth-card.sel{border-color:var(--color-accent);box-shadow:0 0 0 1px var(--color-accent)}
+  .bth-sw{height:42px;border-radius:6px;padding:8px;display:flex;flex-direction:column;justify-content:center;gap:4px;overflow:hidden}
+  .bth-sw .l{height:4px;border-radius:2px}
+  .bth-card .nm{font-size:12px;font-weight:var(--weight-bold);margin-top:8px}
+  .bth-card .ds{font-size:9.5px;color:var(--color-muted);margin-top:1px}
+  .bth-card .chk{position:absolute;top:8px;right:9px;color:var(--color-accent);font-size:12px}
+
+  .theme-note{margin-top:10px;font-size:12px;color:var(--color-muted)}
+
+  @media (max-width:880px){
+    .lead-row h1{font-size:30px}
+    .wall{gap:36px;justify-content:center}
+    .ow,.bn-cards{grid-template-columns:1fr}
+    .ow-side{display:none}
+    .ow-grid{grid-template-columns:repeat(2,1fr)}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="ds-header">
+    <a href="home.html" class="brand">
+      <svg width="26" height="26" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="3" style="color:var(--color-ink)"/>
+        <circle cx="100" cy="100" r="44" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--color-ink)"/>
+        <circle cx="100" cy="100" r="18" style="fill:var(--color-ink)"/><circle cx="100" cy="100" r="4" style="fill:var(--color-accent)"/>
+      </svg>
+      <b>Cosmique</b>&nbsp;<span>/ Previews</span>
+    </a>
+    <nav class="nav">
+      <a href="home.html">Home</a>
+      <a href="../design-system/styleguide.html">Styleguide</a>
+      <a href="index.html">Gallery</a>
+      <button class="theme-toggle">◑&nbsp;Theme</button>
+    </nav>
+  </header>
+
+  <section class="lead-row">
+    <h1>One language, every surface.</h1>
+    <p>Key screens from each app — Bulletin, Orbit, Punkt, Frequence, Bilan — all reading the same <code>cosmique.css</code>. Edit <code>tokens.json</code>, run <code>build-tokens.mjs</code>, refresh: every screen here and the marketing pages re-theme together. Each screen is pinned to its intended theme to show the range.</p>
+  </section>
+
+  <!-- iOS -->
+  <h2 class="kick">iOS apps</h2>
+  <div class="wall">
+
+    <!-- Bulletin (light) -->
+    <div class="unit">
+      <div class="device device--iphone"><div class="island"></div>
+        <div class="screen" data-theme="light">
+          <div class="ios-status"><span class="num">9:41</span><span style="letter-spacing:1px">●●● ▮▮</span></div>
+          <div class="bx">
+            <div class="kick2">Bulletin · Miniflux</div>
+            <h4>Unread</h4>
+            <div class="item"><span class="dot"></span><div><div class="it-t">Webb telescope spots water vapour on a distant world</div><div class="it-m">The Verge · 14m</div></div></div>
+            <div class="item"><span class="dot"></span><div><div class="it-t">The quiet return of the RSS reader</div><div class="it-m">Pixel Envy · 1h</div></div></div>
+            <div class="item read"><span class="dot"></span><div><div class="it-t">On designing for permanence</div><div class="it-m">A Working Library · 3h</div></div></div>
+            <div class="item read"><span class="dot"></span><div><div class="it-t">Braun, and the case for boring software</div><div class="it-m">Daring Fireball · 5h</div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="device-cap"><b>Bulletin</b> — reading list · light</div>
+    </div>
+
+    <!-- Orbit (dark) -->
+    <div class="unit">
+      <div class="device device--iphone"><div class="island"></div>
+        <div class="screen" data-theme="dark">
+          <div class="ios-status"><span class="num">9:41</span><span style="letter-spacing:1px">●●● ▮▮</span></div>
+          <div class="ob">
+            <div class="ob-art"><svg viewBox="0 0 200 200" aria-hidden="true">
+              <g fill="none" stroke="#E9E3D4" stroke-width="1" opacity=".18"><circle cx="100" cy="100" r="86"/><circle cx="100" cy="100" r="70"/><circle cx="100" cy="100" r="54"/><circle cx="100" cy="100" r="38"/></g>
+              <circle cx="100" cy="100" r="24" fill="#D2502F"/><circle cx="100" cy="100" r="5" fill="#15110e"/></svg></div>
+            <h5>The Dark Side of the Moon</h5>
+            <div class="sub">Pink Floyd</div>
+            <span class="ver">1973 UK · original pressing</span>
+            <div class="bar"><i></i></div>
+            <div class="times num"><span>14:02</span><span>−9:11</span></div>
+            <div class="ctrl"><span>◀◀</span><span class="play">▶</span><span>▶▶</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="device-cap"><b>Orbit</b> — now playing · dark</div>
+    </div>
+
+    <!-- Punkt (watch, dark) -->
+    <div class="unit">
+      <div class="device device--watch"><div class="case">
+        <div class="screen" data-theme="dark">
+          <div class="pk">
+            <div class="pk-top"><b>PUNKT</b><span class="num">9:41</span></div>
+            <div class="pk-head">Webb telescope spots water on a distant world</div>
+            <div class="pk-src">The Verge · 1m</div>
+            <div class="pk-dots"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </div><span class="crown"></span></div>
+      <div class="device-cap"><b>Punkt</b> — watch glance · dark</div>
+    </div>
+
+    <!-- Frequence (dark) -->
+    <div class="unit">
+      <div class="device device--iphone"><div class="island"></div>
+        <div class="screen" data-theme="dark">
+          <div class="ios-status"><span class="num">9:41</span><span style="letter-spacing:1px">●●● ▮▮</span></div>
+          <div class="fq">
+            <div class="fq-top"><div class="kick2">Frequence</div><h4>Library</h4></div>
+            <div class="fq-filters"><span class="c on">All</span><span class="c">Podcasts</span><span class="c">Articles</span><span class="c">Unplayed</span></div>
+            <div class="fq-list">
+              <div class="fq-ep now"><span class="art" style="background:#3B4A3A"></span><div><div class="t">The Future of Self-Hosting</div><div class="m">Late Night Linux · 48 min</div></div></div>
+              <div class="fq-ep"><span class="art" style="background:#4A6275"></span><div><div class="t">On designing for permanence</div><div class="m">Article · spoken · 12 min</div></div></div>
+              <div class="fq-ep"><span class="art" style="background:#8A4B3A"></span><div><div class="t">Webb's latest deep-field images</div><div class="m">The Verge · 33 min</div></div></div>
+              <div class="fq-ep"><span class="art" style="background:#C28A2B"></span><div><div class="t">The quiet web</div><div class="m">Article · spoken · 9 min</div></div></div>
+            </div>
+            <div class="fq-bar"><span class="pbar"></span>
+              <span class="art" style="background:#3B4A3A"></span>
+              <div class="info"><div class="ti">The Future of Self-Hosting</div><div class="so">Late Night Linux</div></div>
+              <div class="cc"><span>◀◀</span><span>❚❚</span><span>▶▶</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="device-cap"><b>Frequence</b> — library + mini-player · dark</div>
+    </div>
+
+    <!-- Bilan iOS (light) -->
+    <div class="unit">
+      <div class="device device--iphone"><div class="island"></div>
+        <div class="screen" data-theme="light">
+          <div class="ios-status"><span class="num">9:41</span><span style="letter-spacing:1px">●●● ▮▮</span></div>
+          <div class="bl">
+            <div class="ml">January 2025 · Cashflow</div>
+            <div class="cash num">−$3,982</div>
+            <div class="bl-stats">
+              <div class="bl-stat"><div class="ml">Income</div><div class="v pos num">$14,817</div></div>
+              <div class="bl-stat"><div class="ml">Expenses</div><div class="v neg num">$18,799</div></div>
+            </div>
+            <div class="bl-sec">Recent</div>
+            <div class="bl-row"><div><div>Woolworths</div><div class="d">09 Jan · groceries</div></div><div class="amt neg num">−$148.27</div></div>
+            <div class="bl-row"><div><div>Spotify</div><div class="d">09 Jan · subscriptions</div></div><div class="amt neg num">−$27.99</div></div>
+            <div class="bl-row"><div><div>Smartsalary</div><div class="d">08 Jan · salary</div></div><div class="amt pos num">+$1,223.07</div></div>
+            <div class="bl-row"><div><div>Coles Figtree</div><div class="d">08 Jan · groceries</div></div><div class="amt neg num">−$70.25</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="device-cap"><b>Bilan</b> — month summary · light</div>
+    </div>
+
+    <!-- Orbit iOS — albums library (light) -->
+    <div class="unit">
+      <div class="device device--iphone"><div class="island"></div>
+        <div class="screen" data-theme="light">
+          <div class="ios-status"><span class="num">9:41</span><span style="letter-spacing:1px">●●● ▮▮</span></div>
+          <div class="olib">
+            <div class="h"><div class="k">Orbit</div><h4>Albums</h4></div>
+            <div class="olib-grid">
+              <div class="olib-card"><div class="cv" style="background:#2C3A48"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#15110e"/><circle cx="50" cy="50" r="14" fill="#D2502F"/><circle cx="50" cy="50" r="3" fill="#EBE6D7"/></svg></div><div class="t">Kind of Blue</div><div class="a">Miles Davis</div></div>
+              <div class="olib-card"><div class="cv" style="background:#BC4630"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#15110e"/><circle cx="50" cy="50" r="14" fill="#C9A23F"/><circle cx="50" cy="50" r="3" fill="#EBE6D7"/></svg></div><div class="t">A Love Supreme</div><div class="a">John Coltrane</div></div>
+              <div class="olib-card"><div class="cv" style="background:#6E8B4F"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#15110e"/><circle cx="50" cy="50" r="14" fill="#D2502F"/><circle cx="50" cy="50" r="3" fill="#EBE6D7"/></svg></div><div class="t">Pet Sounds</div><div class="a">The Beach Boys</div></div>
+              <div class="olib-card"><div class="cv" style="background:#C9A23F"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#15110e"/><circle cx="50" cy="50" r="14" fill="#2C3A48"/><circle cx="50" cy="50" r="3" fill="#EBE6D7"/></svg></div><div class="t">Rumours</div><div class="a">Fleetwood Mac</div></div>
+            </div>
+            <div class="omini"><span class="pbar"></span><span class="art" style="background:#2C3A48"></span><div class="info"><div class="ti">So What</div><div class="so">Kind of Blue · Miles Davis</div></div><div class="cc"><span>❚❚</span><span>▶▶</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="device-cap"><b>Orbit</b> — albums + mini-player · light</div>
+    </div>
+
+    <!-- Orbit iOS — album detail (light) -->
+    <div class="unit">
+      <div class="device device--iphone"><div class="island"></div>
+        <div class="screen" data-theme="light">
+          <div class="ios-status"><span class="num">9:41</span><span style="letter-spacing:1px">●●● ▮▮</span></div>
+          <div class="oal">
+            <div class="cv"><svg viewBox="0 0 200 200" aria-hidden="true"><rect width="200" height="200" fill="#1a1410"/><g fill="none" stroke="#E9E3D4" stroke-width="1" opacity=".16"><circle cx="100" cy="100" r="90"/><circle cx="100" cy="100" r="72"/><circle cx="100" cy="100" r="54"/><circle cx="100" cy="100" r="38"/></g><circle cx="100" cy="100" r="24" fill="#D2502F"/><circle cx="100" cy="100" r="5" fill="#1a1410"/></svg></div>
+            <h5>Kind of Blue</h5>
+            <div class="sub">Miles Davis · 1959</div>
+            <div class="sec">Pressings · 3</div>
+            <div class="pr fav"><div>1959 Columbia, original mono</div><span class="f">DSD64 ★</span></div>
+            <div class="pr"><div>1997 Legacy remaster</div><span class="f">FLAC 16/44</span></div>
+            <div class="pr"><div>2013 Analogue Productions</div><span class="f">24/192</span></div>
+            <div class="sec">Tracks</div>
+            <div class="tk"><div>1 · So What</div><span class="d">9:22</span></div>
+            <div class="tk"><div>2 · Freddie Freeloader</div><span class="d">9:46</span></div>
+            <div class="tk"><div>3 · Blue in Green</div><span class="d">5:37</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="device-cap"><b>Orbit</b> — album detail, pressings · light</div>
+    </div>
+
+    <!-- Orbit iOS — editorial browse (dark) -->
+    <div class="unit">
+      <div class="device device--iphone"><div class="island"></div>
+        <div class="screen" data-theme="dark">
+          <div class="oed">
+            <div class="top">
+              <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="200" height="200" fill="#1a1410"/><g fill="none" stroke="#E9E3D4" stroke-width="1" opacity=".14"><circle cx="120" cy="80" r="110"/><circle cx="120" cy="80" r="86"/><circle cx="120" cy="80" r="62"/><circle cx="120" cy="80" r="40"/></g><circle cx="120" cy="80" r="24" fill="#D2502F"/><circle cx="120" cy="80" r="5" fill="#1a1410"/></svg>
+              <div class="grad"></div>
+              <div class="cap"><div class="k">Editorial · Jazz</div><h3>A Love Supreme</h3><div class="a">John Coltrane · 1965</div></div>
+            </div>
+            <div class="strip">
+              <div class="it"><div class="c" style="background:#2C3A48"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#15110e"/><circle cx="50" cy="50" r="13" fill="#D2502F"/></svg></div><div class="t">Kind of Blue</div></div>
+              <div class="it"><div class="c" style="background:#8A4B3A"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#15110e"/><circle cx="50" cy="50" r="13" fill="#C9A23F"/></svg></div><div class="t">Blue Train</div></div>
+              <div class="it"><div class="c" style="background:#6E8B4F"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#15110e"/><circle cx="50" cy="50" r="13" fill="#D2502F"/></svg></div><div class="t">Pet Sounds</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="device-cap"><b>Orbit</b> — editorial browse · dark</div>
+    </div>
+
+    <!-- Bulletin iOS — article reader (light) -->
+    <div class="unit">
+      <div class="device device--iphone"><div class="island"></div>
+        <div class="screen" data-theme="light">
+          <div class="ios-status"><span class="num">9:41</span><span style="letter-spacing:1px">●●● ▮▮</span></div>
+          <div class="brd">
+            <div class="bc">‹ Unread</div>
+            <div class="ttl">The quiet return of the RSS reader</div>
+            <div class="meta">Pixel Envy · 6 min read</div>
+            <div class="img"></div>
+            <div class="body">
+              <p>For a decade the feed reader was declared dead, killed off the day Google Reader closed. The people who kept reading this way never quite believed it.</p>
+              <div class="pq">The web didn't get quieter. We just stopped choosing what reached us.</div>
+              <p>What's changed isn't the technology — it's the appetite for a calm, chronological list that ends.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="device-cap"><b>Bulletin</b> — reading view · light</div>
+    </div>
+
+    <!-- Bulletin iOS — editorial mode (light) -->
+    <div class="unit">
+      <div class="device device--iphone"><div class="island"></div>
+        <div class="screen" data-theme="light">
+          <div class="ios-status"><span class="num">9:41</span><span style="letter-spacing:1px">●●● ▮▮</span></div>
+          <div class="bed">
+            <div class="k">Editorial mode</div>
+            <h4>Indie &amp; Interesting</h4>
+            <div class="lead"><div class="img"></div><div class="t">Shooting Kodak 3200 at night</div><div class="m">35mmc · 4 min</div></div>
+            <div class="two">
+              <div><div class="img" style="background:linear-gradient(120deg,#8A8C6F,#3B4A3A)"></div><div class="t">Tri-X 400, pushed</div><div class="m">Casual Photophile</div></div>
+              <div><div class="img" style="background:linear-gradient(120deg,#4A6275,#15110e)"></div><div class="t">A case for Ilford XP2</div><div class="m">EMULSIVE</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="device-cap"><b>Bulletin</b> — editorial layout · light</div>
+    </div>
+
+    <!-- Bulletin iOS — Braun theme picker (light) -->
+    <div class="unit">
+      <div class="device device--iphone"><div class="island"></div>
+        <div class="screen" data-theme="light">
+          <div class="ios-status"><span class="num">9:41</span><span style="letter-spacing:1px">●●● ▮▮</span></div>
+          <div class="bth">
+            <div class="k">Appearance</div>
+            <h4>Theme</h4>
+            <div class="bth-grid">
+              <div class="bth-card"><div class="bth-sw" style="background:#F2EEE3"><span class="l" style="width:55%;background:#2A2A24"></span><span class="l" style="width:90%;background:#C7C1B2"></span><span class="l" style="width:30%;background:#C0653A"></span></div><div class="nm">Standard</div><div class="ds">Warm cream</div></div>
+              <div class="bth-card sel"><div class="chk">✓</div><div class="bth-sw" style="background:#FBFBFA"><span class="l" style="width:55%;background:#232323"></span><span class="l" style="width:90%;background:#DCDCDA"></span><span class="l" style="width:30%;background:#C0392B"></span></div><div class="nm">SK4</div><div class="ds">Snow White's Coffin</div></div>
+              <div class="bth-card"><div class="bth-sw" style="background:#BCBDB9"><span class="l" style="width:55%;background:#3A3B37"></span><span class="l" style="width:90%;background:#9A9B96"></span><span class="l" style="width:30%;background:#6E6F6A"></span></div><div class="nm">RT20</div><div class="ds">Table Radio</div></div>
+              <div class="bth-card"><div class="bth-sw" style="background:#EAE6D8"><span class="l" style="width:55%;background:#2A2A24"></span><span class="l" style="width:90%;background:#C7C1B2"></span><span class="l" style="width:30%;background:#5E7D4F"></span></div><div class="nm">T3</div><div class="ds">Pocket Radio</div></div>
+              <div class="bth-card"><div class="bth-sw" style="background:#FCFBF9"><span class="l" style="width:55%;background:#232323"></span><span class="l" style="width:90%;background:#DAD4C6"></span><span class="l" style="width:30%;background:#C0392B"></span></div><div class="nm">TP1</div><div class="ds">Portable Combo</div></div>
+              <div class="bth-card"><div class="bth-sw" style="background:#1E1C18"><span class="l" style="width:55%;background:#C9C3B5"></span><span class="l" style="width:90%;background:#4A463E"></span><span class="l" style="width:30%;background:#D9A441"></span></div><div class="nm">ET66</div><div class="ds">Calculator</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="device-cap"><b>Bulletin</b> — Braun theme picker · light</div>
+    </div>
+
+  </div>
+
+  <!-- WEB: Orbit -->
+  <h2 class="kick" style="margin-top:80px">Web UI — Orbit (Go server · SvelteKit)</h2>
+  <div class="browser">
+    <div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">orbit.local — Library</div><div style="width:46px"></div></div>
+    <div class="viewport ow" data-theme="light">
+      <aside class="ow-side">
+        <div class="ow-brand">
+          <svg width="20" height="20" viewBox="0 0 200 200"><circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="5" style="color:var(--color-ink)"/><circle cx="100" cy="100" r="20" style="fill:var(--color-ink)"/><circle cx="100" cy="100" r="5" style="fill:var(--color-accent)"/></svg>
+          Orbit
+        </div>
+        <nav class="ow-nav">
+          <a class="active">Albums</a><a>Artists</a><a>Composers</a><a>Genres</a><a>Playlists</a><a>Wishlist</a><a>Multi-room</a><a>Settings</a>
+        </nav>
+      </aside>
+      <main class="ow-main">
+        <div class="ow-stats"><span><b>4,210</b> albums</span><span><b>612</b> artists</span><span><b>38</b> composers</span><span><b>1.9 TB</b></span></div>
+        <div class="ow-head"><h4>Recently added</h4><input class="ow-search" value="Search the library" readonly></div>
+        <div class="ow-grid">
+          <div class="ow-card"><div class="cover" style="background:#2C3A48"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#15110e"/><circle cx="50" cy="50" r="14" fill="#D2502F"/><circle cx="50" cy="50" r="3" fill="#EBE6D7"/></svg></div><div class="t">Kind of Blue</div><div class="a">Miles Davis</div></div>
+          <div class="ow-card"><div class="cover" style="background:#BC4630"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#15110e"/><circle cx="50" cy="50" r="14" fill="#C9A23F"/><circle cx="50" cy="50" r="3" fill="#EBE6D7"/></svg></div><div class="t">A Love Supreme</div><div class="a">John Coltrane</div></div>
+          <div class="ow-card"><div class="cover" style="background:#6E8B4F"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#15110e"/><circle cx="50" cy="50" r="14" fill="#D2502F"/><circle cx="50" cy="50" r="3" fill="#EBE6D7"/></svg></div><div class="t">Pet Sounds</div><div class="a">The Beach Boys</div></div>
+          <div class="ow-card"><div class="cover" style="background:#C9A23F"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#15110e"/><circle cx="50" cy="50" r="14" fill="#2C3A48"/><circle cx="50" cy="50" r="3" fill="#EBE6D7"/></svg></div><div class="t">Rumours</div><div class="a">Fleetwood Mac</div></div>
+          <div class="ow-card"><div class="cover" style="background:#41506A"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#15110e"/><circle cx="50" cy="50" r="14" fill="#D2502F"/><circle cx="50" cy="50" r="3" fill="#EBE6D7"/></svg></div><div class="t">Goldberg Variations</div><div class="a">Glenn Gould</div></div>
+          <div class="ow-card"><div class="cover" style="background:#8A4B3A"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#15110e"/><circle cx="50" cy="50" r="14" fill="#C9A23F"/><circle cx="50" cy="50" r="3" fill="#EBE6D7"/></svg></div><div class="t">Blue Train</div><div class="a">John Coltrane</div></div>
+          <div class="ow-card"><div class="cover" style="background:#3B4A3A"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#15110e"/><circle cx="50" cy="50" r="14" fill="#D2502F"/><circle cx="50" cy="50" r="3" fill="#EBE6D7"/></svg></div><div class="t">Symphony No. 9</div><div class="a">Karajan · BPO</div></div>
+          <div class="ow-card"><div class="cover" style="background:#9FA48E"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#15110e"/><circle cx="50" cy="50" r="14" fill="#BC4630"/><circle cx="50" cy="50" r="3" fill="#EBE6D7"/></svg></div><div class="t">The Köln Concert</div><div class="a">Keith Jarrett</div></div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Orbit: album detail -->
+  <div class="browser" style="margin-top:20px">
+    <div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">orbit.local — Kind of Blue</div><div style="width:46px"></div></div>
+    <div class="viewport" data-theme="light">
+      <div class="od">
+        <div class="od-bc">Albums / <b>Kind of Blue</b></div>
+        <div class="oad-head">
+          <div class="cover" style="background:#2C3A48"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#15110e"/><circle cx="50" cy="50" r="14" fill="#D2502F"/><circle cx="50" cy="50" r="3" fill="#EBE6D7"/></svg></div>
+          <div><h4>Kind of Blue</h4><div class="sub">Miles Davis · 1959 · Jazz</div><span class="love">♥ Loved</span></div>
+        </div>
+        <div class="od-sec">Pressings · 3</div>
+        <div class="prow fav"><div>1959 Columbia CL 1355 — original mono</div><span class="fmt">vinyl rip · DSD64</span><span class="yr">matrix XLP-43330</span><span class="star">★</span></div>
+        <div class="prow"><div>1997 Columbia / Legacy remaster</div><span class="fmt">FLAC · 16/44</span><span class="yr">CD</span><span class="star">★</span></div>
+        <div class="prow"><div>2013 Analogue Productions, 45 rpm</div><span class="fmt">vinyl rip · 24/192</span><span class="yr">2×LP</span><span class="star">★</span></div>
+        <div class="od-sec">Tracks</div>
+        <div class="trow"><span class="n">1</span><div>So What</div><span class="dur">9:22</span></div>
+        <div class="trow"><span class="n">2</span><div>Freddie Freeloader</div><span class="dur">9:46</span></div>
+        <div class="trow"><span class="n">3</span><div>Blue in Green</div><span class="dur">5:37</span></div>
+        <div class="trow"><span class="n">4</span><div>All Blues</div><span class="dur">11:33</span></div>
+        <div class="trow"><span class="n">5</span><div>Flamenco Sketches</div><span class="dur">9:26</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="cap-l"><b>Album detail</b> — every pressing tracked separately, favourite marked. Orbit's signature view.</div>
+
+  <!-- Orbit: classical work -->
+  <div class="browser" style="margin-top:30px">
+    <div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">orbit.local — Goldberg Variations</div><div style="width:46px"></div></div>
+    <div class="viewport" data-theme="light">
+      <div class="od">
+        <div class="od-bc">Composers / Bach / <b>Goldberg Variations</b></div>
+        <div class="oad-head" style="display:block">
+          <h4>Goldberg Variations</h4>
+          <div class="sub" style="font-family:var(--font-mono)">BWV 988 · Keyboard · composed 1741</div>
+        </div>
+        <div class="od-sec">Recordings · 9</div>
+        <div class="prow fav"><div>Glenn Gould</div><span class="fmt">CBS</span><span class="yr">1981 · 51:15</span><span class="star">★</span></div>
+        <div class="prow"><div>Glenn Gould</div><span class="fmt">Columbia</span><span class="yr">1955 · 38:27</span><span class="star">★</span></div>
+        <div class="prow"><div>András Schiff</div><span class="fmt">ECM</span><span class="yr">2001 · 71:02</span><span class="star">★</span></div>
+        <div class="prow"><div>Murray Perahia</div><span class="fmt">Sony</span><span class="yr">2000 · 73:20</span><span class="star">★</span></div>
+        <div class="prow"><div>Trevor Pinnock — harpsichord</div><span class="fmt">Archiv</span><span class="yr">1999 · 78:00</span><span class="star">★</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="cap-l"><b>Classical work</b> — composer → work → recordings. Nine recordings of one work, not nine albums.</div>
+
+  <!-- Orbit: multi-room -->
+  <div class="browser" style="margin-top:30px">
+    <div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">orbit.local — Multi-room</div><div style="width:46px"></div></div>
+    <div class="viewport" data-theme="light">
+      <div class="od">
+        <div class="od-bc"><b>Multi-room</b> · 4 zones · 2 grouped</div>
+        <div class="omr">
+          <div class="zone"><div class="zt"><span class="zn">Living Room</span><span class="zs on">● Playing</span></div><div class="sub" style="font-size:12px;color:var(--color-muted);margin-top:4px">Kind of Blue — Miles Davis</div><div class="vol"><i style="width:64%"></i><span class="knob" style="left:64%"></span></div><span class="link on">⛓ Grouped</span></div>
+          <div class="zone"><div class="zt"><span class="zn">Kitchen</span><span class="zs on">● Synced</span></div><div class="sub" style="font-size:12px;color:var(--color-muted);margin-top:4px">Kind of Blue — Miles Davis</div><div class="vol"><i style="width:40%"></i><span class="knob" style="left:40%"></span></div><span class="link on">⛓ Grouped</span></div>
+          <div class="zone"><div class="zt"><span class="zn">Bedroom</span><span class="zs">Idle</span></div><div class="sub" style="font-size:12px;color:var(--color-muted);margin-top:4px">—</div><div class="vol"><i style="width:20%"></i><span class="knob" style="left:20%"></span></div><span class="link">Group</span></div>
+          <div class="zone"><div class="zt"><span class="zn">Office</span><span class="zs">Idle</span></div><div class="sub" style="font-size:12px;color:var(--color-muted);margin-top:4px">—</div><div class="vol"><i style="width:55%"></i><span class="knob" style="left:55%"></span></div><span class="link">Group</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cap-l"><b>Multi-room</b> — zones, sync state, per-zone volume, grouping. A control surface in the same language.</div>
+
+  <!-- WEB: Bilan -->
+  <h2 class="kick" style="margin-top:64px">Web UI — Bilan (Go · templ · Tailwind)</h2>
+  <div class="browser">
+    <div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">bilan.local</div><div style="width:46px"></div></div>
+    <div class="viewport" data-theme="light">
+      <div class="bn-top">
+        <div class="logo">BILAN</div>
+        <nav><a>Transactions</a><a>Budget</a><a>Reports</a><a>◐</a></nav>
+      </div>
+      <div class="bn-body">
+        <div class="bn-month"><h4>January 2025</h4><span class="nav">← prev · next →</span></div>
+        <div class="bn-cards">
+          <div class="bn-card"><div class="l">Income</div><div class="v pos num">$14,817</div><div class="d">▲ 12% vs last month</div></div>
+          <div class="bn-card"><div class="l">Expenses</div><div class="v neg num">$18,799</div><div class="d">▲ 8% vs last month</div></div>
+          <div class="bn-card"><div class="l">Cashflow</div><div class="v neg num">−$3,982</div><div class="d">▼ over budget</div></div>
+          <div class="bn-card"><div class="l">Flagged</div><div class="v num">12</div><div class="d">need review</div></div>
+        </div>
+
+        <div class="bn-secwrap">
+          <div class="bn-sec">Budget status</div>
+          <div class="bn-brow"><div class="cat">groceries <span class="num" style="color:var(--color-muted)">$1,853 / $1,300</span></div><div class="bn-track"><i class="over" style="width:100%"></i></div><div class="bn-pct over num">142%</div><div class="num" style="color:var(--color-negative);font-weight:700">OVER</div></div>
+          <div class="bn-brow"><div class="cat">dining out <span class="num" style="color:var(--color-muted)">$1,193 / $500</span></div><div class="bn-track"><i class="over" style="width:100%"></i></div><div class="bn-pct over num">238%</div><div class="num" style="color:var(--color-negative);font-weight:700">OVER</div></div>
+          <div class="bn-brow"><div class="cat">mortgage <span class="num" style="color:var(--color-muted)">$4,931 / $4,931</span></div><div class="bn-track"><i style="width:100%"></i></div><div class="bn-pct num">100%</div><div></div></div>
+          <div class="bn-brow"><div class="cat">transport <span class="num" style="color:var(--color-muted)">$284 / $450</span></div><div class="bn-track"><i style="width:63%"></i></div><div class="bn-pct num">63%</div><div></div></div>
+        </div>
+
+        <div class="bn-secwrap">
+          <div class="bn-sec">Recent transactions</div>
+          <div class="bn-trow"><div class="date">09 JAN</div><div>Woolworths / Cnr Victoria</div><div class="cat">groceries</div><div class="amt neg num">−$148.27</div></div>
+          <div class="bn-trow"><div class="date">09 JAN</div><div>Spotify Sydney</div><div class="cat">subscriptions</div><div class="amt neg num">−$27.99</div></div>
+          <div class="bn-trow"><div class="date">08 JAN</div><div>Smartsalary Transfer</div><div class="cat">salary</div><div class="amt pos num">+$1,223.07</div></div>
+          <div class="bn-trow"><div class="date">08 JAN</div><div>Coles 0716 Figtree</div><div class="cat">groceries</div><div class="amt neg num">−$70.25</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEB: Frequence -->
+  <h2 class="kick" style="margin-top:64px">Web UI — Frequence (Go server · audio &amp; podcasts)</h2>
+  <div class="browser">
+    <div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">frequence.local</div><div style="width:46px"></div></div>
+    <div class="viewport" data-theme="light">
+      <div class="ftop">
+        <div class="logo">FREQUENCE</div>
+        <nav><a class="on">Home</a><a>Podcasts</a><a>Articles</a><a>Queue</a><a>Settings</a></nav>
+      </div>
+      <div class="fbody">
+        <div class="fsec">Continue listening</div>
+        <div class="fcont">
+          <div class="fcard"><span class="art" style="background:#3B4A3A"></span><div style="flex:1"><div class="t">The Future of Self-Hosting</div><div class="s">Late Night Linux · 18 min left</div><div class="pb"><i style="width:62%"></i></div></div></div>
+          <div class="fcard"><span class="art" style="background:#8A4B3A"></span><div style="flex:1"><div class="t">Acid Horizon — ep. 214</div><div class="s">Acid Horizon · 42 min left</div><div class="pb"><i style="width:30%"></i></div></div></div>
+          <div class="fcard"><span class="art" style="background:#4A6275"></span><div style="flex:1"><div class="t">On designing for permanence</div><div class="s">Article · spoken · 3 min left</div><div class="pb"><i style="width:84%"></i></div></div></div>
+        </div>
+
+        <div class="fsec mt">Up next</div>
+        <div class="fup">
+          <div class="r"><div>Webb's latest deep-field images — The Verge</div><span class="d">33:10</span></div>
+          <div class="r"><div>The quiet web — Article · spoken</div><span class="d">9:02</span></div>
+          <div class="r"><div>Hardcore History — Supernova in the East VI</div><span class="d">4:55:20</span></div>
+        </div>
+
+        <div class="fsec mt">Your shows</div>
+        <div class="fshows">
+          <div class="fshow"><div class="cov" style="background:#2C3A48"><span class="badge">2</span></div><div class="t">The Ezra Klein Show</div><div class="s">2 new</div></div>
+          <div class="fshow"><div class="cov" style="background:#6E8B4F"></div><div class="t">Hardcore History</div><div class="s">up to date</div></div>
+          <div class="fshow"><div class="cov" style="background:#8A4B3A"><span class="badge">1</span></div><div class="t">Acid Horizon</div><div class="s">1 new</div></div>
+          <div class="fshow"><div class="cov" style="background:#C28A2B"></div><div class="t">Bulletin Politique</div><div class="s">up to date</div></div>
+          <div class="fshow"><div class="cov" style="background:#41506A"><span class="badge">3</span></div><div class="t">Late Night Linux</div><div class="s">3 new</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cap-l"><b>Frequence — home</b> · continue listening, up-next queue, your shows. Its own warm palette already matches the tokens.</div>
+
+  <div class="browser" style="margin-top:30px">
+    <div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">frequence.local — Podcasts</div><div style="width:46px"></div></div>
+    <div class="viewport" data-theme="light">
+      <div class="ftop">
+        <div class="logo">FREQUENCE</div>
+        <nav><a>Home</a><a class="on">Podcasts</a><a>Articles</a><a>Queue</a><a>Settings</a></nav>
+      </div>
+      <div class="fbody">
+        <div class="fsec">Subscriptions · 10</div>
+        <div class="fshows">
+          <div class="fshow"><div class="cov" style="background:#2C3A48"><span class="badge">2</span></div><div class="t">The Ezra Klein Show</div><div class="s">yesterday</div></div>
+          <div class="fshow"><div class="cov" style="background:#6E8B4F"></div><div class="t">Hardcore History</div><div class="s">3 weeks ago</div></div>
+          <div class="fshow"><div class="cov" style="background:#8A4B3A"><span class="badge">1</span></div><div class="t">Acid Horizon</div><div class="s">2 days ago</div></div>
+          <div class="fshow"><div class="cov" style="background:#C28A2B"></div><div class="t">Bulletin Politique</div><div class="s">today</div></div>
+          <div class="fshow"><div class="cov" style="background:#41506A"><span class="badge">3</span></div><div class="t">Late Night Linux</div><div class="s">today</div></div>
+          <div class="fshow"><div class="cov" style="background:#5E7D4F"></div><div class="t">99% Invisible</div><div class="s">5 days ago</div></div>
+          <div class="fshow"><div class="cov" style="background:#B23B2C"><span class="badge">4</span></div><div class="t">Tech Won't Save Us</div><div class="s">today</div></div>
+          <div class="fshow"><div class="cov" style="background:#4A6275"></div><div class="t">The Daily</div><div class="s">today</div></div>
+          <div class="fshow"><div class="cov" style="background:#9FA48E"></div><div class="t">Song Exploder</div><div class="s">1 week ago</div></div>
+          <div class="fshow"><div class="cov" style="background:#7E5A3A"><span class="badge">1</span></div><div class="t">Conversations</div><div class="s">2 days ago</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cap-l"><b>Frequence — subscriptions</b> · shows with new-episode counts.</div>
+
+  <div class="theme-note">Bilan brings its own semantics — income/expense — added to the system as <code>--color-positive</code> / <code>--color-negative</code> (warm green &amp; terracotta, not stock green/red). Toggle ◑ Theme to flip the page chrome; each surface above is pinned to its own theme on purpose.</div>
+
+  <footer class="ds-footer">
+    <span>Cosmique — app previews on the shared design system</span>
+    <div class="links"><a href="../design-system/styleguide.html">Styleguide</a><a href="home.html">Home</a></div>
+  </footer>
+
+</div>
+</body>
+</html>

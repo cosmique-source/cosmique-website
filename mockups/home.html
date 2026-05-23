@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cosmique — Independent software</title>
+<link rel="stylesheet" href="../design-system/css/cosmique.css">
+<script src="../design-system/js/theme.js"></script>
+<style>
+  /* page-local only — everything else comes from the design system */
+  .hero{padding:90px 0 80px;max-width:760px}
+  .hero p{margin-top:28px;font-size:18px;line-height:1.7;max-width:30em;
+          color:color-mix(in srgb,var(--color-ink) 75%,var(--color-paper))}
+
+  .applabel{display:flex;align-items:baseline;justify-content:space-between;
+            border-bottom:1px solid var(--color-ink);padding-bottom:16px;margin-bottom:26px}
+  .applabel h2{font-size:var(--size-kicker);letter-spacing:.28em;text-transform:uppercase;font-weight:var(--weight-medium)}
+  .applabel span{font-size:var(--size-kicker);letter-spacing:.18em;color:var(--color-muted)}
+
+  .appgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .app{display:flex;flex-direction:column;min-height:230px;padding:28px 26px 24px}
+  .app .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+  .app img{width:60px;height:60px;border-radius:14px;border:1px solid var(--color-hair);box-shadow:0 6px 16px -10px rgba(0,0,0,.4)}
+  .app .no{font-size:var(--size-kicker);letter-spacing:.16em;color:var(--color-accent);font-weight:var(--weight-bold)}
+  .app h3{font-size:var(--size-h2);font-weight:var(--weight-bold);letter-spacing:-.01em}
+  .app p{font-size:14px;margin-top:8px;line-height:1.6;flex:1;
+         color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper))}
+  .app .foot{display:flex;align-items:center;justify-content:space-between;margin-top:18px;padding-top:14px;border-top:1px solid var(--color-hair)}
+  .app .plat{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted)}
+  .app .go{font-size:12px;font-weight:var(--weight-medium);color:var(--color-accent)}
+  .app .go span{display:inline-block;transition:transform .2s}
+  .app:hover .go span{transform:translateX(5px)}
+
+  .pillars{margin-top:110px}
+  .wordmark{font-size:15px;letter-spacing:.26em;font-weight:var(--weight-medium);color:var(--color-ink)}
+
+  @media (max-width:880px){
+    .hero{padding:60px 0 60px}
+    .appgrid{grid-template-columns:1fr}
+    .pillars{margin-top:70px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="ds-header">
+    <a href="home.html" class="brand">
+      <svg width="40" height="40" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--color-ink)"/>
+        <circle cx="100" cy="100" r="44" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--color-ink)"/>
+        <circle cx="100" cy="100" r="18" style="fill:var(--color-ink)"/>
+        <circle cx="100" cy="100" r="3.6" style="fill:var(--color-accent)"/>
+      </svg>
+      <span class="wordmark">COSMIQUE</span>
+    </a>
+    <nav class="nav">
+      <a href="#apps">Apps</a>
+      <a href="#approach">Approach</a>
+      <a href="mailto:hello@cosmique.io">Contact</a>
+      <button class="theme-toggle" id="themeToggle">◑&nbsp;Theme</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow" style="margin-bottom:30px">Independent software studio</div>
+    <h1 class="h1">Small, honest software for people who care about the details.</h1>
+    <p>A solo studio making a short list of tools — no tracking, no accounts, no noise. Built with restraint, and built to last.</p>
+  </section>
+
+  <section id="apps">
+    <div class="applabel"><h2>The apps</h2><span>Three, so far</span></div>
+    <div class="appgrid">
+
+      <a href="#" class="card app">
+        <div class="top">
+          <img src="../website/src/assets/punkt/punkt-icon.svg" alt="Punkt icon">
+          <span class="no">No. 01</span>
+        </div>
+        <h3>Punkt</h3>
+        <p>News on your wrist. Nothing more. A minimalist RSS reader for Apple Watch.</p>
+        <div class="foot"><span class="plat">Apple Watch · iPhone</span><span class="go">View <span>→</span></span></div>
+      </a>
+
+      <a href="bulletin.html" class="card app">
+        <div class="top">
+          <img src="../website/src/assets/bulletin/bulletin-icon.png" alt="Bulletin icon">
+          <span class="no">No. 02</span>
+        </div>
+        <h3>Bulletin</h3>
+        <p>An RSS reader for Miniflux, made with intention. For people who self-host their feeds.</p>
+        <div class="foot"><span class="plat">iPhone</span><span class="go">View <span>→</span></span></div>
+      </a>
+
+      <a href="orbit.html" class="card app">
+        <div class="top">
+          <img src="../website/src/assets/orbit/orbit-icon.svg" alt="Orbit icon">
+          <span class="no">No. 03</span>
+        </div>
+        <h3>Orbit</h3>
+        <p>The music server built for serious collectors, audiophiles, and classical listeners.</p>
+        <div class="foot"><span class="plat">macOS · Linux · Windows</span><span class="go">View <span>→</span></span></div>
+      </a>
+
+    </div>
+  </section>
+
+  <section id="approach" class="pillars">
+    <div>
+      <h3>Honest</h3>
+      <p>The software is what it appears to be. No dark patterns, nothing harvested behind your back.</p>
+    </div>
+    <div>
+      <h3>Unobtrusive</h3>
+      <p>Tools should recede. They wait quietly until you need them, then get out of the way.</p>
+    </div>
+    <div>
+      <h3>As little as possible</h3>
+      <p>Less, but better. Every feature earns its place, or it isn't there.</p>
+    </div>
+  </section>
+
+  <footer class="ds-footer">
+    <span>Cosmique — independent software, since 2024</span>
+    <a href="mailto:hello@cosmique.io">hello@cosmique.io</a>
+  </footer>
+
+</div>
+</body>
+</html>

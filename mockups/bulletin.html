@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bulletin — RSS Reader for Miniflux · Cosmique</title>
+<link rel="stylesheet" href="../design-system/css/cosmique.css">
+<script src="../design-system/js/theme.js"></script>
+<style>
+  /* page-local only — shared patterns come from the design system */
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;padding:50px 0 64px;border-bottom:1px solid var(--color-hair)}
+  .hero .idrow{display:flex;align-items:center;gap:18px;margin-bottom:26px}
+  .hero .idrow img{width:72px;height:72px;border-radius:16px;border:1px solid var(--color-hair);box-shadow:0 6px 18px -10px rgba(0,0,0,.4)}
+  .hero h1{font-size:54px;line-height:1.02;font-weight:var(--weight-bold);letter-spacing:var(--tracking-tight)}
+  .hero .tag{margin-top:14px;font-size:19px;color:var(--color-accent);font-weight:var(--weight-medium)}
+  .hero p{margin-top:20px;font-size:16.5px;line-height:1.7;max-width:30em;
+          color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper))}
+  .cta-row{display:flex;align-items:center;gap:24px;margin-top:32px;flex-wrap:wrap}
+  .req{margin-top:18px;font-size:12.5px;color:var(--color-muted)}
+  .req b{color:var(--color-ink)}
+
+  /* tuner dial (the green circle from the Bulletin app icon) */
+  .dial{position:relative;aspect-ratio:1;max-width:360px;width:100%;justify-self:center}
+  .dial svg{width:100%;height:100%;display:block;filter:drop-shadow(0 18px 34px rgba(0,0,0,.20))}
+  .dial text{font-family:var(--font-mono);font-size:13px;fill:rgba(28,26,20,.55)}
+
+  .screens{padding-top:80px}
+  .about{padding-top:90px;display:grid;grid-template-columns:200px 1fr;gap:40px}
+  .about .lbl{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-muted)}
+  .about p{font-size:20px;line-height:1.6;max-width:32em;font-weight:var(--weight-medium);letter-spacing:-.005em;
+           color:color-mix(in srgb,var(--color-ink) 82%,var(--color-paper))}
+  .features{padding-top:90px}
+
+  .support{margin-top:90px;border-top:1px solid var(--color-hair);padding-top:40px;display:flex;
+           justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .support .ln{display:flex;gap:14px;flex-wrap:wrap}
+  .support .pill{border:1px solid var(--color-hair);border-radius:var(--radius-sm);padding:12px 20px;
+                 font-size:13px;letter-spacing:.04em;font-weight:var(--weight-medium);transition:border-color .18s,color .18s}
+  .support .pill:hover{border-color:var(--color-ink)}
+  .support .pill.accent{border-color:var(--color-accent);color:var(--color-accent)}
+  .support .back{font-size:13px;color:var(--color-muted)}
+  .support .back:hover{color:var(--color-ink)}
+
+  @media (max-width:880px){
+    .hero{grid-template-columns:1fr;gap:40px;padding:30px 0 50px}
+    .hero h1{font-size:38px}
+    .dial{max-width:240px;order:-1}
+    .about{grid-template-columns:1fr;gap:10px}
+    .about p{font-size:18px}
+    .support{flex-direction:column;align-items:flex-start}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="ds-header">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="3" style="color:var(--color-ink)"/>
+        <circle cx="100" cy="100" r="44" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--color-ink)"/>
+        <circle cx="100" cy="100" r="18" style="fill:var(--color-ink)"/><circle cx="100" cy="100" r="4" style="fill:var(--color-accent)"/>
+      </svg>
+      <a href="home.html"><b>Cosmique</b></a>&nbsp;<span>/ Apps / Bulletin</span>
+    </div>
+    <nav class="nav">
+      <a href="#screens">Screens</a>
+      <a href="#features">Features</a>
+      <a href="#support">Support</a>
+      <a href="home.html">All apps</a>
+      <button class="theme-toggle" id="themeToggle">◑&nbsp;Theme</button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="lede">
+      <div class="idrow">
+        <img src="../website/src/assets/bulletin/bulletin-icon.png" alt="Bulletin icon">
+        <span class="platform">iPhone</span>
+      </div>
+      <h1>Bulletin</h1>
+      <div class="tag">An RSS reader for Miniflux.</div>
+      <p>If you've chosen to self-host your feeds, you deserve a client that respects that decision. Bulletin is built exclusively for Miniflux — thoughtfully designed, quiet, and entirely yours.</p>
+      <div class="cta-row">
+        <a href="#screens" class="btn">See it in action →</a>
+        <a href="#features" class="btn-secondary">What's inside</a>
+      </div>
+      <div class="req">Requires a <b>Miniflux</b> server · No account, no tracking</div>
+    </div>
+
+    <div class="dial" aria-hidden="true">
+      <svg viewBox="0 0 400 400">
+        <defs>
+          <linearGradient id="green" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#A8BB86"/>
+            <stop offset="1" stop-color="#6E8B4F"/>
+          </linearGradient>
+          <linearGradient id="knob" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#FFFFFF"/>
+            <stop offset="0.35" stop-color="#F2EEE3"/>
+            <stop offset="1" stop-color="#C9C3B5"/>
+          </linearGradient>
+        </defs>
+        <circle cx="200" cy="200" r="172" fill="none" stroke="#2C2A24" stroke-width="12"/>
+        <circle cx="200" cy="200" r="166" fill="url(#green)"/>
+        <circle cx="200" cy="200" r="140" fill="none" stroke="rgba(28,26,20,.45)" stroke-width="6" stroke-dasharray="2 22"/>
+        <text x="200" y="94" text-anchor="middle">88</text>
+        <text x="312" y="206" text-anchor="middle">96</text>
+        <text x="200" y="318" text-anchor="middle">104</text>
+        <text x="88" y="206" text-anchor="middle">112</text>
+        <circle cx="200" cy="40" r="7" fill="#BC4630"/>
+        <circle cx="200" cy="200" r="86" fill="url(#knob)" stroke="#B5AFA1" stroke-width="3"/>
+        <circle cx="200" cy="200" r="80" fill="none" stroke="#E5E0D4" stroke-width="1.5" stroke-dasharray="9 6"/>
+        <line x1="200" y1="126" x2="200" y2="158" stroke="#2C2A24" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="200" cy="200" r="26" fill="#2C2A24"/>
+        <circle cx="200" cy="200" r="9" fill="#BC4630"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- SCREENSHOTS -->
+  <section id="screens" class="screens">
+    <h2 class="kick">A look inside</h2>
+    <div class="gallery">
+      <div class="shot"><img src="../website/src/assets/bulletin/screenshot-1-editorial.png" alt="Editorial mode"><div class="cap">Editorial mode</div></div>
+      <div class="shot"><img src="../website/src/assets/bulletin/screenshot-2-organized.png" alt="Organized feeds"><div class="cap">Organized</div></div>
+      <div class="shot"><img src="../website/src/assets/bulletin/screenshot-3-folder.png" alt="Folders"><div class="cap">Folders</div></div>
+      <div class="shot"><img src="../website/src/assets/bulletin/screenshot-4-themes.png" alt="Themes"><div class="cap">Six themes</div></div>
+      <div class="shot"><img src="../website/src/assets/bulletin/screenshot-5-feed.png" alt="Feed view"><div class="cap">Per-feed settings</div></div>
+      <div class="shot"><img src="../website/src/assets/bulletin/screenshot-6-article.png" alt="Article view"><div class="cap">Reading view</div></div>
+      <div class="shot"><img src="../website/src/assets/bulletin/screenshot-7-beautiful.png" alt="Beautiful typography"><div class="cap">Typography</div></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="lbl">About</div>
+    <p>Bulletin is a thoughtfully designed RSS reader built exclusively for Miniflux. If you've chosen to self-host your feeds, you deserve a client that respects that decision.</p>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="features">
+    <h2 class="kick">Features</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="no">01</div>
+        <h3>Two ways to read</h3>
+        <p>Accordion mode for quick scanning; Editorial mode for immersive, magazine-style reading. Five layouts adapt to your content, and your place is kept when you switch.</p>
+      </div>
+      <div class="feature">
+        <div class="no">02</div>
+        <h3>Filter the noise</h3>
+        <p>Blocklist and keeplist rules per feed — with regex for the precise cases. Rules sync to Miniflux and filter entries server-side, before they ever reach your device.</p>
+      </div>
+      <div class="feature">
+        <div class="no">03</div>
+        <h3>Full-content fetching</h3>
+        <p>One tap pulls the complete article when a feed only offers a summary. Per-feed crawler, custom CSS scraper rules, and custom user agents for stubborn sites.</p>
+      </div>
+      <div class="feature">
+        <div class="no">04</div>
+        <h3>Mark-as-read on scroll</h3>
+        <p>Entries mark themselves read as they leave the top of the screen — only when you're scrolling down. Per-feed toggle, with a keep-recently-read-visible option.</p>
+      </div>
+      <div class="feature">
+        <div class="no">05</div>
+        <h3>Feed health at a glance</h3>
+        <p>Healthy, warning, failing, or stale — with error counts and last-checked times. Retry several broken feeds at once.</p>
+      </div>
+      <div class="feature">
+        <div class="no">06</div>
+        <h3>Designed with intention</h3>
+        <p>Six Braun-inspired themes and four editorial styles. Eight font families with adjustable size, line height, and per-feed overrides.</p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:18px">
+      <span class="dot"></span>
+      <p>No account required, no tracking, no analytics. All data stored locally and on your Miniflux server.</p>
+    </div>
+  </section>
+
+  <!-- SUPPORT -->
+  <section id="support" class="support">
+    <div class="ln">
+      <a href="#" class="pill accent">Support →</a>
+      <a href="#" class="pill">Privacy Policy →</a>
+    </div>
+    <a href="home.html" class="back">← Back to all apps</a>
+  </section>
+
+  <footer class="ds-footer">
+    <span>Bulletin — a Cosmique app</span>
+    <div class="links">
+      <a href="#">Support</a><a href="#">Privacy</a>
+      <a href="mailto:hello@cosmique.io">hello@cosmique.io</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

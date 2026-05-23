@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cosmique — Native SwiftUI snapshots</title>
+<link rel="stylesheet" href="css/cosmique.css">
+<script src="js/theme.js"></script>
+<style>
+  .lead-row{padding:48px 0 40px;max-width:48em}
+  .lead-row h1{font-size:38px;line-height:1.1;font-weight:var(--weight-bold);letter-spacing:var(--tracking-tight)}
+  .lead-row p{margin-top:18px;font-size:16px;line-height:1.7;color:color-mix(in srgb,var(--color-ink) 74%,var(--color-paper))}
+  .lead-row code{font-family:var(--font-mono);font-size:13px;background:var(--color-card);border:1px solid var(--color-hair);border-radius:4px;padding:2px 7px}
+  .runbox{margin-top:18px;background:var(--color-card);border:1px solid var(--color-hair);border-radius:var(--radius-md);padding:16px 18px;font-family:var(--font-mono);font-size:12.5px;line-height:1.7;color:var(--color-ink);overflow:auto}
+  .runbox .c{color:var(--color-sage)}
+
+  .wall{display:flex;gap:46px;flex-wrap:wrap;align-items:flex-start;padding:6px 0 0}
+  .unit{flex:0 0 auto}
+  .device--iphone .screen{position:relative}
+  .shot-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+  .ph{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:22px;text-align:center;color:var(--color-muted)}
+  .ph .t{font-size:12px;font-weight:var(--weight-medium)}
+  .ph .m{font-family:var(--font-mono);font-size:10px;line-height:1.5}
+  .theme-toggle{cursor:pointer;border:1px solid var(--color-hair);background:var(--color-card);border-radius:var(--radius-sm);padding:8px 13px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-ink);font-family:var(--font-sans)}
+  .theme-toggle:hover{border-color:var(--color-ink)}
+  @media (max-width:880px){ .lead-row h1{font-size:28px} .wall{gap:30px;justify-content:center} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="ds-header">
+    <a href="../mockups/home.html" class="brand">
+      <svg width="26" height="26" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="3" style="color:var(--color-ink)"/>
+        <circle cx="100" cy="100" r="44" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--color-ink)"/>
+        <circle cx="100" cy="100" r="18" style="fill:var(--color-ink)"/><circle cx="100" cy="100" r="4" style="fill:var(--color-accent)"/>
+      </svg>
+      <b>Cosmique</b>&nbsp;<span>/ Native snapshots</span>
+    </a>
+    <nav class="nav">
+      <a href="../mockups/previews.html">Web previews</a>
+      <a href="styleguide.html">Styleguide</a>
+      <button class="theme-toggle">◑&nbsp;Theme</button>
+    </nav>
+  </header>
+
+  <section class="lead-row">
+    <h1>Real SwiftUI, in one place.</h1>
+    <p>These frames are <b>genuine SwiftUI renders</b> exported with <code>ImageRenderer</code> from the <code>CosmiquePreviews</code> package — same tokens as the web. They start as placeholders; generate the PNGs once and they fill in. After any token change, re-run to refresh.</p>
+    <div class="runbox">
+<span class="c"># 1 · regenerate tokens (web + Swift)</span>
+node design-system/build-tokens.mjs
+<span class="c"># 2 · render every sample screen → design-system/snapshots/*.png</span>
+cd design-system/CosmiquePreviews
+xcodebuild test -scheme CosmiquePreviews -destination 'platform=iOS Simulator,name=iPhone 15'
+    </div>
+  </section>
+
+  <div class="wall">
+
+    <div class="unit"><div class="device device--iphone"><div class="island"></div><div class="screen">
+      <div class="ph"><div class="t">Orbit · Now playing</div><div class="m">light<br>run snapshot test</div></div>
+      <img class="shot-img" src="snapshots/orbit-nowplaying-light.png" alt="" onerror="this.style.display='none'"></div></div>
+      <div class="device-cap"><b>Orbit</b> — now playing · light</div></div>
+
+    <div class="unit"><div class="device device--iphone"><div class="island"></div><div class="screen">
+      <div class="ph"><div class="t">Orbit · Now playing</div><div class="m">dark<br>run snapshot test</div></div>
+      <img class="shot-img" src="snapshots/orbit-nowplaying-dark.png" alt="" onerror="this.style.display='none'"></div></div>
+      <div class="device-cap"><b>Orbit</b> — now playing · dark</div></div>
+
+    <div class="unit"><div class="device device--iphone"><div class="island"></div><div class="screen">
+      <div class="ph"><div class="t">Orbit · Album</div><div class="m">light<br>run snapshot test</div></div>
+      <img class="shot-img" src="snapshots/orbit-album-light.png" alt="" onerror="this.style.display='none'"></div></div>
+      <div class="device-cap"><b>Orbit</b> — album detail · light</div></div>
+
+    <div class="unit"><div class="device device--iphone"><div class="island"></div><div class="screen">
+      <div class="ph"><div class="t">Bulletin · Reader</div><div class="m">light<br>run snapshot test</div></div>
+      <img class="shot-img" src="snapshots/bulletin-reader-light.png" alt="" onerror="this.style.display='none'"></div></div>
+      <div class="device-cap"><b>Bulletin</b> — reading view · light</div></div>
+
+    <div class="unit"><div class="device device--iphone"><div class="island"></div><div class="screen">
+      <div class="ph"><div class="t">Bilan · Summary</div><div class="m">light<br>run snapshot test</div></div>
+      <img class="shot-img" src="snapshots/bilan-summary-light.png" alt="" onerror="this.style.display='none'"></div></div>
+      <div class="device-cap"><b>Bilan</b> — month summary · light</div></div>
+
+    <div class="unit"><div class="device device--iphone"><div class="island"></div><div class="screen">
+      <div class="ph"><div class="t">Frequence · Library</div><div class="m">dark<br>run snapshot test</div></div>
+      <img class="shot-img" src="snapshots/frequence-library-dark.png" alt="" onerror="this.style.display='none'"></div></div>
+      <div class="device-cap"><b>Frequence</b> — library · dark</div></div>
+
+  </div>
+
+  <footer class="ds-footer">
+    <span>Cosmique — native SwiftUI renders via ImageRenderer</span>
+    <div class="links"><a href="../mockups/previews.html">Web previews</a><a href="styleguide.html">Styleguide</a></div>
+  </footer>
+
+</div>
+</body>
+</html>
