@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cosmique — Concept 1 · Pelican</title>
+<style>
+  :root{
+    --cosmic:#16202B;
+    --cosmic-2:#1E2A38;
+    --cream:#EDE7D6;
+    --teal:#46B3A6;
+    --brick:#CF4A2E;
+    --muted:#7C8794;
+    --line:#2C3A48;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:var(--cosmic);color:var(--cream);
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden;
+  }
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.16;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 44px;position:relative;z-index:1}
+
+  header{display:flex;align-items:center;justify-content:space-between;padding:34px 0}
+  .brand{display:flex;align-items:center;gap:14px;font-size:15px;letter-spacing:.34em;font-weight:500}
+  .pelican{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--teal);border:1px solid var(--teal);
+           padding:7px 14px;border-radius:2px}
+  nav{display:flex;gap:30px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  nav a:hover{color:var(--cream)}
+
+  /* hero */
+  .hero{position:relative;padding:90px 0 40px}
+  .hero h1{font-size:62px;font-weight:700;line-height:1.06;letter-spacing:-.02em;max-width:8.5em}
+  .hero .by{margin-top:26px;color:var(--teal);font-size:18px;letter-spacing:.02em}
+  .hero p{margin-top:22px;color:var(--muted);max-width:30em;font-size:16px;line-height:1.75}
+
+  .rings{position:absolute;right:-160px;top:60px;width:560px;height:560px;pointer-events:none}
+  .rings circle{fill:none;stroke:var(--cream);opacity:.5}
+  @media (max-width:1000px){.rings{right:-280px;opacity:.5}}
+
+  /* contents / apps */
+  .contents{margin-top:120px;border-top:1px solid var(--line);position:relative;z-index:1}
+  .ctop{display:flex;justify-content:space-between;align-items:baseline;padding:22px 0 30px}
+  .ctop h2{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--teal)}
+  .ctop span{font-size:12px;letter-spacing:.18em;color:var(--muted)}
+
+  .item{display:grid;grid-template-columns:54px 1fr auto;align-items:center;gap:28px;
+        padding:30px 0;border-top:1px solid var(--line);transition:.25s}
+  .item:hover{padding-left:14px;background:linear-gradient(90deg,rgba(70,179,166,.07),transparent)}
+  .item img{width:52px;height:52px;border-radius:11px;display:block}
+  .item .t{display:flex;align-items:baseline;gap:18px}
+  .item h3{font-size:30px;font-weight:700;letter-spacing:-.01em}
+  .item .d{color:var(--muted);font-size:15px}
+  .item .p{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);
+           border:1px solid var(--line);padding:7px 13px;border-radius:2px;white-space:nowrap}
+
+  /* statement */
+  .note{margin:120px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+        border-top:1px solid var(--line);padding-top:60px}
+  .note h4{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--teal);margin-bottom:18px}
+  .note p{font-size:26px;font-weight:500;line-height:1.45;letter-spacing:-.01em}
+  .note .ring2 circle{fill:none;stroke:var(--teal);opacity:.55}
+
+  footer{display:flex;justify-content:space-between;padding:60px 0 70px;margin-top:110px;
+         border-top:1px solid var(--line);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  footer a:hover{color:var(--teal)}
+
+  @media (max-width:760px){
+    .wrap{padding:0 22px}
+    .hero h1{font-size:38px}
+    .rings{display:none}
+    .item{grid-template-columns:44px 1fr;gap:18px}
+    .item .t{flex-direction:column;gap:6px}
+    .item .p{display:none}
+    nav{display:none}
+    .note{grid-template-columns:1fr;gap:30px}
+    footer{flex-direction:column;gap:14px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <a href="#" class="brand">
+      <svg width="34" height="34" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="62" fill="none" stroke="#EDE7D6" stroke-width="3"/>
+        <circle cx="100" cy="100" r="44" fill="none" stroke="#EDE7D6" stroke-width="2"/>
+        <circle cx="100" cy="100" r="18" fill="#EDE7D6"/>
+        <circle cx="100" cy="100" r="4" fill="#CF4A2E"/>
+      </svg>
+      COSMIQUE
+    </a>
+    <nav>
+      <a href="#apps">Catalogue</a>
+      <a href="#about">Approach</a>
+      <a href="mailto:hello@cosmique.io">Contact</a>
+    </nav>
+    <span class="pelican">A Cosmique Original</span>
+  </header>
+
+  <section class="hero">
+    <svg class="rings" viewBox="0 0 600 600" aria-hidden="true">
+      <g>
+        <circle cx="300" cy="300" r="290" stroke-width="1"/>
+        <circle cx="300" cy="300" r="255" stroke-width="1"/>
+        <circle cx="300" cy="300" r="220" stroke-width="1"/>
+        <circle cx="300" cy="300" r="185" stroke-width="1.2"/>
+        <circle cx="300" cy="300" r="150" stroke-width="1.2"/>
+        <circle cx="300" cy="300" r="116" stroke-width="1.5"/>
+        <circle cx="300" cy="300" r="84" stroke-width="1.8"/>
+        <circle cx="300" cy="300" r="54" stroke-width="2.2"/>
+        <circle cx="300" cy="300" r="26" stroke-width="3"/>
+        <circle cx="300" cy="300" r="7" fill="#CF4A2E" stroke="none"/>
+      </g>
+    </svg>
+    <h1>Small software, for the scientific age.</h1>
+    <div class="by">A solo studio · est. 2024</div>
+    <p>A short catalogue of tools made with restraint — no tracking, no accounts, no noise. Things built to keep working long after the trends have passed.</p>
+  </section>
+
+  <section id="apps" class="contents">
+    <div class="ctop"><h2>Contents</h2><span>Three volumes</span></div>
+
+    <a href="#" class="item">
+      <img src="../website/src/assets/punkt/punkt-icon.svg" alt="">
+      <div class="t"><h3>Punkt</h3><span class="d">News on your wrist. Nothing more.</span></div>
+      <span class="p">Apple Watch · iPhone</span>
+    </a>
+    <a href="#" class="item">
+      <img src="../website/src/assets/bulletin/bulletin-icon.png" alt="">
+      <div class="t"><h3>Bulletin</h3><span class="d">An RSS reader for Miniflux, made with intention.</span></div>
+      <span class="p">iPhone</span>
+    </a>
+    <a href="#" class="item">
+      <img src="../website/src/assets/orbit/orbit-icon.svg" alt="">
+      <div class="t"><h3>Orbit</h3><span class="d">The music server built for serious collectors.</span></div>
+      <span class="p">macOS · Linux · Windows</span>
+    </a>
+  </section>
+
+  <section id="about" class="note">
+    <div>
+      <h4>The approach</h4>
+      <p>Less, but better. Every app does one thing honestly, then gets out of your way — and stays that way.</p>
+    </div>
+    <svg class="ring2" viewBox="0 0 300 300" aria-hidden="true">
+      <circle cx="150" cy="150" r="140" stroke-width="1"/>
+      <circle cx="150" cy="150" r="108" stroke-width="1.2"/>
+      <circle cx="150" cy="150" r="78" stroke-width="1.5"/>
+      <circle cx="150" cy="150" r="50" stroke-width="2"/>
+      <circle cx="150" cy="150" r="26" stroke-width="2.6"/>
+      <circle cx="150" cy="150" r="6" fill="#CF4A2E" stroke="none"/>
+    </svg>
+  </section>
+
+  <footer>
+    <span>Cosmique — Independent software</span>
+    <a href="mailto:hello@cosmique.io">hello@cosmique.io</a>
+  </footer>
+
+</div>
+</body>
+</html>

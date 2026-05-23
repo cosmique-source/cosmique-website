@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Orbit · Cosmique</title>
+<link rel="stylesheet" href="../cosmique-design/css/cosmique.css">
+<script src="../cosmique-design/js/theme.js"></script>
+<style>
+  /* page-local only */
+  .measure{max-width:760px}
+
+  .phead{padding:64px 0 56px;border-bottom:1px solid var(--color-hair)}
+  .phead h1{font-size:46px;line-height:1.1;font-weight:var(--weight-bold);letter-spacing:var(--tracking-tight)}
+  .phead .intro{margin-top:24px;font-size:19px;line-height:1.7;color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper))}
+
+  .block{padding:56px 0;border-bottom:1px solid var(--color-hair)}
+  .block p{font-size:17px;line-height:1.8;color:color-mix(in srgb,var(--color-ink) 82%,var(--color-paper))}
+  .block p + p{margin-top:18px}
+  .block p b{color:var(--color-ink)}
+
+  .rams{padding:56px 0;border-bottom:1px solid var(--color-hair)}
+  .rams blockquote{font-family:Georgia,"Times New Roman",serif;font-size:26px;font-style:italic;
+                   line-height:1.4;color:var(--color-ink);padding-left:24px;border-left:2px solid var(--color-accent);margin-bottom:18px}
+  .rams p{font-size:17px;line-height:1.8;margin-top:24px;color:color-mix(in srgb,var(--color-ink) 82%,var(--color-paper))}
+
+  .lists{padding:56px 0;border-bottom:1px solid var(--color-hair)}
+  .lists .two{display:grid;grid-template-columns:1fr 1fr;gap:46px}
+  .lists h3{font-size:14px;letter-spacing:.04em;margin-bottom:16px}
+  .lists ul{list-style:none}
+  .lists ul li{font-size:15.5px;padding:10px 0 10px 22px;position:relative;line-height:1.55;border-bottom:1px solid var(--color-hair);
+               color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper))}
+  .lists ul.yes li:before{content:"";position:absolute;left:0;top:18px;width:7px;height:7px;border-radius:50%;background:var(--color-accent)}
+  .lists ul.no li{color:var(--color-muted)}
+  .lists ul.no li:before{content:"–";position:absolute;left:2px;top:9px;color:var(--color-hair);font-weight:var(--weight-bold)}
+
+  .going{padding:56px 0}
+  .going p{font-size:17px;line-height:1.8;color:color-mix(in srgb,var(--color-ink) 82%,var(--color-paper))}
+  .going p b{color:var(--color-ink)}
+
+  .contact{margin:30px 0 0;border:1px solid var(--color-hair);background:var(--color-card);padding:40px 40px;text-align:center}
+  .contact h3{font-size:24px;font-weight:var(--weight-bold);letter-spacing:-.01em}
+  .contact a.mail{display:inline-block;margin-top:16px;font-size:16px;color:var(--color-accent);border-bottom:1.5px solid var(--color-accent);padding-bottom:3px}
+
+  @media (max-width:880px){
+    .phead h1{font-size:34px}
+    .rams blockquote{font-size:21px}
+    .lists .two{grid-template-columns:1fr;gap:30px}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="ds-header">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="3" style="color:var(--color-ink)"/>
+        <circle cx="100" cy="100" r="44" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--color-ink)"/>
+        <circle cx="100" cy="100" r="18" style="fill:var(--color-ink)"/><circle cx="100" cy="100" r="4" style="fill:var(--color-accent)"/>
+      </svg>
+      <a href="orbit.html"><b>Cosmique</b></a>&nbsp;<span>/ Orbit / About</span>
+    </div>
+    <nav class="nav">
+      <a href="orbit.html#features">Features</a>
+      <a href="orbit-vinyl.html">Vinyl</a>
+      <a href="orbit-classical.html">Classical</a>
+      <a href="orbit-pricing.html">Pricing</a>
+      <a href="orbit-about.html" class="active">About</a>
+      <button class="theme-toggle">◑&nbsp;Theme</button>
+    </nav>
+  </header>
+</div>
+
+<div class="wrap measure">
+
+  <section class="phead">
+    <h1>Orbit is built by one person.</h1>
+    <p class="intro">No team, no investors, no roadmap dictated by metrics — just the music server I wanted to exist.</p>
+  </section>
+
+  <section class="block">
+    <h2 class="kick">The story</h2>
+    <p>Orbit started because my record collection had outgrown every tool I'd tried. Roon didn't speak vinyl. Plex didn't speak classical. Navidrome was close, but the library model was wrong for box sets of Mahler. Discogs had the data but no playback.</p>
+    <p>Nothing in the stack understood both a 1965 Blue Note original pressing and a 24/192 classical download, side by side, in one library. So I started building <b>the thing I wanted</b>.</p>
+  </section>
+
+  <section class="rams">
+    <h2 class="kick">Philosophy</h2>
+    <blockquote>Good design is as little design as possible.</blockquote>
+    <blockquote>Good design is unobtrusive.</blockquote>
+    <p>Two of Dieter Rams' ten principles sit on my wall. Orbit is an attempt to apply them to software. No animation for its own sake. No colours that aren't carrying information. No configuration page with seventy toggles. A tool should do its job and get out of the way.</p>
+  </section>
+
+  <section class="lists">
+    <h2 class="kick">Who it's for</h2>
+    <div class="two">
+      <div>
+        <h3>It's for</h3>
+        <ul class="yes">
+          <li>People who own records and care which pressing they're playing.</li>
+          <li>People whose classical collection breaks every artist/album-shaped app.</li>
+          <li>People who run their own hardware because they like running their own hardware.</li>
+          <li>People who read this and felt relief.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>It's not for</h3>
+        <ul class="no">
+          <li>People who want a Spotify clone.</li>
+          <li>People who want a social network with a music feature.</li>
+          <li>People who want every feature every app has ever had.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="going">
+    <h2 class="kick">Where it's going</h2>
+    <p>Multi-room is working. A proper streaming protocol — Orbit's own, documented, open — is shipping. Reference hardware (a dedicated controller called Sputnik) is on the bench. <b>None of that is vapourware; there are commits.</b> The long-term plan is to make Orbit good enough, loved enough, and open enough that it becomes the obvious serious-music-library software for anyone who wants one.</p>
+  </section>
+
+  <section class="contact">
+    <h3>Questions, or just want to say hello?</h3>
+    <a href="mailto:contact@cosmique.io" class="mail">contact@cosmique.io</a>
+  </section>
+
+  <footer class="ds-footer">
+    <span>Orbit — a Cosmique original · built by one person</span>
+    <div class="links">
+      <a href="orbit.html">Orbit home</a><a href="#">Privacy</a><a href="#">Docs</a><a href="#">GitHub</a>
+      <a href="mailto:contact@cosmique.io">Contact</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

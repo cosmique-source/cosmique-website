@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cosmique — Homepage Concepts</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;background:#EEE9DA;color:#1A1813;
+        -webkit-font-smoothing:antialiased;line-height:1.55}
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.12;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='130' height='130' filter='url(%23n)'/%3E%3C/svg%3E")}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1100px;margin:0 auto;padding:56px 40px 100px;position:relative;z-index:1}
+  .top{display:flex;align-items:center;gap:16px;padding-bottom:22px;border-bottom:3px solid #1A1813}
+  .top h1{font-size:24px;font-weight:800;letter-spacing:.24em}
+  .lead{margin:28px 0 46px;font-size:16px;color:#5b574a;max-width:600px;line-height:1.75}
+  .lead b{color:#C0402A}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+  .card{display:block;border:2px solid #1A1813;overflow:hidden;background:#EDE8DA;transition:.2s}
+  .card:hover{transform:translateY(-5px)}
+  .thumb{height:160px;display:flex;align-items:center;justify-content:center;font-weight:800;
+          letter-spacing:.04em;border-bottom:2px solid #1A1813;text-align:center;padding:0 18px}
+  .t1{background:#16202B;color:#EDE7D6}
+  .t2{background:#EBE6D7;color:#BC4630;font-size:30px}
+  .t3{background:#ECE8DB;color:#26241D;font-size:34px}
+  .t4{background:#EEE9DA;color:#C0402A;font-size:30px}
+  .t5{background:#EBE6D7;color:#BC4630;font-size:22px}
+  .meta{padding:20px 22px}
+  .meta .n{font-size:11px;color:#9b9580;letter-spacing:.18em;text-transform:uppercase}
+  .meta h2{font-size:21px;font-weight:800;margin:7px 0 8px}
+  .meta p{font-size:13.5px;color:#5b574a;line-height:1.6}
+  @media (max-width:560px){.wrap{padding:36px 22px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <svg width="40" height="40" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="62" fill="none" stroke="#1A1813" stroke-width="3"/>
+      <circle cx="100" cy="100" r="44" fill="none" stroke="#1A1813" stroke-width="2"/>
+      <circle cx="100" cy="100" r="18" fill="#1A1813"/>
+      <circle cx="100" cy="100" r="3.4" fill="#C0402A"/>
+    </svg>
+    <h1>COSMIQUE</h1>
+  </div>
+
+  <p class="lead"><a href="home.html" style="color:#C0402A;font-weight:600;border-bottom:1.5px solid #C0402A;padding-bottom:2px">→ View the live homepage (Atomic theme)</a> &nbsp;·&nbsp; the chosen direction, with working links through to the Bulletin and Orbit pages.</p>
+
+  <p class="lead"><a href="previews.html" style="color:#C0402A;font-weight:600;border-bottom:1.5px solid #C0402A;padding-bottom:2px">→ App preview wall</a> &nbsp;·&nbsp; iOS + web screens in device frames, all on the shared design system. &nbsp;<a href="../cosmique-design/styleguide.html" style="color:#7d7868">styleguide ↗</a></p>
+
+  <p class="lead"><a href="../cosmique-design/snapshots.html" style="color:#C0402A;font-weight:600;border-bottom:1.5px solid #C0402A;padding-bottom:2px">→ Native SwiftUI snapshot wall</a> &nbsp;·&nbsp; real ImageRenderer renders from the <b>CosmiquePreviews</b> Swift package (run the test to fill them in).</p>
+
+  <p class="lead">Below: the original five homepage directions, rebuilt from the <b>inspo/</b> folder — atomic-age &amp; space-age retro-futurism with a cream / brick-red / charcoal / sage palette and print grain.</p>
+
+  <div class="grid">
+    <a class="card" href="1-braun.html">
+      <div class="thumb t1">◎ &nbsp;Cosmic concentric</div>
+      <div class="meta"><div class="n">Concept 01</div><h2>Pelican</h2>
+        <p>Dark cosmic field, giant concentric-circle spiral, teal accent — a vintage science-paperback cover as a homepage.</p></div>
+    </a>
+    <a class="card" href="2-terminal.html">
+      <div class="thumb t2">Our friend, the app.</div>
+      <div class="meta"><div class="n">Concept 02</div><h2>Atomic</h2>
+        <p>Brick-red poster field. The apps orbit the Cosmique nucleus as electrons in an atom diagram.</p></div>
+    </a>
+    <a class="card" href="3-editorial.html">
+      <div class="thumb t3">2026</div>
+      <div class="meta"><div class="n">Concept 03</div><h2>Эстетика</h2>
+        <p>A Soviet technical-aesthetic instrument panel: flip-clock numerals, machined faceplate, control-knob app modules.</p></div>
+    </a>
+    <a class="card" href="4-swiss.html">
+      <div class="thumb t4">ANALOG VALUES</div>
+      <div class="meta"><div class="n">Concept 04</div><h2>Poster</h2>
+        <p>Editorial film-poster layout: huge grotesque title, labeled side notes, apps as a cast list, designer credit.</p></div>
+    </a>
+    <a class="card" href="5-faceplate.html">
+      <div class="thumb t5">★ ★ ★ ★ ★</div>
+      <div class="meta"><div class="n">Concept 05</div><h2>Kosmos</h2>
+        <p>A space-science propaganda poster set — each app its own screen-printed rocket / orbit / atom tile.</p></div>
+    </a>
+  </div>
+
+  <p class="lead" style="margin-top:52px;border-top:1px solid #D8D5CB;padding-top:40px">App pages in the Atomic theme — existing Cosmique app pages restyled. All copy is real, from each app's content.</p>
+
+  <div class="grid">
+    <a class="card" href="bulletin.html">
+      <div class="thumb t3" style="font-size:22px">An RSS reader for Miniflux.</div>
+      <div class="meta"><div class="n">App page · Atomic theme</div><h2>Bulletin</h2>
+        <p>The existing /apps/bulletin page restyled — broadcast-wave hero, real screenshots, features grid, and privacy callout.</p></div>
+    </a>
+  </div>
+
+  <p class="lead" style="margin-top:44px">Orbit, in context — a full marketing site for one product. Landing page plus four subpages, all on the shared <b>design system</b>. Use the <b>◑ Theme</b> toggle in any page's nav to switch light/dark (one stylesheet, no duplicate page).</p>
+
+  <div class="grid">
+    <a class="card" href="orbit.html">
+      <div class="thumb t2">A music server for people who listen closely.</div>
+      <div class="meta"><div class="n">Landing · light + dark toggle</div><h2>Orbit</h2>
+        <p>Orbital vinyl hero, three pillars, audience sections, “six pressings” list, comparison table, pricing.</p></div>
+    </a>
+    <a class="card" href="orbit-vinyl.html">
+      <div class="thumb t3" style="font-size:22px">For vinyl collectors</div>
+      <div class="meta"><div class="n">Subpage</div><h2>Vinyl</h2>
+        <p>What you can record vs. what you can do with it, screenshot row, tester quote.</p></div>
+    </a>
+    <a class="card" href="orbit-classical.html">
+      <div class="thumb t3" style="font-size:22px">Composer → Work → Movement</div>
+      <div class="meta"><div class="n">Subpage</div><h2>Classical</h2>
+        <p>The hierarchy, example queries, screenshot row, and the “never phoned home” note.</p></div>
+    </a>
+    <a class="card" href="orbit-pricing.html">
+      <div class="thumb t2" style="font-size:30px">Free · forever</div>
+      <div class="meta"><div class="n">Subpage</div><h2>Pricing</h2>
+        <p>Free server, iOS Free/Pro tier table, free macOS, Orbit Cloud, and “No ads. Ever.”</p></div>
+    </a>
+    <a class="card" href="orbit-about.html">
+      <div class="thumb t4" style="font-size:24px;font-style:italic">Built by one person</div>
+      <div class="meta"><div class="n">Subpage</div><h2>About</h2>
+        <p>The story, Dieter Rams philosophy, who it's for / not for, and where it's going.</p></div>
+    </a>
+  </div>
+
+</div>
+</body>
+</html>

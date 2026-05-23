@@ -4,6 +4,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/CNAME");
 
+  // Design system (cosmique-design submodule at repo root) → /assets/cosmique/
+  eleventyConfig.addPassthroughCopy({ "../cosmique-design/css": "assets/cosmique" });
+  eleventyConfig.addPassthroughCopy({ "../cosmique-design/js/theme.js": "assets/cosmique/theme.js" });
+
   // Add content.json as global data
   eleventyConfig.addGlobalData("site", require("./content.json"));
 

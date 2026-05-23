@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cosmique — Concept 2 · Atomic</title>
+<style>
+  :root{
+    --paper:#EBE6D7;
+    --ink:#26231C;
+    --muted:#857F6E;
+    --hair:#D6D0BE;
+    --brick:#BC4630;
+    --sage:#9FA48E;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden;
+  }
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.07;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='130' height='130' filter='url(%23n)'/%3E%3C/svg%3E")}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 44px;position:relative;z-index:1}
+
+  header{display:flex;align-items:center;justify-content:space-between;padding:32px 0}
+  .brand{display:flex;align-items:center;gap:13px;font-weight:600;letter-spacing:.24em;font-size:14px}
+  nav{display:flex;gap:30px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  nav a:hover{color:var(--ink)}
+
+  /* hero atom */
+  .hero{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;padding:70px 0 60px}
+  .lede .tag{display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.24em;
+             text-transform:uppercase;color:var(--muted);margin-bottom:28px}
+  .lede .tag i{width:6px;height:6px;border-radius:50%;background:var(--brick);display:block}
+  .lede h1{font-size:54px;line-height:1.02;font-weight:700;letter-spacing:-.02em}
+  .lede h1 .o{color:var(--brick)}
+  .lede p{margin-top:26px;max-width:25em;font-size:16px;line-height:1.75;color:#544f43}
+  .lede a.cta{display:inline-flex;align-items:center;gap:9px;margin-top:34px;
+              font-weight:600;font-size:13px;letter-spacing:.06em;color:var(--ink);
+              border-bottom:1.5px solid var(--brick);padding-bottom:5px}
+  .lede a.cta:hover{gap:14px}
+
+  .atom{position:relative;aspect-ratio:1;max-width:440px;justify-self:center;width:100%}
+  .atom svg{width:100%;height:100%;overflow:visible}
+  .atom .orb{fill:none;stroke:var(--ink);stroke-width:1;opacity:.35}
+  .atom .orb.hot{stroke:var(--brick);opacity:.55}
+  .atom .nuc{fill:none;stroke:var(--ink);stroke-width:1.4}
+  .atom .nuc-dot{fill:var(--brick)}
+  .el{position:absolute;display:flex;flex-direction:column;align-items:center;gap:9px;
+      transform:translate(-50%,-50%);transition:.2s}
+  .el img{width:54px;height:54px;border-radius:12px;border:1px solid var(--hair);background:#fff;
+          box-shadow:0 4px 14px -8px rgba(0,0,0,.4)}
+  .el span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .el:hover{transform:translate(-50%,-50%) translateY(-3px)}
+  .el:hover span{color:var(--ink)}
+  .el.e1{left:50%;top:3%}
+  .el.e2{left:93%;top:75%}
+  .el.e3{left:7%;top:75%}
+
+  /* app band */
+  .band{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--hair);margin-top:40px}
+  .band div{padding:34px 28px 34px 0;border-right:1px solid var(--hair)}
+  .band div:last-child{border-right:none;padding-right:0}
+  .band .n{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+  .band h3{font-size:20px;font-weight:700;margin-bottom:8px}
+  .band p{font-size:14px;line-height:1.65;color:#5b574a}
+
+  footer{display:flex;justify-content:space-between;align-items:center;padding:38px 0 60px;margin-top:60px;
+          border-top:1px solid var(--hair);font-size:12px;letter-spacing:.12em;color:var(--muted)}
+  footer a:hover{color:var(--ink)}
+
+  @media (max-width:880px){
+    .wrap{padding:0 22px}
+    .hero{grid-template-columns:1fr;gap:50px;padding:40px 0}
+    .lede h1{font-size:40px}
+    nav{display:none}
+    .band{grid-template-columns:1fr}
+    .band div{border-right:none;border-bottom:1px solid var(--hair);padding:26px 0}
+    .band div:last-child{border-bottom:none}
+    footer{flex-direction:column;gap:14px;align-items:flex-start}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <a href="#" class="brand">
+      <svg width="32" height="32" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="62" fill="none" stroke="#26231C" stroke-width="3"/>
+        <circle cx="100" cy="100" r="44" fill="none" stroke="#26231C" stroke-width="2"/>
+        <circle cx="100" cy="100" r="18" fill="#26231C"/>
+        <circle cx="100" cy="100" r="4" fill="#BC4630"/>
+      </svg>
+      COSMIQUE
+    </a>
+    <nav>
+      <a href="#">Catalogue</a>
+      <a href="#">Approach</a>
+      <a href="mailto:hello@cosmique.io">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="lede">
+      <div class="tag"><i></i> Independent software</div>
+      <h1>Our&nbsp;friend,<br>the&nbsp;<span class="o">app.</span></h1>
+      <p>A solo studio orbiting a simple idea: small, honest tools with no tracking and no compromise. Three of them, so far.</p>
+      <a href="#" class="cta">View the catalogue →</a>
+    </div>
+
+    <div class="atom">
+      <svg viewBox="0 0 400 400" aria-hidden="true">
+        <ellipse class="orb" cx="200" cy="200" rx="190" ry="74"/>
+        <ellipse class="orb hot" cx="200" cy="200" rx="190" ry="74" transform="rotate(60 200 200)"/>
+        <ellipse class="orb" cx="200" cy="200" rx="190" ry="74" transform="rotate(120 200 200)"/>
+        <circle class="nuc" cx="200" cy="200" r="30"/>
+        <circle class="nuc-dot" cx="200" cy="200" r="6"/>
+      </svg>
+      <a href="#" class="el e1"><img src="../website/src/assets/punkt/punkt-icon.svg" alt=""><span>Punkt</span></a>
+      <a href="#" class="el e2"><img src="../website/src/assets/orbit/orbit-icon.svg" alt=""><span>Orbit</span></a>
+      <a href="#" class="el e3"><img src="../website/src/assets/bulletin/bulletin-icon.png" alt=""><span>Bulletin</span></a>
+    </div>
+  </section>
+
+  <section class="band">
+    <div><div class="n">No. 01</div><h3>Punkt</h3><p>News on your wrist. Nothing more. A minimalist RSS reader for Apple Watch.</p></div>
+    <div><div class="n">No. 02</div><h3>Bulletin</h3><p>A thoughtfully designed RSS reader, built exclusively for Miniflux.</p></div>
+    <div><div class="n">No. 03</div><h3>Orbit</h3><p>The self-hosted music server built for serious collectors and vinyl nerds.</p></div>
+  </section>
+
+  <footer>
+    <span>Cosmique — independent software, since 2024</span>
+    <a href="mailto:hello@cosmique.io">hello@cosmique.io</a>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+/* Legacy page bridge — re-skins the original style.css class names with Cosmique
+   tokens so the legal / support / pricing pages match the redesign without
+   rewriting their markup. cosmique.css supplies the tokens, reset, body + grain. */
+
+.container{max-width:760px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+header{padding:40px 0 8px}
+.logo{display:block;max-width:190px;height:auto}
+.tagline{font-size:13px;color:var(--color-muted);letter-spacing:.05em;margin-top:8px}
+
+main{padding:28px 0 0}
+
+.breadcrumb{font-size:13px;color:var(--color-muted);letter-spacing:.04em;margin-bottom:34px;padding-bottom:14px;border-bottom:1px solid var(--color-hair)}
+.breadcrumb a{color:var(--color-muted)}
+.breadcrumb a:hover{color:var(--color-ink)}
+
+.app-detail{max-width:720px}
+.app-detail-title{font-size:40px;font-weight:var(--weight-bold);letter-spacing:var(--tracking-tight);margin-bottom:10px}
+.app-detail-tagline{font-size:16px;color:var(--color-muted);margin-bottom:8px}
+
+.section-title{font-size:var(--size-kicker);font-weight:var(--weight-medium);letter-spacing:var(--tracking-kicker);
+               text-transform:uppercase;color:var(--color-muted);margin:42px 0 14px;display:flex;align-items:center;gap:12px}
+.section-title::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--color-accent)}
+
+.app-section{margin-bottom:8px}
+.app-detail-description{font-size:16px;line-height:1.75;margin-bottom:6px;
+                        color:color-mix(in srgb,var(--color-ink) 84%,var(--color-paper))}
+.app-detail-description a{color:var(--color-accent);border-bottom:1px solid var(--color-hair)}
+.app-detail-description strong{color:var(--color-ink)}
+
+.feature-list{list-style:none;margin:10px 0 14px;padding:0}
+.feature-list li{font-size:15px;line-height:1.6;padding:8px 0 8px 22px;position:relative;border-bottom:1px solid var(--color-hair);
+                 color:color-mix(in srgb,var(--color-ink) 80%,var(--color-paper))}
+.feature-list li::before{content:"—";position:absolute;left:0;color:var(--color-accent)}
+.feature-list li strong{color:var(--color-ink)}
+
+.platform-badge{display:inline-block;border:1px solid var(--color-hair);border-radius:var(--radius-sm);padding:6px 12px;
+                font-size:var(--size-kicker);letter-spacing:.14em;text-transform:uppercase;color:var(--color-muted)}
+
+.app-links-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+.app-link{display:inline-block;border:1px solid var(--color-accent);color:var(--color-accent);padding:12px 20px;
+          border-radius:var(--radius-sm);font-size:13px;font-weight:var(--weight-medium);letter-spacing:.04em;transition:background .18s,color .18s}
+.app-link:hover{background:var(--color-accent);color:var(--color-paper)}
+.app-link-secondary{border-color:var(--color-hair);color:var(--color-muted)}
+.app-link-secondary:hover{background:transparent;border-color:var(--color-ink);color:var(--color-ink)}
+
+/* support form (when present) */
+.support-form{max-width:480px;margin-top:8px}
+.form-group{margin-bottom:18px}
+.form-label{display:block;font-size:13px;font-weight:var(--weight-medium);margin-bottom:6px}
+.form-input,.form-textarea{width:100%;padding:12px;font-family:var(--font-sans);font-size:15px;border:1px solid var(--color-hair);
+                           background:var(--color-card);color:var(--color-ink);border-radius:var(--radius-sm)}
+.form-input:focus,.form-textarea:focus{outline:none;border-color:var(--color-ink)}
+.form-textarea{resize:vertical;min-height:120px}
+.form-submit{display:inline-block;border:none;background:var(--color-ink);color:var(--color-paper);padding:13px 24px;
+             font-size:13px;font-weight:var(--weight-medium);letter-spacing:.05em;border-radius:var(--radius-sm);cursor:pointer}
+.form-submit:hover{background:var(--color-accent)}
+
+.app-nav{margin-top:56px;padding-top:24px;border-top:1px solid var(--color-hair)}
+.back-link{font-size:13px;color:var(--color-muted)}
+.back-link:hover{color:var(--color-ink)}
+
+footer{padding:48px 0 64px;margin-top:40px;border-top:1px solid var(--color-hair)}
+.footer-content{font-size:13px;color:var(--color-muted);text-align:center}
+.footer-content p{margin-bottom:6px}
+.footer-content a{color:var(--color-accent)}

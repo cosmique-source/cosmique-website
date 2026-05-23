@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pricing — Orbit · Cosmique</title>
+<link rel="stylesheet" href="../cosmique-design/css/cosmique.css">
+<script src="../cosmique-design/js/theme.js"></script>
+<style>
+  /* page-local only */
+  .phead{padding:60px 0 56px;border-bottom:1px solid var(--color-hair)}
+  .phead h1{font-size:46px;line-height:1.06;font-weight:var(--weight-bold);letter-spacing:var(--tracking-tight)}
+  .phead .intro{margin-top:22px;font-size:18px;max-width:34em;line-height:1.7;color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper))}
+
+  .server{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;padding:64px 0;border-bottom:1px solid var(--color-hair)}
+  .server .price{font-size:64px;font-weight:var(--weight-bold);letter-spacing:-.03em;color:var(--color-accent);line-height:1}
+  .server .price small{display:block;font-size:14px;font-weight:var(--weight-regular);letter-spacing:.04em;color:var(--color-muted);margin-top:10px;text-transform:uppercase}
+  .server ul{list-style:none;margin-top:8px}
+  .server li{font-size:15px;padding:9px 0 9px 20px;position:relative;line-height:1.5;color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper))}
+  .server li:before{content:"";position:absolute;left:0;top:15px;width:6px;height:6px;border-radius:50%;background:var(--color-accent)}
+  .cmd{display:inline-block;margin-top:22px;background:var(--color-ink);color:var(--color-paper);font-size:13px;padding:13px 20px;border-radius:var(--radius-sm)}
+  .cmd .p{color:var(--color-sage)}
+
+  .ios{padding:64px 0;border-bottom:1px solid var(--color-hair)}
+  .ios .lead-line{font-size:24px;font-weight:var(--weight-medium);letter-spacing:-.01em;margin-bottom:8px}
+  .ios .lead-line b{color:var(--color-accent)}
+  .ios table{width:100%;border-collapse:collapse;margin-top:22px;font-size:14.5px}
+  .ios th,.ios td{text-align:left;padding:16px 16px;border-bottom:1px solid var(--color-hair);vertical-align:top}
+  .ios thead th{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted);font-weight:var(--weight-medium)}
+  .ios td.tier{font-weight:var(--weight-bold);white-space:nowrap}
+  .ios td.tier.pro{color:var(--color-accent)}
+  .ios td.cost{white-space:nowrap;font-weight:var(--weight-medium)}
+  .ios td.what{line-height:1.55;color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper))}
+  .fineprint{margin-top:16px;font-size:13px;color:var(--color-muted)}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:64px 0}
+  .box{border:1px solid var(--color-hair);background:var(--color-card);padding:30px 28px}
+  .box .name{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted)}
+  .box .price{font-size:34px;font-weight:var(--weight-bold);letter-spacing:-.02em;margin:12px 0 12px;color:var(--color-accent)}
+  .box p{font-size:14.5px;line-height:1.6;color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper))}
+
+  .noads{text-align:center;padding:34px 0 0}
+  .noads .big{font-size:32px;font-weight:var(--weight-bold);letter-spacing:-.01em}
+  .noads p{margin-top:10px;color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper))}
+
+  .cta{margin:80px 0 0;border:1px solid var(--color-hair);background:var(--color-card);padding:46px 44px;display:flex;
+       align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .cta h3{font-size:24px;font-weight:var(--weight-bold);letter-spacing:-.01em}
+
+  @media (max-width:880px){
+    .phead h1{font-size:34px}
+    .server,.two{grid-template-columns:1fr;gap:30px;padding:44px 0}
+    .ios{overflow-x:auto}
+    .ios table{min-width:560px}
+    .cta{flex-direction:column;align-items:flex-start}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="ds-header">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="3" style="color:var(--color-ink)"/>
+        <circle cx="100" cy="100" r="44" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--color-ink)"/>
+        <circle cx="100" cy="100" r="18" style="fill:var(--color-ink)"/><circle cx="100" cy="100" r="4" style="fill:var(--color-accent)"/>
+      </svg>
+      <a href="orbit.html"><b>Cosmique</b></a>&nbsp;<span>/ Orbit / Pricing</span>
+    </div>
+    <nav class="nav">
+      <a href="orbit.html#features">Features</a>
+      <a href="orbit-vinyl.html">Vinyl</a>
+      <a href="orbit-classical.html">Classical</a>
+      <a href="orbit-pricing.html" class="active">Pricing</a>
+      <a href="orbit-about.html">About</a>
+      <button class="theme-toggle">◑&nbsp;Theme</button>
+    </nav>
+  </header>
+
+  <section class="phead">
+    <h1>Pricing</h1>
+    <p class="intro">The server is free, forever. The iOS app has a generous free tier and an optional Pro unlock. That's it.</p>
+  </section>
+
+  <!-- SERVER -->
+  <section class="server">
+    <div>
+      <h2 class="kick">The server</h2>
+      <div class="price">Free<small>Forever — open source</small></div>
+      <div class="cmd mono"><span class="p">$</span> docker run … orbit/server</div>
+    </div>
+    <div>
+      <ul>
+        <li>Run it on your NAS, home server, a Raspberry Pi, or a miniPC.</li>
+        <li>No account required. No trial countdown. No licence key.</li>
+        <li>No telemetry unless you turn it on.</li>
+        <li>Cloud-side code is open — audit it yourself.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- iOS -->
+  <section class="ios">
+    <h2 class="kick">iOS</h2>
+    <div class="lead-line">Free tier covers a room. <b>Pro covers the house.</b></div>
+    <table>
+      <thead>
+        <tr><th>Tier</th><th>Price</th><th>What you get</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tier">Free</td>
+          <td class="cost">$0</td>
+          <td class="what">Full library browse, search, single-zone playback on your LAN, bit-perfect streams including SACD/DSD, CarPlay basics, Apple Watch Now Playing.</td>
+        </tr>
+        <tr>
+          <td class="tier pro">Pro Annual</td>
+          <td class="cost">$24 / yr<br><span style="font-weight:400;color:var(--color-muted)">7-day trial</span></td>
+          <td class="what">Everything in Free, plus multi-room, offline downloads, remote access, Apple TV, Watch standalone, advanced CarPlay, Shortcuts, Live Activities, listening insights.</td>
+        </tr>
+        <tr>
+          <td class="tier pro">Pro Monthly</td>
+          <td class="cost">$3.99 / mo</td>
+          <td class="what">Same as Annual, billed monthly.</td>
+        </tr>
+        <tr>
+          <td class="tier pro">Pro Lifetime</td>
+          <td class="cost">$79 once</td>
+          <td class="what">All future Pro features for the life of Orbit iOS.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="fineprint">Apple Family Sharing works on every paid tier. Cross-platform entitlements via Orbit Account.</p>
+  </section>
+
+  <!-- DESKTOP + CLOUD -->
+  <section class="two">
+    <div class="box">
+      <div class="name">macOS desktop</div>
+      <div class="price">Free</div>
+      <p>Bit-perfect CoreAudio player with full library browsing, multi-zone control, and exclusive device access. Cloud-dependent features (remote access via relay) require an Orbit Account with a Pro entitlement on any device.</p>
+    </div>
+    <div class="box">
+      <div class="name">Orbit Cloud</div>
+      <div class="price">Optional</div>
+      <p>Free tier. Remote access is included with Pro. Accounts are free; encrypted metadata backup is included; heavy users with hardware endpoints may see a paid relay tier later.</p>
+    </div>
+  </section>
+
+  <section class="noads">
+    <div class="big">No ads. Ever.</div>
+    <p>Not a pattern we're growing into. Not an asterisk. Not now, not ever.</p>
+  </section>
+
+  <section class="cta">
+    <h3>Start free. Stay free, if a room is all you need.</h3>
+    <a href="orbit.html#download" class="btn">Get the server →</a>
+  </section>
+
+  <footer class="ds-footer">
+    <span>Orbit — a Cosmique original · built by one person</span>
+    <div class="links">
+      <a href="orbit-about.html">About</a><a href="#">Privacy</a><a href="#">Docs</a><a href="#">GitHub</a>
+      <a href="mailto:contact@cosmique.io">Contact</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

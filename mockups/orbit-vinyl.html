@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orbit for vinyl collectors · Cosmique</title>
+<link rel="stylesheet" href="../cosmique-design/css/cosmique.css">
+<script src="../cosmique-design/js/theme.js"></script>
+<style>
+  /* page-local only */
+  .phead{padding:60px 0 64px;border-bottom:1px solid var(--color-hair)}
+  .phead .for{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-muted);margin-bottom:22px}
+  .phead h1{font-size:46px;line-height:1.06;font-weight:var(--weight-bold);letter-spacing:var(--tracking-tight);max-width:14em}
+  .phead .intro{margin-top:26px;font-size:18px;max-width:34em;line-height:1.7;color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper))}
+  .phead .intro + .intro{margin-top:14px}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding:80px 0}
+  .col h3{font-size:20px;font-weight:var(--weight-bold);margin-bottom:18px}
+  ul.feat{list-style:none}
+  ul.feat li{font-size:15px;padding:11px 0 11px 22px;position:relative;border-bottom:1px solid var(--color-hair);line-height:1.55;
+             color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper))}
+  ul.feat li:before{content:"";position:absolute;left:0;top:18px;width:7px;height:7px;border-radius:50%;background:var(--color-accent)}
+  ul.feat li b{color:var(--color-ink);font-weight:var(--weight-medium)}
+
+  .shots{padding:24px 0 0}
+  .shotgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+  .shot .frame{border:1px solid var(--color-hair);background:var(--color-card);aspect-ratio:4/3;position:relative;overflow:hidden}
+  .shot .frame .tag{position:absolute;top:12px;left:12px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+                    color:var(--color-muted);background:var(--color-paper);border:1px solid var(--color-hair);padding:4px 8px;z-index:2}
+  .shot .frame svg{position:absolute;inset:0;width:100%;height:100%;opacity:.5}
+  .shot .cap{margin-top:12px;font-size:13px;line-height:1.5;color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper))}
+
+  .quote{margin:90px 0 0;border-left:2px solid var(--color-accent);padding:8px 0 8px 30px}
+  .quote p{font-size:26px;font-weight:var(--weight-medium);line-height:1.45;letter-spacing:-.01em}
+  .quote cite{display:block;margin-top:18px;font-style:normal;font-size:13px;letter-spacing:.06em;color:var(--color-muted)}
+
+  .cta{margin:90px 0 0;border:1px solid var(--color-hair);background:var(--color-card);padding:46px 44px;display:flex;
+       align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .cta h3{font-size:24px;font-weight:var(--weight-bold);letter-spacing:-.01em}
+
+  @media (max-width:880px){
+    .phead h1{font-size:34px}
+    .cols{grid-template-columns:1fr;gap:40px;padding:50px 0}
+    .shotgrid{grid-template-columns:1fr}
+    .quote p{font-size:20px}
+    .cta{flex-direction:column;align-items:flex-start}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="ds-header">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="3" style="color:var(--color-ink)"/>
+        <circle cx="100" cy="100" r="44" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--color-ink)"/>
+        <circle cx="100" cy="100" r="18" style="fill:var(--color-ink)"/><circle cx="100" cy="100" r="4" style="fill:var(--color-accent)"/>
+      </svg>
+      <a href="orbit.html"><b>Cosmique</b></a>&nbsp;<span>/ Orbit / Vinyl</span>
+    </div>
+    <nav class="nav">
+      <a href="orbit.html#features">Features</a>
+      <a href="orbit-vinyl.html" class="active">Vinyl</a>
+      <a href="orbit-classical.html">Classical</a>
+      <a href="orbit-pricing.html">Pricing</a>
+      <a href="orbit-about.html">About</a>
+      <button class="theme-toggle">◑&nbsp;Theme</button>
+    </nav>
+  </header>
+
+  <section class="phead">
+    <div class="for">For vinyl collectors</div>
+    <h1>The tool you'd build yourself if you had the time.</h1>
+    <p class="intro">Discogs is a marketplace. Your spreadsheet is a spreadsheet. Roon doesn't know what a matrix number is.</p>
+    <p class="intro">Orbit is the first music server that treats vinyl as first-class data. Every pressing tracked separately. Every rip tagged with the cartridge that made it. Every piece of condition language you cared to write, preserved.</p>
+  </section>
+
+  <section class="cols">
+    <div class="col">
+      <h3>What you can record</h3>
+      <ul class="feat">
+        <li><b>Label, catalog number, country</b> of pressing, year.</li>
+        <li><b>Matrix / runout</b> etchings.</li>
+        <li><b>Jacket and media condition</b> with free-text notes.</li>
+        <li><b>Provenance</b> — purchase date, price, seller.</li>
+        <li><b>Equipment chain</b> — turntable, cartridge, phono stage, ADC, software.</li>
+        <li><b>Discogs identifier</b> linking back to the marketplace.</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>What you can do with it</h3>
+      <ul class="feat">
+        <li>Browse your collection by <b>label, era, genre, pressing country</b>.</li>
+        <li>Filter to <b>“all Blue Note original mono pressings”</b> in two taps.</li>
+        <li>See vinyl and digital copies of the same album <b>side by side</b>.</li>
+        <li>Mark which pressing is your <b>favourite</b>, and why.</li>
+        <li><b>Export</b> your catalogue — your data, always.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="shots">
+    <h2 class="kick">A look inside</h2>
+    <div class="shotgrid">
+      <div class="shot">
+        <div class="frame"><span class="tag">Screenshot</span>
+          <svg viewBox="0 0 200 150" aria-hidden="true"><circle cx="100" cy="70" r="44" fill="none" stroke="#26231C" stroke-width="1" opacity=".4"/><circle cx="100" cy="70" r="14" fill="#BC4630"/><g stroke="#26231C" stroke-width="1" opacity=".3"><line x1="30" y1="120" x2="120" y2="120"/><line x1="30" y1="132" x2="90" y2="132"/></g></svg>
+        </div>
+        <div class="cap">Album detail with full pressing info.</div>
+      </div>
+      <div class="shot">
+        <div class="frame"><span class="tag">Screenshot</span>
+          <svg viewBox="0 0 200 150" aria-hidden="true"><g stroke="#26231C" stroke-width="1" opacity=".35" fill="none"><rect x="28" y="30" width="144" height="16"/><rect x="28" y="54" width="100" height="16"/><rect x="28" y="78" width="120" height="16"/></g><rect x="28" y="102" width="60" height="16" fill="#BC4630" opacity=".85"/></svg>
+        </div>
+        <div class="cap">Vinyl search and filter UI.</div>
+      </div>
+      <div class="shot">
+        <div class="frame"><span class="tag">Screenshot</span>
+          <svg viewBox="0 0 200 150" aria-hidden="true"><g stroke="#26231C" stroke-width="1.4" opacity=".4" fill="none"><circle cx="55" cy="75" r="16"/><line x1="71" y1="75" x2="105" y2="75"/><circle cx="120" cy="75" r="16"/><line x1="136" y1="75" x2="170" y2="75"/></g><circle cx="170" cy="75" r="5" fill="#BC4630"/></svg>
+        </div>
+        <div class="cap">Equipment-chain editor.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote">
+    <p>“Someone finally wrote the app I've been trying to build in Notion for four years.”</p>
+    <cite>— forum user, pre-release tester</cite>
+  </section>
+
+  <section class="cta">
+    <h3>Catalogue your records the way you'd build it yourself.</h3>
+    <a href="orbit.html#download" class="btn">Get the server →</a>
+  </section>
+
+  <footer class="ds-footer">
+    <span>Orbit — a Cosmique original · built by one person</span>
+    <div class="links">
+      <a href="orbit-about.html">About</a><a href="#">Privacy</a><a href="#">Docs</a><a href="#">GitHub</a>
+      <a href="mailto:contact@cosmique.io">Contact</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cosmique — Concept 4 · Poster</title>
+<style>
+  :root{
+    --paper:#EEE9DA;
+    --ink:#1A1813;
+    --brick:#C0402A;
+    --muted:#7d7868;
+    --line:#CFC9B6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.55;
+  }
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.13;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='130' height='130' filter='url(%23n)'/%3E%3C/svg%3E")}
+  a{color:inherit;text-decoration:none}
+  .sheet{max-width:1180px;margin:24px auto;background:var(--paper);border:1px solid var(--ink);
+          padding:46px 56px 40px;position:relative;z-index:1}
+
+  .top{display:flex;justify-content:space-between;align-items:center;font-size:11px;
+        letter-spacing:.22em;text-transform:uppercase;color:var(--muted);
+        padding-bottom:20px;border-bottom:1px solid var(--line)}
+  .top .brand{display:flex;align-items:center;gap:11px;color:var(--ink);font-weight:700;letter-spacing:.18em}
+  .top .swatch{display:flex;gap:5px}
+  .top .swatch i{width:22px;height:9px;display:block}
+  .top .swatch i:nth-child(1){background:var(--ink)}
+  .top .swatch i:nth-child(2){background:var(--brick)}
+  .top .swatch i:nth-child(3){background:#9AA188}
+  .top .swatch i:nth-child(4){background:#46B3A6}
+
+  /* poster grid */
+  .grid{display:grid;grid-template-columns:240px 1fr;gap:48px;padding:54px 0 30px}
+
+  .side h4{font-size:18px;font-weight:800;margin:0 0 6px}
+  .side .blk{margin-bottom:30px}
+  .side .blk p{font-size:13px;color:#4c483d;line-height:1.65}
+  .side .credit{margin-top:50px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);line-height:2}
+
+  .main h1{font-size:120px;line-height:.86;font-weight:800;letter-spacing:-.035em;margin:0}
+  .main h1 .b{color:var(--brick)}
+  .main .deck{margin-top:26px;font-size:18px;max-width:30em;color:#3d3a31;line-height:1.7}
+
+  .cast{margin-top:54px;border-top:2px solid var(--ink)}
+  .cast a{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:26px;
+          padding:24px 0;border-bottom:1px solid var(--line);transition:.2s}
+  .cast a:hover{padding-left:12px;color:var(--brick)}
+  .cast img{width:50px;height:50px;border-radius:11px;border:1px solid var(--line)}
+  .cast .nm{font-size:30px;font-weight:800;letter-spacing:-.01em}
+  .cast .nm small{display:block;font-size:13px;font-weight:400;color:var(--muted);margin-top:4px;letter-spacing:0}
+  .cast .role{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-align:right}
+
+  .footer{display:flex;justify-content:space-between;align-items:flex-end;margin-top:46px;
+           padding-top:20px;border-top:1px solid var(--line)}
+  .footer .big{font-size:30px;font-weight:800;letter-spacing:-.01em}
+  .footer .meta{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-align:right;line-height:1.9}
+  .footer a:hover{color:var(--brick)}
+
+  @media (max-width:880px){
+    .sheet{padding:28px 24px;margin:10px}
+    .grid{grid-template-columns:1fr;gap:30px}
+    .side{order:2}
+    .main h1{font-size:60px}
+    .cast a{grid-template-columns:auto 1fr;gap:16px}
+    .cast .role{display:none}
+    .footer{flex-direction:column;align-items:flex-start;gap:16px}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="62" fill="none" stroke="#1A1813" stroke-width="4"/>
+        <circle cx="100" cy="100" r="44" fill="none" stroke="#1A1813" stroke-width="3"/>
+        <circle cx="100" cy="100" r="18" fill="#1A1813"/>
+        <circle cx="100" cy="100" r="4.5" fill="#C0402A"/>
+      </svg>
+      COSMIQUE
+    </div>
+    <div class="swatch"><i></i><i></i><i></i><i></i></div>
+    <div>Independent software · MMXXVI</div>
+  </div>
+
+  <div class="grid">
+    <aside class="side">
+      <div class="blk">
+        <h4>Make&nbsp;less.</h4>
+        <p>One person, a few apps. Each one shipped only when it earns its place — never to fill a roadmap.</p>
+      </div>
+      <div class="blk">
+        <h4>Track&nbsp;nothing.</h4>
+        <p>No accounts, no analytics, nothing phoning home. Your data stays yours, full stop.</p>
+      </div>
+      <div class="blk">
+        <h4>Last&nbsp;longer.</h4>
+        <p>Built quietly and built to keep working — software you can forget about because it simply runs.</p>
+      </div>
+      <div class="credit">
+        Designed with care<br>
+        Cosmique · DSG No. 001<br>
+        Solo · 2026
+      </div>
+    </aside>
+
+    <main class="main">
+      <h1>Analog<br>values,<br><span class="b">digital&nbsp;tools.</span></h1>
+      <p class="deck">A solo studio making small, opinionated software for people who still care about the details.</p>
+
+      <div class="cast">
+        <a href="#">
+          <img src="../website/src/assets/punkt/punkt-icon.svg" alt="">
+          <div class="nm">Punkt<small>News on your wrist. Nothing more.</small></div>
+          <div class="role">watchOS · iOS</div>
+        </a>
+        <a href="#">
+          <img src="../website/src/assets/bulletin/bulletin-icon.png" alt="">
+          <div class="nm">Bulletin<small>An RSS reader for Miniflux, made with intention.</small></div>
+          <div class="role">iOS</div>
+        </a>
+        <a href="#">
+          <img src="../website/src/assets/orbit/orbit-icon.svg" alt="">
+          <div class="nm">Orbit<small>The music server built for serious collectors.</small></div>
+          <div class="role">macOS · Linux · Win</div>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <div class="footer">
+    <div class="big">The future was then.</div>
+    <div class="meta">
+      Cosmique — independent software<br>
+      <a href="mailto:hello@cosmique.io">hello@cosmique.io</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orbit for classical listeners · Cosmique</title>
+<link rel="stylesheet" href="../cosmique-design/css/cosmique.css">
+<script src="../cosmique-design/js/theme.js"></script>
+<style>
+  /* page-local only */
+  .phead{padding:60px 0 64px;border-bottom:1px solid var(--color-hair)}
+  .phead .for{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-muted);margin-bottom:22px}
+  .phead h1{font-size:46px;line-height:1.06;font-weight:var(--weight-bold);letter-spacing:var(--tracking-tight);max-width:14em}
+  .phead .intro{margin-top:26px;font-size:18px;max-width:36em;line-height:1.7;color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper))}
+
+  .diff{padding:80px 0 0}
+  ul.feat{list-style:none}
+  ul.feat li{font-size:15.5px;padding:16px 0 16px 24px;position:relative;border-bottom:1px solid var(--color-hair);line-height:1.6;
+             color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper))}
+  ul.feat li:before{content:"";position:absolute;left:0;top:23px;width:7px;height:7px;border-radius:50%;background:var(--color-accent)}
+  ul.feat li b{color:var(--color-ink);font-weight:var(--weight-medium)}
+
+  .tree{background:var(--color-card);border:1px solid var(--color-hair);padding:30px 32px;margin:36px 0 0;font-size:14px;line-height:2;color:var(--color-ink)}
+  .tree .lv2{padding-left:2.5em}.tree .lv3{padding-left:5em}.tree .lv4{padding-left:7.5em;color:var(--color-accent)}
+  .tree .arr{color:var(--color-muted)}
+
+  .uses{padding:80px 0 0}
+  .usegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+  .use{border:1px solid var(--color-hair);background:var(--color-card);padding:24px 24px;font-size:16px;font-weight:var(--weight-medium);line-height:1.4}
+  .use .q{color:var(--color-muted);font-size:22px;line-height:0;vertical-align:-2px;margin-right:4px}
+
+  .shots{padding:80px 0 0}
+  .shotgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+  .shot .frame{border:1px solid var(--color-hair);background:var(--color-card);aspect-ratio:4/3;position:relative;overflow:hidden}
+  .shot .frame .tag{position:absolute;top:12px;left:12px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+                    color:var(--color-muted);background:var(--color-paper);border:1px solid var(--color-hair);padding:4px 8px;z-index:2}
+  .shot .frame svg{position:absolute;inset:0;width:100%;height:100%;opacity:.5}
+  .shot .cap{margin-top:12px;font-size:13px;line-height:1.5;color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper))}
+
+  .note{margin:80px 0 0;background:var(--color-card);border:1px solid var(--color-hair);padding:30px 32px;
+        font-size:16px;line-height:1.7;max-width:46em;color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper))}
+  .note b{color:var(--color-ink)}
+
+  .cta{margin:90px 0 0;border:1px solid var(--color-hair);background:var(--color-card);padding:46px 44px;display:flex;
+       align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .cta h3{font-size:24px;font-weight:var(--weight-bold);letter-spacing:-.01em}
+
+  @media (max-width:880px){
+    .phead h1{font-size:34px}
+    .usegrid,.shotgrid{grid-template-columns:1fr}
+    .cta{flex-direction:column;align-items:flex-start}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="ds-header">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="3" style="color:var(--color-ink)"/>
+        <circle cx="100" cy="100" r="44" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--color-ink)"/>
+        <circle cx="100" cy="100" r="18" style="fill:var(--color-ink)"/><circle cx="100" cy="100" r="4" style="fill:var(--color-accent)"/>
+      </svg>
+      <a href="orbit.html"><b>Cosmique</b></a>&nbsp;<span>/ Orbit / Classical</span>
+    </div>
+    <nav class="nav">
+      <a href="orbit.html#features">Features</a>
+      <a href="orbit-vinyl.html">Vinyl</a>
+      <a href="orbit-classical.html" class="active">Classical</a>
+      <a href="orbit-pricing.html">Pricing</a>
+      <a href="orbit-about.html">About</a>
+      <button class="theme-toggle">◑&nbsp;Theme</button>
+    </nav>
+  </header>
+
+  <section class="phead">
+    <div class="for">For classical listeners</div>
+    <h1>Three recordings of a symphony are three recordings.</h1>
+    <p class="intro">Most music apps insist your library is a list of albums by artists. That model breaks on the first box set of Mahler symphonies. Orbit is built on the hierarchy classical actually uses: composer, work, movement, performance.</p>
+  </section>
+
+  <section class="diff">
+    <h2 class="kick">What's different</h2>
+    <ul class="feat">
+      <li><b>Composer as a first-class entity.</b> Browse by Bach, not “J.S. Bach” vs. “Bach, Johann Sebastian” vs. “Bach, J. S.”</li>
+      <li><b>Works, not albums.</b> The Goldberg Variations are a Work. You have nine recordings of it — each a different performance, performer, and date. Orbit knows this.</li>
+      <li><b>Movements.</b> Beethoven 9 is a work with four movements. Not a four-track album.</li>
+      <li><b>Performers with roles.</b> Conductor, soloist, ensemble, instrument — searchable independently.</li>
+      <li><b>Catalog-number parsing.</b> BWV, K., Op., HWV, D., Hob. — read out of filenames and tags. Extendable for your corner of the repertoire.</li>
+    </ul>
+
+    <div class="tree mono">
+      Composer&nbsp;<span style="color:var(--color-muted)">— Beethoven</span><br>
+      <span class="lv2"><span class="arr">└─</span> Work &nbsp;<span style="color:var(--color-muted)">— Symphony No. 9 in D minor, Op. 125</span></span><br>
+      <span class="lv3"><span class="arr">└─</span> Movement &nbsp;<span style="color:var(--color-muted)">— IV. Presto — Ode to Joy</span></span><br>
+      <span class="lv4"><span class="arr">└─</span> Recording &nbsp;— Furtwängler, Bayreuth, 1951</span>
+    </div>
+  </section>
+
+  <section class="uses">
+    <h2 class="kick">How you'd use it</h2>
+    <div class="usegrid">
+      <div class="use"><span class="q">“</span>Every Karajan recording of Mahler.”</div>
+      <div class="use"><span class="q">“</span>All Goldberg Variations in my library, by performer.”</div>
+      <div class="use"><span class="q">“</span>Everything Glenn Gould played in the 1980s.”</div>
+    </div>
+  </section>
+
+  <section class="shots">
+    <h2 class="kick">A look inside</h2>
+    <div class="shotgrid">
+      <div class="shot">
+        <div class="frame"><span class="tag">Screenshot</span>
+          <svg viewBox="0 0 200 150" aria-hidden="true"><g stroke="#26231C" stroke-width="1" opacity=".35" fill="none"><line x1="28" y1="40" x2="172" y2="40"/><line x1="28" y1="64" x2="172" y2="64"/><line x1="28" y1="88" x2="172" y2="88"/><line x1="28" y1="112" x2="120" y2="112"/></g><circle cx="40" cy="40" r="4" fill="#BC4630"/></svg>
+        </div>
+        <div class="cap">Composer browse.</div>
+      </div>
+      <div class="shot">
+        <div class="frame"><span class="tag">Screenshot</span>
+          <svg viewBox="0 0 200 150" aria-hidden="true"><g stroke="#26231C" stroke-width="1" opacity=".35" fill="none"><rect x="28" y="30" width="144" height="22"/><rect x="28" y="60" width="144" height="22"/><rect x="28" y="90" width="144" height="22"/></g><rect x="28" y="60" width="6" height="22" fill="#BC4630"/></svg>
+        </div>
+        <div class="cap">Work detail with multiple recordings.</div>
+      </div>
+      <div class="shot">
+        <div class="frame"><span class="tag">Screenshot</span>
+          <svg viewBox="0 0 200 150" aria-hidden="true"><circle cx="60" cy="62" r="22" fill="none" stroke="#26231C" stroke-width="1" opacity=".4"/><circle cx="60" cy="62" r="7" fill="#BC4630"/><g stroke="#26231C" stroke-width="1" opacity=".3"><line x1="96" y1="52" x2="172" y2="52"/><line x1="96" y1="66" x2="150" y2="66"/><line x1="40" y1="108" x2="160" y2="108"/></g></svg>
+        </div>
+        <div class="cap">Performer detail.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="note">
+    Orbit matches against MusicBrainz for authoritative metadata, but every correction you make is yours. <b>Never overwritten by a scanner. Never phoned home.</b>
+  </section>
+
+  <section class="cta">
+    <h3>A library that thinks the way you do.</h3>
+    <a href="orbit.html#download" class="btn">Get the server →</a>
+  </section>
+
+  <footer class="ds-footer">
+    <span>Orbit — a Cosmique original · built by one person</span>
+    <div class="links">
+      <a href="orbit-about.html">About</a><a href="#">Privacy</a><a href="#">Docs</a><a href="#">GitHub</a>
+      <a href="mailto:contact@cosmique.io">Contact</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

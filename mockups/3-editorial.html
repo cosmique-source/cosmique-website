@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cosmique — Concept 3 · Tekhnicheskaya Estetika</title>
+<style>
+  :root{
+    --paper:#E4E0D2;
+    --panel:#ECE8DB;
+    --ink:#26241D;
+    --muted:#7d7869;
+    --hair:#CFC9B7;
+    --brick:#BC4630;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.55;
+  }
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.08;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2'/%3E%3C/filter%3E%3Crect width='130' height='130' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .mono{font-family:"SF Mono",ui-monospace,"Courier New",monospace}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 40px;position:relative;z-index:1}
+
+  /* masthead */
+  .masthead{display:flex;justify-content:space-between;align-items:flex-end;padding:34px 0 18px}
+  .masthead .title{font-size:30px;font-weight:300;letter-spacing:.05em}
+  .masthead .title b{font-weight:700;letter-spacing:.12em}
+  .masthead .issn{text-align:right;font-size:11px;letter-spacing:.16em;color:var(--muted);line-height:1.7}
+  .rulebar{height:2px;background:var(--ink);position:relative}
+  .rulebar:after{content:"";position:absolute;right:0;top:0;bottom:0;width:64px;background:var(--brick)}
+
+  /* calm readout panel */
+  .panel{background:var(--panel);border:1px solid var(--hair);margin-top:30px;
+          padding:40px 34px;text-align:center}
+  .readout{display:inline-flex;gap:6px;align-items:flex-end}
+  .flip{background:var(--paper);color:var(--ink);font-size:52px;font-weight:700;line-height:1;
+        width:54px;height:74px;display:flex;align-items:center;justify-content:center;
+        border:1px solid var(--hair);position:relative}
+  .flip:after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.08)}
+  .flip.red{color:var(--brick)}
+  .readout .lab{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding:0 0 8px 12px}
+  .subline{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:20px}
+
+  /* control modules = apps, calm cards */
+  .controls{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+  .ctrl{background:var(--panel);border:1px solid var(--hair);padding:26px 24px 22px;position:relative;transition:.18s}
+  .ctrl:hover{border-color:var(--ink)}
+  .ctrl .code{font-size:11px;letter-spacing:.18em;color:var(--muted)}
+  .ctrl img{width:42px;height:42px;border-radius:10px;position:absolute;right:24px;top:24px;border:1px solid var(--hair)}
+  .ctrl .knob{width:34px;height:34px;border-radius:50%;margin:22px 0 18px;
+              border:1px solid var(--ink);position:relative}
+  .ctrl .knob:after{content:"";position:absolute;left:50%;top:5px;width:2px;height:11px;background:var(--brick);
+                    transform:translateX(-50%);border-radius:2px}
+  .ctrl h3{font-size:20px;font-weight:700;letter-spacing:.01em}
+  .ctrl p{font-size:13px;color:#56544a;margin-top:8px;line-height:1.6;min-height:58px}
+  .ctrl .led{display:flex;align-items:center;gap:8px;margin-top:14px;font-size:11px;
+             letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .ctrl .led i{width:7px;height:7px;border-radius:50%;background:var(--hair)}
+  .ctrl:hover .led i{background:var(--brick)}
+
+  /* spec footer */
+  .specs{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:36px;
+          border-top:1px solid var(--hair);padding-top:22px}
+  .specs div .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .specs div .v{font-size:15px;font-weight:600;margin-top:6px}
+  footer{display:flex;justify-content:space-between;padding:34px 0 60px;font-size:11px;
+          letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  footer a:hover{color:var(--ink)}
+
+  @media (max-width:820px){
+    .wrap{padding:0 20px}
+    .masthead{flex-direction:column;align-items:flex-start;gap:10px}
+    .controls{grid-template-columns:1fr}
+    .specs{grid-template-columns:1fr 1fr;gap:16px}
+    footer{flex-direction:column;gap:12px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="masthead">
+    <div class="title">cosmique <b>эстетика</b></div>
+    <div class="issn mono">ISSN&nbsp;0136—5363<br>VOL.&nbsp;01 / 2026</div>
+  </div>
+  <div class="rulebar"></div>
+
+  <section class="panel">
+    <div class="readout">
+      <div class="flip">2</div>
+      <div class="flip">0</div>
+      <div class="flip">2</div>
+      <div class="flip red">6</div>
+      <div class="lab mono">UNIT&nbsp;/&nbsp;CS&nbsp;01</div>
+    </div>
+    <div class="subline">Functional software · engineered like instruments · zero telemetry</div>
+  </section>
+
+  <section class="controls">
+    <a href="#" class="ctrl">
+      <div class="code mono">CTRL / 01</div>
+      <img src="../website/src/assets/punkt/punkt-icon.svg" alt="">
+      <div class="knob"></div>
+      <h3>Punkt</h3>
+      <p>News on your wrist. Nothing more. A minimalist RSS reader for Apple Watch.</p>
+      <div class="led"><i></i> watchOS · iOS</div>
+    </a>
+    <a href="#" class="ctrl">
+      <div class="code mono">CTRL / 02</div>
+      <img src="../website/src/assets/bulletin/bulletin-icon.png" alt="">
+      <div class="knob"></div>
+      <h3>Bulletin</h3>
+      <p>An RSS reader built exclusively for Miniflux, designed with intention.</p>
+      <div class="led"><i></i> iOS</div>
+    </a>
+    <a href="#" class="ctrl">
+      <div class="code mono">CTRL / 03</div>
+      <img src="../website/src/assets/orbit/orbit-icon.svg" alt="">
+      <div class="knob"></div>
+      <h3>Orbit</h3>
+      <p>The music server built for serious collectors and vinyl enthusiasts.</p>
+      <div class="led"><i></i> self-hosted</div>
+    </a>
+  </section>
+
+  <section class="specs">
+    <div><div class="k mono">Studio</div><div class="v">Solo, independent</div></div>
+    <div><div class="k mono">Tracking</div><div class="v">None — by design</div></div>
+    <div><div class="k mono">Accounts</div><div class="v">Not required</div></div>
+    <div><div class="k mono">Established</div><div class="v">2024</div></div>
+  </section>
+
+  <footer>
+    <span>Cosmique — техническая эстетика</span>
+    <a href="mailto:hello@cosmique.io">hello@cosmique.io</a>
+  </footer>
+
+</div>
+</body>
+</html>
