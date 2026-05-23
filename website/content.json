@@ -94,7 +94,62 @@
       "hasSupport": true,
       "hasPricing": true,
       "hasTerms": true,
-      "icon": "orbit-icon.svg"
+      "icon": "orbit-icon.svg",
+      "marketing": {
+        "pillars": [
+          { "title": "Your library, on your hardware.", "body": "Runs on anything that runs Docker. No cloud. No account required. Your files never leave your network unless you choose." },
+          { "title": "Vinyl and digital, side by side.", "body": "Track pressings, matrix numbers, condition, equipment chain, and Discogs identifiers alongside your digital library. The tool you'd build for yourself if you had the time." },
+          { "title": "Classical music done properly.", "body": "Composers, works, movements, performers, and catalog numbers (BWV, K., Op.). Three recordings of the Goldberg Variations stay three recordings." }
+        ],
+        "strip": [
+          { "title": "Bit-perfect.", "body": "Native CoreAudio on macOS. Exclusive device access. Your DAC sees the bits you meant to send it." },
+          { "title": "SACD & DSD.", "body": "DFF, DSF, and SACD ISO playback without converting to PCM." },
+          { "title": "Multi-room.", "body": "Synchronise playback across every zone in the house." },
+          { "title": "Apple everywhere.", "body": "iPhone, iPad, Apple TV, Apple Watch, and CarPlay from one app." }
+        ],
+        "audiences": [
+          { "for": "For vinyl collectors", "title": "The tool you'd build yourself if you had the time.", "body": ["Discogs is a marketplace. Your spreadsheet is a spreadsheet. Roon doesn't know what a matrix number is.", "Orbit treats vinyl as first-class data. Every pressing tracked separately — label, catalog number, matrix/runout. Every rip tagged with the cartridge that made it. Every piece of condition language you cared to write, preserved."] },
+          { "for": "For classical listeners", "title": "Three recordings of a symphony are three recordings.", "body": ["Most music apps insist your library is a list of albums by artists. That model breaks on the first box set of Mahler symphonies.", "Orbit is built on the hierarchy classical actually uses: composer, work, movement, performance. Catalog numbers — BWV, K., Op., HWV, D., Hob. — read straight out of your tags and filenames."] },
+          { "for": "For audiophiles", "title": "Every remaster, every version.", "body": ["Most servers see “Dark Side of the Moon” and call it a day. Orbit sees each pressing as its own entry, with its own metadata, its own rating — and you mark your favourite with a note explaining why."] }
+        ],
+        "versions": {
+          "lead": "Other servers store one “Dark Side of the Moon.” Orbit stores six.",
+          "note": "Each version carries its own format, source, sample rate, and rating. Mark the one you reach for — and record why.",
+          "items": [
+            { "label": "Original 1973 UK pressing — Harvest SHVL 804", "meta": "★ favourite", "fav": true },
+            { "label": "1979 Mobile Fidelity UHQR", "meta": "vinyl rip · 24/96" },
+            { "label": "2003 SACD", "meta": "DSD64" },
+            { "label": "2011 Immersion Box Set", "meta": "FLAC · 24/96" },
+            { "label": "2016 vinyl reissue", "meta": "vinyl rip · 24/192" },
+            { "label": "Your vinyl rip from the UHQR", "meta": "FLAC · 24/192" }
+          ]
+        },
+        "hierarchy": [
+          { "lv": 1, "label": "Composer", "note": "" },
+          { "lv": 2, "label": "Work", "note": "Symphony No. 5 in C minor, Op. 67" },
+          { "lv": 3, "label": "Movement", "note": "I. Allegro con brio" },
+          { "lv": 4, "label": "Recording", "note": "Karajan, Berlin Phil, 1962" }
+        ],
+        "comparison": {
+          "cols": ["Orbit", "Plex", "Navidrome", "Roon"],
+          "rows": [
+            { "f": "Vinyl pressing tracking", "m": [true, false, false, false] },
+            { "f": "Equipment chain per rip", "m": [true, false, false, false] },
+            { "f": "Multiple versions per album", "m": [true, false, false, true] },
+            { "f": "Classical composer/work hierarchy", "m": [true, false, false, true] },
+            { "f": "SACD ISO extraction", "m": [true, false, false, false] },
+            { "f": "In-place library mode", "m": [true, false, true, false] },
+            { "f": "Self-hosted", "m": [true, true, true, false] },
+            { "f": "Free / one-time", "m": [true, true, true, false] }
+          ]
+        },
+        "pricing": [
+          { "name": "The server", "price": "Free", "priceSmall": " · forever", "free": true, "feature": true, "items": ["Run it on a NAS, home server, Pi, or miniPC", "No account, no trial countdown, no licence key", "No telemetry unless you turn it on", "Open source — audit it yourself"] },
+          { "name": "iOS — Pro", "price": "$24", "priceSmall": " / yr", "items": ["Free tier covers a room; Pro covers the house", "Multi-room, offline downloads, remote access", "Apple TV, Watch standalone, advanced CarPlay", "$79 lifetime · $3.99 monthly · 7-day trial"] },
+          { "name": "macOS desktop", "price": "Free", "free": true, "items": ["Bit-perfect CoreAudio player", "Full library browsing, multi-zone control", "Exclusive device access", "No ads. Ever."] }
+        ],
+        "cta": { "title": "Try the server.", "note": "One command, five minutes, no sign-up.", "cmd": "docker run -d -p 3001:3001 -v /music:/music:ro orbit/server", "guide": "Full install guide →" }
+      }
     }
   ]
 }

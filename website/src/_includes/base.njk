@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ site.site.title }} - {{ site.site.description }}</title>
-  <meta name="description" content="{{ site.site.description }}">
-  <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
+  <title>{{ title or (site.site.title + " — " + site.site.description) }}</title>
+  <meta name="description" content="{{ pageDescription or site.site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/cosmique/cosmique.css' | url }}">
+  <link rel="stylesheet" href="{{ '/css/legacy.css' | url }}">
+  <script src="{{ '/assets/cosmique/theme.js' | url }}"></script>
 </head>
 <body>
   {{ content | safe }}

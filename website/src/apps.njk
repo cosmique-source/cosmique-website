@@ -23,7 +23,7 @@ eleventyComputed:
     </div>
     <nav class="nav">
       {% if app.iphoneScreenshots or app.watchScreenshots %}<a href="#screens">Screens</a>{% endif %}
-      <a href="#features">Features</a>
+      {% if app.marketing.pricing %}<a href="#pricing">Pricing</a>{% else %}<a href="#features">Features</a>{% endif %}
       <a href="{{ '/' | url }}">All apps</a>
       <button class="theme-toggle">◑&nbsp;Theme</button>
     </nav>
@@ -38,10 +38,10 @@ eleventyComputed:
       </div>
       <h1>{{ app.name }}</h1>
       <div class="tag">{{ app.description }}</div>
-      <p class="intro">{{ app.fullDescription }}</p>
       <div class="cta-row">
         {% if app.link %}<a href="{{ app.link }}" class="btn" target="_blank" rel="noopener">View on the App Store →</a>{% endif %}
         {% if app.iphoneScreenshots or app.watchScreenshots %}<a href="#screens" class="btn-secondary">See it in action</a>{% endif %}
+        {% if app.marketing.cta %}<a href="#download" class="btn-secondary">Get the server</a>{% endif %}
       </div>
     </div>
     <div class="glyph{% if app.hero and app.hero != 'icon' %} motif{% endif %}" aria-hidden="true">
@@ -66,7 +66,77 @@ eleventyComputed:
     <p>{{ app.fullDescription }}</p>
   </section>
 
-  <!-- FEATURES -->
+  {% if app.marketing %}{% set m = app.marketing %}
+  <!-- PILLARS -->
+  {% if m.pillars %}
+  <section class="pillars rich-pillars">
+    {% for p in m.pillars %}<div><h3>{{ p.title }}</h3><p>{{ p.body }}</p></div>{% endfor %}
+  </section>
+  {% endif %}
+
+  <!-- TECHNICAL STRIP -->
+  {% if m.strip %}
+  <section class="strip">
+    {% for s in m.strip %}<div><div class="t">{{ s.title }}</div><div class="d">{{ s.body }}</div></div>{% endfor %}
+  </section>
+  {% endif %}
+
+  <!-- AUDIENCES -->
+  {% if m.audiences %}
+  <section class="audience">
+    <h2 class="kick" style="margin-bottom:0">Who it's for</h2>
+    {% for a in m.audiences %}
+    <div class="aud">
+      <div class="for">{{ a.for }}</div>
+      <div><h3>{{ a.title }}</h3>{% for para in a.body %}<p>{{ para }}</p>{% endfor %}</div>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  <!-- VERSIONS -->
+  {% if m.versions %}
+  <section class="versions">
+    <div>
+      <h2 class="kick">One album, every pressing</h2>
+      <div class="vlead">{{ m.versions.lead }}</div>
+      <p class="vnote">{{ m.versions.note }}</p>
+    </div>
+    <div class="vlist">
+      {% for v in m.versions.items %}<div class="vrow{% if v.fav %} fav{% endif %}"><span>{{ v.label }}</span><span class="y">{{ v.meta }}</span></div>{% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- HIERARCHY -->
+  {% if m.hierarchy %}
+  <section class="hier">
+    <h2 class="kick">A hierarchy that fits</h2>
+    <div class="tree mono">
+      {% for h in m.hierarchy %}<div class="lv{{ h.lv }}">{% if h.lv > 1 %}<span class="arr">└─</span> {% endif %}{{ h.label }}{% if h.note %} <span class="tnote">— {{ h.note }}</span>{% endif %}</div>{% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- COMPARISON -->
+  {% if m.comparison %}
+  <section class="compare">
+    <h2 class="kick">What makes {{ app.name }} different</h2>
+    <table class="spec-table">
+      <thead><tr><th>&nbsp;</th>{% for c in m.comparison.cols %}<th{% if loop.first %} class="is-own"{% endif %}>{{ c }}</th>{% endfor %}</tr></thead>
+      <tbody>
+        {% for row in m.comparison.rows %}
+        <tr><td>{{ row.f }}</td>
+          {% for mk in row.m %}<td{% if loop.first %} class="is-own"{% endif %}>{% if mk %}<span class="yes"{% if not loop.first %} style="color:var(--color-ink)"{% endif %}>●</span>{% else %}<span class="no">–</span>{% endif %}</td>{% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+  {% endif %}
+
+  {% else %}
+  <!-- FEATURES (apps without a marketing block) -->
   <section id="features" class="section">
     <h2 class="kick">Features</h2>
     <div class="feature-grid">
@@ -84,6 +154,33 @@ eleventyComputed:
       {% endfor %}
     </div>
   </section>
+  {% endif %}
+
+  <!-- PRICING -->
+  {% if app.marketing.pricing %}
+  <section id="pricing" class="pricing-sec">
+    <h2 class="kick">Pricing</h2>
+    <div class="tiers">
+      {% for t in app.marketing.pricing %}
+      <div class="tier{% if t.feature %} feature-tier{% endif %}">
+        <div class="name">{{ t.name }}</div>
+        <div class="price{% if t.free %} free{% endif %}">{{ t.price }}{% if t.priceSmall %}<small>{{ t.priceSmall }}</small>{% endif %}</div>
+        <ul>{% for it in t.items %}<li>{{ it }}</li>{% endfor %}</ul>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- LOWER CTA -->
+  {% if app.marketing.cta %}
+  <section id="download" class="lower">
+    <h3>{{ app.marketing.cta.title }}</h3>
+    <p>{{ app.marketing.cta.note }}</p>
+    <div class="cmd mono"><span class="p">$</span> {{ app.marketing.cta.cmd }}</div>
+    {% if app.marketing.cta.guide %}<a href="#" class="guide">{{ app.marketing.cta.guide }}</a>{% endif %}
+  </section>
+  {% endif %}
 
   <!-- SUPPORT / LEGAL -->
   <section id="support" class="support">

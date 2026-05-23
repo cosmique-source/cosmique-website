@@ -74,3 +74,51 @@
   .section.about{grid-template-columns:1fr;gap:10px}
   .support{flex-direction:column;align-items:flex-start}
 }
+
+/* -------------------------------- rich app marketing (e.g. Orbit) -------- */
+.rich-pillars{margin-top:80px}
+
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--color-hair);border:1px solid var(--color-hair);margin-top:18px}
+.strip div{background:var(--color-paper);padding:26px 22px}
+.strip .t{font-size:14px;font-weight:var(--weight-bold);margin-bottom:7px}
+.strip .d{font-size:12.5px;line-height:1.55;color:color-mix(in srgb,var(--color-ink) 70%,var(--color-paper))}
+
+.audience{padding-top:90px}
+.aud{display:grid;grid-template-columns:200px 1fr;gap:40px;padding:38px 0;border-top:1px solid var(--color-hair)}
+.aud .for{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-muted)}
+.aud h3{font-size:26px;font-weight:var(--weight-bold);letter-spacing:-.01em;margin-bottom:14px}
+.aud p{font-size:15.5px;line-height:1.7;max-width:42em;color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper))}
+.aud p + p{margin-top:12px}
+
+.versions{margin-top:96px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.versions .vlead{font-size:24px;font-weight:var(--weight-medium);line-height:1.4;letter-spacing:-.01em}
+.versions .vnote{margin-top:18px;font-size:15px;color:color-mix(in srgb,var(--color-ink) 70%,var(--color-paper))}
+.vlist{border-top:1px solid var(--color-hair)}
+.vrow{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--color-hair);font-size:14.5px}
+.vrow .y{color:var(--color-muted);font-size:12px;letter-spacing:.04em;white-space:nowrap}
+.vrow.fav{color:var(--color-accent);font-weight:var(--weight-medium)}
+.vrow.fav .y{color:var(--color-accent)}
+
+.hier{margin-top:96px}
+.tree{background:var(--color-card);border:1px solid var(--color-hair);padding:30px 32px;margin-top:8px;font-size:14px;line-height:2;color:var(--color-ink)}
+.tree .lv2{padding-left:2.5em}.tree .lv3{padding-left:5em}.tree .lv4{padding-left:7.5em;color:var(--color-accent)}
+.tree .arr,.tree .tnote{color:var(--color-muted)}
+
+.compare{margin-top:96px}
+.pricing-sec{margin-top:96px}
+
+.lower{margin-top:96px;border:1px solid var(--color-hair);background:var(--color-card);padding:48px 44px;text-align:center}
+.lower h3{font-size:28px;font-weight:var(--weight-bold);letter-spacing:-.01em}
+.lower p{margin-top:10px;font-size:15px;color:color-mix(in srgb,var(--color-ink) 70%,var(--color-paper))}
+.lower .cmd{display:inline-block;margin-top:24px;background:var(--color-ink);color:var(--color-paper);font-size:13px;padding:14px 22px;border-radius:var(--radius-sm);letter-spacing:.02em}
+.lower .cmd .p{color:var(--color-sage)}
+.lower .guide{display:block;margin-top:18px;font-size:13px;color:var(--color-accent)}
+.lower .guide:hover{text-decoration:underline}
+
+@media (max-width:880px){
+  .strip{grid-template-columns:1fr 1fr}
+  .aud{grid-template-columns:1fr;gap:10px}
+  .versions{grid-template-columns:1fr;gap:36px}
+  .compare{overflow-x:auto}
+  .spec-table{min-width:560px}
+}
