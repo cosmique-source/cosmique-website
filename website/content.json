@@ -1,8 +1,18 @@
 {
   "site": {
     "title": "Cosmique",
-    "description": "",
+    "description": "Independent software",
     "url": "https://yourusername.github.io/cosmique"
+  },
+  "home": {
+    "eyebrow": "Independent software studio",
+    "headline": "Small, honest software for people who care about the details.",
+    "intro": "A solo studio making a short list of tools — no tracking, no accounts, no noise. Built with restraint, and built to last.",
+    "principles": [
+      { "title": "Honest", "body": "The software is what it appears to be. No dark patterns, nothing harvested behind your back." },
+      { "title": "Unobtrusive", "body": "Tools should recede. They wait quietly until you need them, then get out of the way." },
+      { "title": "As little as possible", "body": "Less, but better. Every feature earns its place, or it isn't there." }
+    ]
   },
   "apps": [
     {

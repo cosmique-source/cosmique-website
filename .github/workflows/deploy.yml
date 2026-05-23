@@ -20,6 +20,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # The build pulls css/js from the cosmique-design submodule.
+          # If that repo is private, replace the default token with a PAT
+          # that can read it:  token: ${{ secrets.COSMIQUE_DESIGN_PAT }}
+          submodules: recursive
 
       - name: Setup Node
         uses: actions/setup-node@v4

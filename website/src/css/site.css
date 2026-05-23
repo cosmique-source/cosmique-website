@@ -1,0 +1,74 @@
+/* Cosmique site — page-local styles for the redesigned pages.
+   The design system (cosmique.css) supplies tokens + components
+   (.ds-header, .nav, .kick, .card, .feature-grid, .gallery, .callout,
+   .pillars, .btn, .platform, .theme-toggle, .ds-footer). This file only
+   adds the homepage + app-detail layout bits on top. Values use tokens. */
+
+/* ---------------------------------------------------------------- homepage */
+.hero{padding:90px 0 80px;max-width:760px}
+.hero p{margin-top:28px;font-size:18px;line-height:1.7;max-width:30em;
+        color:color-mix(in srgb,var(--color-ink) 75%,var(--color-paper))}
+.wordmark{font-size:15px;letter-spacing:.26em;font-weight:var(--weight-medium);color:var(--color-ink)}
+
+.applabel{display:flex;align-items:baseline;justify-content:space-between;
+          border-bottom:1px solid var(--color-ink);padding-bottom:16px;margin-bottom:26px}
+.applabel h2{font-size:var(--size-kicker);letter-spacing:.28em;text-transform:uppercase;font-weight:var(--weight-medium)}
+.applabel span{font-size:var(--size-kicker);letter-spacing:.18em;color:var(--color-muted)}
+
+.appgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.app{display:flex;flex-direction:column;min-height:230px;padding:28px 26px 24px}
+.app .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.app img{width:60px;height:60px;border-radius:14px;border:1px solid var(--color-hair);box-shadow:0 6px 16px -10px rgba(0,0,0,.4)}
+.app .no{font-size:var(--size-kicker);letter-spacing:.16em;color:var(--color-accent);font-weight:var(--weight-bold)}
+.app h3{font-size:var(--size-h2);font-weight:var(--weight-bold);letter-spacing:-.01em}
+.app p{font-size:14px;margin-top:8px;line-height:1.6;flex:1;
+       color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper))}
+.app .foot{display:flex;align-items:center;justify-content:space-between;margin-top:18px;padding-top:14px;border-top:1px solid var(--color-hair)}
+.app .plat{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted)}
+.app .go{font-size:12px;font-weight:var(--weight-medium);color:var(--color-accent)}
+.app .go span{display:inline-block;transition:transform .2s}
+.app:hover .go span{transform:translateX(5px)}
+
+.home-pillars{margin-top:110px}
+
+/* -------------------------------------------------------------- app detail */
+.app-hero{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;
+          padding:50px 0 64px;border-bottom:1px solid var(--color-hair)}
+.app-hero .idrow{display:flex;align-items:center;gap:18px;margin-bottom:26px}
+.app-hero .idrow img{width:72px;height:72px;border-radius:16px;border:1px solid var(--color-hair);box-shadow:0 6px 18px -10px rgba(0,0,0,.4)}
+.app-hero h1{font-size:50px;line-height:1.02;font-weight:var(--weight-bold);letter-spacing:var(--tracking-tight)}
+.app-hero .tag{margin-top:14px;font-size:19px;color:var(--color-accent);font-weight:var(--weight-medium)}
+.app-hero .intro{margin-top:20px;font-size:16.5px;line-height:1.7;max-width:32em;
+                 color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper))}
+.app-hero .cta-row{display:flex;align-items:center;gap:24px;margin-top:32px;flex-wrap:wrap}
+.app-hero .glyph{justify-self:center;width:100%;max-width:300px;aspect-ratio:1;
+                 border:1px solid var(--color-hair);border-radius:var(--radius-lg);
+                 display:flex;align-items:center;justify-content:center;background:var(--color-card)}
+.app-hero .glyph img{width:46%;height:46%;object-fit:contain;border-radius:22%}
+
+.section{padding-top:80px}
+.section.about{display:grid;grid-template-columns:200px 1fr;gap:40px;padding-top:90px}
+.section.about .lbl{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-muted)}
+.section.about p{font-size:20px;line-height:1.6;max-width:32em;font-weight:var(--weight-medium);letter-spacing:-.005em;
+                 color:color-mix(in srgb,var(--color-ink) 82%,var(--color-paper))}
+
+.support{margin-top:90px;border-top:1px solid var(--color-hair);padding-top:40px;display:flex;
+         justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.support .ln{display:flex;gap:14px;flex-wrap:wrap}
+.support .pill{border:1px solid var(--color-hair);border-radius:var(--radius-sm);padding:12px 20px;
+               font-size:13px;letter-spacing:.04em;font-weight:var(--weight-medium);transition:border-color .18s,color .18s}
+.support .pill:hover{border-color:var(--color-ink)}
+.support .pill.accent{border-color:var(--color-accent);color:var(--color-accent)}
+.support .back{font-size:13px;color:var(--color-muted)}
+.support .back:hover{color:var(--color-ink)}
+
+@media (max-width:880px){
+  .hero{padding:60px 0 60px}
+  .appgrid{grid-template-columns:1fr}
+  .home-pillars{margin-top:70px}
+  .app-hero{grid-template-columns:1fr;gap:40px;padding:30px 0 50px}
+  .app-hero h1{font-size:38px}
+  .app-hero .glyph{max-width:220px;order:-1}
+  .section.about{grid-template-columns:1fr;gap:10px}
+  .support{flex-direction:column;align-items:flex-start}
+}

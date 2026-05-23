@@ -1,126 +1,103 @@
 ---
+layout: atomic.njk
 pagination:
   data: site.apps
   size: 1
   alias: app
 permalink: "/apps/{{ app.slug }}/"
-layout: base.njk
+eleventyComputed:
+  title: "{{ app.name }} — {{ app.description }} · Cosmique"
+  pageDescription: "{{ app.description }}"
 ---
+<div class="wrap">
 
-<div class="container">
-  <header>
-    <a href="{{ '/' | url }}">
-      <img src="{{ '/assets/logo.svg' | url }}" alt="{{ site.site.title }}" class="logo">
-    </a>
+  <header class="ds-header">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="3" style="color:var(--color-ink)"/>
+        <circle cx="100" cy="100" r="44" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--color-ink)"/>
+        <circle cx="100" cy="100" r="18" style="fill:var(--color-ink)"/><circle cx="100" cy="100" r="4" style="fill:var(--color-accent)"/>
+      </svg>
+      <a href="{{ '/' | url }}"><b>Cosmique</b></a>&nbsp;<span>/ Apps / {{ app.name }}</span>
+    </div>
+    <nav class="nav">
+      {% if app.iphoneScreenshots or app.watchScreenshots %}<a href="#screens">Screens</a>{% endif %}
+      <a href="#features">Features</a>
+      <a href="{{ '/' | url }}">All apps</a>
+      <button class="theme-toggle">◑&nbsp;Theme</button>
+    </nav>
   </header>
 
-  <main>
-    <nav class="breadcrumb">
-      <a href="{{ '/' | url }}">apps</a> / {{ app.name }}
-    </nav>
+  <!-- HERO -->
+  <section class="app-hero">
+    <div>
+      <div class="idrow">
+        {% if app.icon %}<img src="{{ ('/assets/' + app.slug + '/' + app.icon) | url }}" alt="{{ app.name }} icon">{% endif %}
+        <span class="platform">{{ app.platform }}</span>
+      </div>
+      <h1>{{ app.name }}</h1>
+      <div class="tag">{{ app.description }}</div>
+      <p class="intro">{{ app.fullDescription }}</p>
+      <div class="cta-row">
+        {% if app.link %}<a href="{{ app.link }}" class="btn" target="_blank" rel="noopener">View on the App Store →</a>{% endif %}
+        {% if app.iphoneScreenshots or app.watchScreenshots %}<a href="#screens" class="btn-secondary">See it in action</a>{% endif %}
+      </div>
+    </div>
+    <div class="glyph" aria-hidden="true">
+      {% if app.icon %}<img src="{{ ('/assets/' + app.slug + '/' + app.icon) | url }}" alt="">{% endif %}
+    </div>
+  </section>
 
-    <article class="app-detail">
-      <header class="app-header">
-        {% if app.icon %}
-        <img src="{{ ('/assets/' + app.slug + '/' + app.icon) | url }}" alt="{{ app.name }} icon" class="app-icon">
-        {% endif %}
-        <div class="app-header-text">
-          <h1 class="app-detail-title">{{ app.name }}</h1>
-          <p class="app-detail-tagline">{{ app.description }}</p>
-        </div>
-      </header>
+  <!-- SCREENS -->
+  {% if app.iphoneScreenshots or app.watchScreenshots %}
+  <section id="screens" class="section">
+    <h2 class="kick">A look inside</h2>
+    <div class="gallery">
+      {% for s in app.watchScreenshots %}<div class="shot"><img src="{{ ('/assets/' + app.slug + '/' + s) | url }}" alt="{{ app.name }} on Apple Watch" loading="lazy"></div>{% endfor %}
+      {% for s in app.iphoneScreenshots %}<div class="shot"><img src="{{ ('/assets/' + app.slug + '/' + s) | url }}" alt="{{ app.name }} on iPhone" loading="lazy"></div>{% endfor %}
+    </div>
+  </section>
+  {% endif %}
 
-      {% if app.watchScreenshots %}
-      <section class="app-screenshots app-screenshots-featured">
-        <div class="screenshots-watch-grid">
-          {% for screenshot in app.watchScreenshots %}
-          <div class="screenshot-item screenshot-watch">
-            <img src="{{ ('/assets/' + app.slug + '/' + screenshot) | url }}" alt="{{ app.name }} on Apple Watch" loading="lazy">
-          </div>
-          {% endfor %}
-        </div>
-      </section>
-      {% endif %}
+  <!-- ABOUT -->
+  <section class="section about">
+    <div class="lbl">About</div>
+    <p>{{ app.fullDescription }}</p>
+  </section>
 
-      {% if app.iphoneScreenshots %}
-      <section class="app-screenshots {% if app.watchScreenshots %}app-screenshots-companion{% else %}app-screenshots-featured{% endif %}">
-        {% if app.watchScreenshots %}
-        <h2 class="section-title">iPhone Companion App</h2>
-        <p class="companion-description">Manage your feeds on iPhone. They sync instantly to your watch.</p>
-        {% endif %}
-        <div class="screenshots-row">
-          {% for screenshot in app.iphoneScreenshots %}
-          <div class="screenshot-item screenshot-phone">
-            <img src="{{ ('/assets/' + app.slug + '/' + screenshot) | url }}" alt="{{ app.name }} on iPhone" loading="lazy">
-          </div>
-          {% endfor %}
-        </div>
-      </section>
-      {% endif %}
-
-      <div class="app-detail-content">
-        <section class="app-section">
-          <h2 class="section-title">About</h2>
-          <p class="app-detail-description">{{ app.fullDescription }}</p>
-        </section>
-
-        <section class="app-section">
-          <h2 class="section-title">Features</h2>
-          <ul class="feature-list">
-            {% for feature in app.features %}
-            <li>{{ feature }}</li>
-            {% endfor %}
-          </ul>
-        </section>
-
-        <section class="app-section">
-          <h2 class="section-title">Platform</h2>
-          <p class="platform-badge">{{ app.platform }}</p>
-        </section>
-
-        {% if app.link %}
-        <section class="app-section">
-          <a href="{{ app.link }}" class="app-link" target="_blank" rel="noopener">
-            View on App Store →
-          </a>
-        </section>
-        {% endif %}
-
-        {% if app.hasPricing %}
-        <section class="app-section app-links-row">
-          <a href="{{ '/apps/' + app.slug + '/pricing/' | url }}" class="app-link">
-            Pricing →
-          </a>
-        </section>
-        {% endif %}
-
-        {% if app.hasSupport %}
-        <section class="app-section app-links-row">
-          <a href="{{ '/apps/' + app.slug + '/support/' | url }}" class="app-link">
-            Support →
-          </a>
-          <a href="{{ '/apps/' + app.slug + '/privacy/' | url }}" class="app-link app-link-secondary">
-            Privacy Policy →
-          </a>
-          {% if app.hasTerms %}
-          <a href="{{ '/apps/' + app.slug + '/terms/' | url }}" class="app-link app-link-secondary">
-            Terms of Service →
-          </a>
-          {% endif %}
-        </section>
+  <!-- FEATURES -->
+  <section id="features" class="section">
+    <h2 class="kick">Features</h2>
+    <div class="feature-grid">
+      {% for feature in app.features %}
+      {% set parts = feature.split(" — ") %}
+      <div class="feature">
+        <div class="no">{{ '0' ~ loop.index if loop.index < 10 else loop.index }}</div>
+        {% if parts.length > 1 %}
+        <h3>{{ parts[0] }}</h3>
+        <p>{{ feature | replace(parts[0] + " — ", "") }}</p>
+        {% else %}
+        <p>{{ feature }}</p>
         {% endif %}
       </div>
-
-      <nav class="app-nav">
-        <a href="{{ '/' | url }}" class="back-link">← Back to all apps</a>
-      </nav>
-    </article>
-  </main>
-
-  <footer>
-    <div class="footer-content">
-      <p>{{ site.site.title }}</p>
-      <p><a href="mailto:hello@cosmique.io">hello@cosmique.io</a></p>
+      {% endfor %}
     </div>
+  </section>
+
+  <!-- SUPPORT / LEGAL -->
+  <section id="support" class="support">
+    <div class="ln">
+      {% if app.hasSupport %}<a href="{{ ('/apps/' + app.slug + '/support/') | url }}" class="pill accent">Support →</a>{% endif %}
+      {% if app.hasPricing %}<a href="{{ ('/apps/' + app.slug + '/pricing/') | url }}" class="pill">Pricing →</a>{% endif %}
+      <a href="{{ ('/apps/' + app.slug + '/privacy/') | url }}" class="pill">Privacy →</a>
+      {% if app.hasTerms %}<a href="{{ ('/apps/' + app.slug + '/terms/') | url }}" class="pill">Terms →</a>{% endif %}
+    </div>
+    <a href="{{ '/' | url }}" class="back">← Back to all apps</a>
+  </section>
+
+  <footer class="ds-footer">
+    <span>{{ app.name }} — a Cosmique app</span>
+    <a href="mailto:hello@cosmique.io">hello@cosmique.io</a>
   </footer>
+
 </div>
