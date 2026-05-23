@@ -45,6 +45,8 @@
                  border:1px solid var(--color-hair);border-radius:var(--radius-lg);
                  display:flex;align-items:center;justify-content:center;background:var(--color-card)}
 .app-hero .glyph img{width:46%;height:46%;object-fit:contain;border-radius:22%}
+.app-hero .glyph.motif{border:none;background:transparent}
+.app-hero .glyph.motif svg{width:92%;height:92%;display:block;filter:drop-shadow(0 18px 34px rgba(0,0,0,.16))}
 
 .section{padding-top:80px}
 .section.about{display:grid;grid-template-columns:200px 1fr;gap:40px;padding-top:90px}

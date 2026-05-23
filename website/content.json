@@ -19,6 +19,7 @@
       "name": "punkt",
       "description": "News on your wrist. Nothing more.",
       "slug": "punkt",
+      "hero": "waves",
       "fullDescription": "Punkt is a minimalist RSS reader for Apple Watch. Your feeds, synced from your iPhone, readable at a glance. No phone required. Your phone is a distraction machine. Every time you reach for it to check the news, you're three notifications away from losing 20 minutes. Punkt keeps it simple: glance at your watch, read a headline, move on with your day.",
       "features": [
         "Minimal by design — No ads, no algorithmic feeds, no engagement tricks. Just your news, in chronological order.",
@@ -49,6 +50,7 @@
       "name": "Bulletin",
       "description": "RSS Reader for Miniflux",
       "slug": "bulletin",
+      "hero": "dial",
       "fullDescription": "Bulletin is a thoughtfully designed RSS reader built exclusively for Miniflux. If you've chosen to self-host your feeds, you deserve a client that respects that decision.",
       "features": [
         "Two ways to read — Switch between Accordion mode for quick scanning and Editorial mode for immersive, magazine-style reading. Five intelligent layouts adapt to your content.",
@@ -76,6 +78,7 @@
       "name": "Orbit",
       "description": "The music server built for serious collectors.",
       "slug": "orbit",
+      "hero": "orbit",
       "fullDescription": "Orbit is a self-hosted music server designed for audiophiles, vinyl collectors, and classical music enthusiasts who demand more than basic playback. Most music servers treat your library as a flat collection of files. They don't understand that your 1975 original pressing sounds different from your 2015 Mobile Fidelity remaster. They can't tell the difference between Beethoven's Symphony No. 5 conducted by Karajan versus Furtwängler. Orbit does.",
       "features": [
         "Multiple versions per album — Every pressing, remaster, and edition tracked separately. Mark your favorite with a note explaining why.",

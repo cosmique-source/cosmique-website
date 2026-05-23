@@ -9,6 +9,7 @@ eleventyComputed:
   title: "{{ app.name }} — {{ app.description }} · Cosmique"
   pageDescription: "{{ app.description }}"
 ---
+{% from "hero.njk" import heroMotif %}
 <div class="wrap">
 
   <header class="ds-header">
@@ -43,8 +44,8 @@ eleventyComputed:
         {% if app.iphoneScreenshots or app.watchScreenshots %}<a href="#screens" class="btn-secondary">See it in action</a>{% endif %}
       </div>
     </div>
-    <div class="glyph" aria-hidden="true">
-      {% if app.icon %}<img src="{{ ('/assets/' + app.slug + '/' + app.icon) | url }}" alt="">{% endif %}
+    <div class="glyph{% if app.hero and app.hero != 'icon' %} motif{% endif %}" aria-hidden="true">
+      {{ heroMotif(app, ('/assets/' + app.slug + '/' + app.icon) | url) }}
     </div>
   </section>
 
