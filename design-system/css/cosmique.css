@@ -1,6 +1,0 @@
-/* Cosmique design system — single entry point.
-   Link this one file:  <link rel="stylesheet" href="…/design-system/css/cosmique.css">
-   Layers: tokens (generated) → base → components. */
-@import "tokens.css";
-@import "base.css";
-@import "components.css";

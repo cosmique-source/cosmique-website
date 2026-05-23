@@ -1,5 +1,0 @@
-# Swift Package Manager build artifacts
-.build/
-.swiftpm/
-DerivedData/
-*.xcodeproj

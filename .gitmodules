@@ -1,0 +1,3 @@
+[submodule "cosmique-design"]
+	path = cosmique-design
+	url = git@github.com:julzKB/cosmique-design.git
