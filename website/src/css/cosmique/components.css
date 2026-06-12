@@ -1,0 +1,156 @@
+/* Cosmique — component layer. Every value comes from a token (var(--…)).
+   These are the reusable patterns behind the homepage, app pages, and Orbit. */
+
+/* ---------------------------------------------------------------- header -- */
+.ds-header{display:flex;align-items:center;justify-content:space-between;padding:var(--space-md) 0}
+.brand{display:flex;align-items:center;gap:13px;font-size:var(--size-small);letter-spacing:var(--tracking-label);color:var(--color-muted)}
+.brand b{color:var(--color-ink);font-weight:var(--weight-medium)}
+.brand a:hover{color:var(--color-ink)}
+.nav{display:flex;gap:26px;font-size:var(--size-kicker);letter-spacing:.13em;text-transform:uppercase;color:var(--color-muted)}
+.nav a:hover,.nav a.active{color:var(--color-ink)}
+@media (max-width:880px){ .nav{display:none} }
+
+/* --------------------------------------------------------------- kicker --- */
+/* Small section label: brick dot + uppercase tracking. */
+.kick{font-size:var(--size-kicker);letter-spacing:var(--tracking-kicker);text-transform:uppercase;
+      color:var(--color-muted);display:flex;align-items:center;gap:12px;margin-bottom:var(--space-md)}
+.kick::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--color-accent)}
+
+.eyebrow{display:flex;align-items:center;gap:11px;font-size:var(--size-kicker);
+         letter-spacing:var(--tracking-kicker);text-transform:uppercase;color:var(--color-muted)}
+.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--color-accent)}
+
+/* ------------------------------------------------------------ typography -- */
+.h1{font-size:var(--size-h1);line-height:1.04;font-weight:var(--weight-bold);letter-spacing:var(--tracking-tight)}
+.h2{font-size:var(--size-h2);line-height:1.1;font-weight:var(--weight-bold);letter-spacing:-.01em}
+.h3{font-size:var(--size-h3);line-height:1.2;font-weight:var(--weight-bold);letter-spacing:-.01em}
+.lead{font-size:18px;color:color-mix(in srgb,var(--color-ink) 78%,var(--color-paper));line-height:1.7}
+
+/* --------------------------------------------------------------- buttons -- */
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--color-ink);color:var(--color-paper);
+     font-weight:var(--weight-medium);font-size:var(--size-small);letter-spacing:.05em;
+     padding:14px 24px;border-radius:var(--radius-sm);transition:background .18s,filter .18s}
+.btn:hover{background:var(--color-accent)}
+[data-theme="dark"] .btn{background:var(--color-accent);color:var(--color-paper)}
+[data-theme="dark"] .btn:hover{filter:brightness(1.1)}
+
+.btn-secondary{display:inline-flex;align-items:center;gap:9px;color:var(--color-ink);
+     font-weight:var(--weight-medium);font-size:var(--size-small);letter-spacing:.05em;
+     border-bottom:1.5px solid var(--color-accent);padding-bottom:4px;transition:gap .18s}
+.btn-secondary:hover{gap:14px}
+
+/* light/dark toggle (wired by design-system/js/theme.js) */
+.theme-toggle{cursor:pointer;border:1px solid var(--color-hair);background:var(--color-card);
+     border-radius:var(--radius-sm);padding:8px 13px;font-size:11px;letter-spacing:.1em;
+     text-transform:uppercase;color:var(--color-ink);font-family:var(--font-sans)}
+.theme-toggle:hover{border-color:var(--color-ink)}
+
+/* ----------------------------------------------------------------- chips -- */
+.chip,.platform{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--color-hair);
+     border-radius:var(--radius-sm);padding:6px 12px;font-size:var(--size-kicker);
+     letter-spacing:.14em;text-transform:uppercase;color:var(--color-muted)}
+.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--color-accent)}
+
+/* ----------------------------------------------------------------- cards -- */
+.card{border:1px solid var(--color-hair);background:var(--color-card);
+      padding:28px 26px;transition:transform .2s,border-color .2s}
+.card:hover{border-color:var(--color-ink);transform:translateY(-4px)}
+
+/* numbered feature grid */
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.feature{border:1px solid var(--color-hair);background:var(--color-card);padding:28px 26px;transition:border-color .18s}
+.feature:hover{border-color:var(--color-ink)}
+.feature .no{font-size:var(--size-kicker);letter-spacing:var(--tracking-label);color:var(--color-accent);font-weight:var(--weight-bold)}
+.feature h3{font-size:var(--size-h3);font-weight:var(--weight-bold);margin:14px 0 8px;letter-spacing:-.01em}
+.feature p{font-size:14.5px;color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper));line-height:1.6}
+@media (max-width:880px){ .feature-grid{grid-template-columns:1fr} }
+
+/* three bordered pillars */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--color-hair);border-bottom:1px solid var(--color-hair)}
+.pillars > div{padding:38px 30px 40px 0;border-right:1px solid var(--color-hair)}
+.pillars > div:last-child{border-right:none;padding-right:0}
+.pillars h3{font-size:var(--size-h3);font-weight:var(--weight-bold);margin-bottom:12px}
+.pillars p{font-size:14.5px;color:color-mix(in srgb,var(--color-ink) 70%,var(--color-paper));line-height:1.65}
+@media (max-width:880px){
+  .pillars{grid-template-columns:1fr}
+  .pillars > div{border-right:none;border-bottom:1px solid var(--color-hair);padding:26px 0}
+  .pillars > div:last-child{border-bottom:none}
+}
+
+/* --------------------------------------------------------------- callout -- */
+.callout{border:1px solid var(--color-ink);background:var(--color-paper);padding:34px 30px;
+         display:flex;align-items:center;gap:20px}
+.callout .dot{width:10px;height:10px;border-radius:50%;background:var(--color-accent);flex:none}
+.callout p{font-size:17px;font-weight:var(--weight-medium);letter-spacing:-.005em}
+
+/* --------------------------------------------------------------- pricing -- */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tier{border:1px solid var(--color-hair);background:var(--color-card);padding:30px 26px;display:flex;flex-direction:column}
+.tier.feature-tier{border-color:var(--color-ink)}
+.tier .name{font-size:var(--size-small);letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted)}
+.tier .price{font-size:38px;font-weight:var(--weight-bold);letter-spacing:var(--tracking-tight);margin:14px 0 4px}
+.tier .price.free{color:var(--color-accent)}
+.tier .price small{font-size:14px;font-weight:var(--weight-regular);color:var(--color-muted);letter-spacing:0}
+.tier ul{list-style:none;margin:18px 0 0;padding:0}
+.tier li{font-size:13.5px;color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper));
+         padding:7px 0 7px 18px;position:relative;line-height:1.5}
+.tier li::before{content:"";position:absolute;left:0;top:13px;width:6px;height:6px;border-radius:50%;background:var(--color-accent)}
+@media (max-width:880px){ .tiers{grid-template-columns:1fr} }
+
+/* --------------------------------------------------------- spec / table --- */
+.spec-table{width:100%;border-collapse:collapse;font-size:14px}
+.spec-table th,.spec-table td{text-align:center;padding:13px 8px;border-bottom:1px solid var(--color-hair)}
+.spec-table th:first-child,.spec-table td:first-child{text-align:left;color:var(--color-ink)}
+.spec-table thead th{font-size:var(--size-kicker);letter-spacing:.1em;text-transform:uppercase;color:var(--color-muted);font-weight:var(--weight-medium)}
+.spec-table thead th.is-own{color:var(--color-accent)}
+.spec-table .yes{font-weight:var(--weight-bold)}
+.spec-table td.is-own .yes{color:var(--color-accent)}
+.spec-table .no{color:var(--color-hair)}
+
+/* --------------------------------------------------------------- gallery -- */
+/* Masonry screenshot grid — no scrollbar. */
+.gallery{columns:4 218px;column-gap:20px}
+.gallery .shot{break-inside:avoid;margin:0 0 20px}
+.gallery .shot img,.gallery .shot .frame{width:100%;display:block;border-radius:var(--radius-md);
+     border:1px solid var(--color-hair);box-shadow:0 12px 30px -18px rgba(0,0,0,.45);transition:transform .2s}
+.gallery .shot:hover img,.gallery .shot:hover .frame{transform:translateY(-4px)}
+.gallery .shot .cap{margin-top:10px;font-size:11.5px;letter-spacing:.06em;color:var(--color-muted);text-transform:uppercase}
+
+/* media frame for icons / placeholders */
+.media-frame{aspect-ratio:4/3;background:var(--color-card);position:relative;overflow:hidden}
+
+/* -------------------------------------------------------- device frames --- */
+/* Neutral hardware bezels for previews. The .screen interior uses tokens, so
+   set data-theme="light"|"dark" on .screen to preview either theme per device. */
+.device--iphone{width:300px;background:#0c0c0e;border-radius:46px;padding:11px;
+     box-shadow:0 50px 90px -50px rgba(0,0,0,.55),inset 0 0 0 2px #2a2a2e}
+.device--iphone .screen{position:relative;aspect-ratio:9/19.3;border-radius:36px;overflow:hidden;
+     background:var(--color-paper);color:var(--color-ink)}
+.device--iphone .island{position:absolute;top:9px;left:50%;transform:translateX(-50%);
+     width:92px;height:24px;background:#0c0c0e;border-radius:13px;z-index:6}
+
+.device--watch{width:188px;position:relative}
+.device--watch .case{background:#0c0c0e;border-radius:52px;padding:13px;
+     box-shadow:0 40px 70px -45px rgba(0,0,0,.55),inset 0 0 0 2px #2a2a2e}
+.device--watch .screen{position:relative;aspect-ratio:41/50;border-radius:40px;overflow:hidden;
+     background:var(--color-paper);color:var(--color-ink)}
+.device--watch .crown{position:absolute;right:-3px;top:40%;width:5px;height:32px;background:#1a1a1d;border-radius:3px}
+
+.browser{border:1px solid var(--color-hair);border-radius:10px;overflow:hidden;
+     box-shadow:0 30px 60px -40px rgba(0,0,0,.4)}
+.browser .bar{display:flex;align-items:center;gap:12px;padding:11px 14px;background:var(--color-card);border-bottom:1px solid var(--color-hair)}
+.browser .bar .dots{display:flex;gap:7px}
+.browser .bar .dots i{width:11px;height:11px;border-radius:50%;background:var(--color-hair)}
+.browser .bar .addr{flex:1;font-size:12px;color:var(--color-muted);background:var(--color-paper);
+     border:1px solid var(--color-hair);border-radius:6px;padding:6px 14px;text-align:center}
+.browser .viewport{background:var(--color-paper);color:var(--color-ink)}
+
+.device-cap{margin-top:16px;font-size:var(--size-small);color:var(--color-muted);text-align:center}
+.device-cap b{color:var(--color-ink);font-weight:var(--weight-medium)}
+
+/* ---------------------------------------------------------------- footer -- */
+.ds-footer{display:flex;justify-content:space-between;align-items:center;padding:46px 0 64px;margin-top:80px;
+     border-top:1px solid var(--color-hair);font-size:var(--size-small);letter-spacing:.1em;
+     color:var(--color-muted);flex-wrap:wrap;gap:16px}
+.ds-footer a:hover{color:var(--color-ink)}
+.ds-footer .links{display:flex;gap:22px;flex-wrap:wrap;text-transform:uppercase;letter-spacing:.13em;font-size:var(--size-kicker)}

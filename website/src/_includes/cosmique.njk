@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ pageTitle or (site.site.title + " — " + site.site.description) }}</title>
+  <meta name="description" content="{{ pageDescription or site.site.description }}">
+  <link rel="stylesheet" href="{{ '/css/cosmique/tokens.css' | url }}">
+  <link rel="stylesheet" href="{{ '/css/cosmique/base.css' | url }}">
+  <link rel="stylesheet" href="{{ '/css/cosmique/components.css' | url }}">
+  <link rel="stylesheet" href="{{ '/css/cosmique/orbit-page.css' | url }}">
+  <script src="{{ '/js/theme.js' | url }}"></script>
+</head>
+<body>
+  {{ content | safe }}
+  <!-- Cloudflare Web Analytics -->
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7174274787b1417081c191e0d1dd8959"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+</body>
+</html>

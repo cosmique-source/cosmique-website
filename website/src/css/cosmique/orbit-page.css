@@ -1,0 +1,101 @@
+/* Orbit product page (v2) — layout helpers on top of the Cosmique design
+   system. Everything references tokens.css; no raw values except frame chrome. */
+
+/* --- Mac window frame (browser frame minus the address bar) --- */
+.macwin{border:1px solid var(--color-hair);border-radius:10px;overflow:hidden;
+  background:var(--color-card);box-shadow:0 18px 50px rgb(var(--color-ink-rgb) / 0.10);margin:0}
+.macwin .bar{display:flex;align-items:center;padding:11px 14px;background:var(--color-card);
+  border-bottom:1px solid var(--color-hair)}
+.macwin .bar .dots{display:flex;gap:7px}
+.macwin .bar .dots i{width:11px;height:11px;border-radius:50%;background:var(--color-hair)}
+.macwin .viewport{background:var(--color-paper)}
+.macwin img{width:100%;height:auto;display:block}
+
+.browser{margin:0;box-shadow:0 18px 50px rgb(var(--color-ink-rgb) / 0.10)}
+.browser img{width:100%;height:auto;display:block}
+
+.device--iphone{margin:0 auto}
+.device--iphone .screen img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* --- Hero --- */
+.o2-hero{padding:var(--space-xxl) 0 var(--space-xl);text-align:center}
+.o2-hero .eyebrow{justify-content:center;margin-bottom:var(--space-md)}
+.o2-hero .h1{margin-bottom:var(--space-md)}
+.o2-hero-lead{max-width:38em;margin:0 auto var(--space-lg)}
+.o2-cta{display:flex;gap:var(--space-md);justify-content:center;align-items:center;
+  margin-bottom:var(--space-md)}
+.o2-chips{display:flex;gap:var(--space-sm);justify-content:center;flex-wrap:wrap;
+  margin-bottom:var(--space-xl)}
+.o2-hero-shot{max-width:980px;margin:0 auto}
+
+.o2-caption{font-size:var(--size-kicker);letter-spacing:var(--tracking-label);
+  color:var(--color-muted);text-align:center;margin-top:var(--space-sm)}
+
+/* --- Alternating features --- */
+.o2-feature{display:grid;grid-template-columns:minmax(16rem,2fr) 3fr;gap:var(--space-xl);
+  align-items:center;padding:var(--space-xl) 0;border-top:1px solid var(--color-hair)}
+.o2-feature-text .h2{margin-bottom:var(--space-sm)}
+.o2-feature-text p:not(.kick){font-size:15px;line-height:1.7;
+  color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper))}
+/* Reversed sections: image on the left. Swap the track sizes too — `order`
+   changes auto-placement, so the image lands in the FIRST track. */
+.o2-feature-reverse{grid-template-columns:3fr minmax(16rem,2fr)}
+.o2-feature-reverse .o2-feature-text{order:2}
+.o2-feature-reverse .macwin,
+.o2-feature-reverse .browser,
+.o2-feature-reverse .o2-pair{order:1}
+
+.o2-pair{display:grid;grid-template-columns:auto 1fr;gap:var(--space-md);align-items:center}
+.o2-pair .device--iphone{width:230px}
+.o2-pair-phones{grid-template-columns:1fr 1fr;max-width:640px}
+.o2-pair-phones .device--iphone{width:280px}
+.o2-pair-center{margin:0 auto}
+
+/* --- OSP callout --- */
+.o2-callout{margin:var(--space-xl) 0 0}
+
+/* --- Collection --- */
+.o2-collection{padding:var(--space-xl) 0;text-align:center}
+.o2-kick-center{justify-content:center}
+.o2-collection .h2{margin-bottom:var(--space-sm)}
+.o2-collection-lede{color:var(--color-muted);max-width:34em;margin:0 auto var(--space-lg)}
+
+/* --- Dark interlude (token-driven subtree) --- */
+.o2-dark{background:var(--color-paper);color:var(--color-ink);
+  padding:var(--space-xxl) 0;margin-top:var(--space-xl)}
+.o2-dark .macwin{max-width:980px;margin:0 auto;
+  box-shadow:0 24px 70px rgb(0 0 0 / 0.55)}
+
+/* --- Formats --- */
+.o2-formats{padding:var(--space-xl) 0 var(--space-lg)}
+.o2-formats .h2{margin-bottom:var(--space-md)}
+.o2-format-table{width:100%;border-collapse:collapse}
+.o2-format-table th,
+.o2-format-table td{text-align:left;padding:var(--space-sm) var(--space-sm) var(--space-sm) 0;
+  border-bottom:1px solid var(--color-hair);vertical-align:top}
+.o2-format-table th{font-family:var(--font-mono);font-size:var(--size-kicker);
+  letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--color-muted);
+  font-weight:var(--weight-regular);width:11rem;white-space:nowrap}
+.o2-format-table td{font-size:15px}
+
+/* --- Pricing --- */
+.o2-pricing{padding:var(--space-xl) 0 var(--space-md);border-top:1px solid var(--color-hair)}
+.o2-pricing .h2{margin-bottom:var(--space-sm)}
+.o2-pricing-lede{color:var(--color-muted);max-width:40em;margin-bottom:var(--space-lg)}
+.o2-pricing-note{margin-top:var(--space-lg)}
+
+/* --- Responsive --- */
+@media (max-width:880px){
+  .o2-hero{padding:var(--space-xl) 0 var(--space-lg)}
+  .o2-hero .h1{font-size:clamp(34px, 9.5vw, var(--size-h1))}
+  .o2-feature{grid-template-columns:1fr;gap:var(--space-lg)}
+  .o2-feature-reverse .o2-feature-text{order:1}
+  .o2-feature-reverse .macwin,
+  .o2-feature-reverse .browser,
+  .o2-feature-reverse .o2-pair{order:2}
+  .o2-pair{grid-template-columns:1fr;justify-items:center}
+  .o2-pair-phones{grid-template-columns:1fr}
+  .o2-cta{flex-direction:column;gap:var(--space-sm)}
+  .o2-format-table th{width:7rem;white-space:normal}
+  .tiers{grid-template-columns:1fr}
+}
