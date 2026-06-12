@@ -1,0 +1,227 @@
+---
+permalink: "/apps/orbit/"
+layout: base.njk
+---
+
+<div class="container orbit-page">
+  <header>
+    <a href="{{ '/' | url }}">
+      <img src="{{ '/assets/logo.svg' | url }}" alt="{{ site.site.title }}" class="logo">
+    </a>
+  </header>
+
+  <main>
+    <nav class="breadcrumb">
+      <a href="{{ '/' | url }}">apps</a> / Orbit
+    </nav>
+
+    <article class="orbit-product">
+
+      <!-- Hero -->
+      <header class="orbit-hero">
+        <img src="{{ '/assets/orbit/orbit-icon.svg' | url }}" alt="Orbit icon" class="orbit-hero-icon">
+        <h1 class="orbit-hero-title">The music server built for serious&nbsp;collectors.</h1>
+        <p class="orbit-lede">
+          Self-hosted on your own hardware, with native apps for iPhone, iPad, Mac,
+          Apple&nbsp;Watch, Apple&nbsp;TV and CarPlay. For people who can hear the difference
+          between pressings — and want a server that can too.
+        </p>
+        <div class="orbit-cta">
+          <a href="{{ '/apps/orbit/pricing/' | url }}" class="orbit-btn">Pricing</a>
+          <a href="{{ '/apps/orbit/support/' | url }}" class="orbit-btn orbit-btn-ghost">Get started</a>
+        </div>
+        <figure class="orbit-shot">
+          <img src="{{ '/assets/orbit/hero-player-cinematic.webp' | url }}"
+               alt="Orbit's Mac app playing a 1978 German pressing of Kraftwerk — Die Mensch·Maschine, showing label, catalog number, condition and playback equipment"
+               width="2000" height="1242">
+          <figcaption>The Mac player. Pressing details and the equipment behind the rip, right where they belong.</figcaption>
+        </figure>
+      </header>
+
+      <!-- 01 Versions -->
+      <section class="orbit-feature">
+        <div class="orbit-feature-text">
+          <p class="orbit-kicker">01 — Versions</p>
+          <h2>Every pressing tells a different story</h2>
+          <p>
+            Most servers see one album. Orbit sees your 1978 Kling&nbsp;Klang original and the
+            2020 remaster as what they are: different records. Keep every version, switch
+            between them with one click, and mark the one that sounds best — with a note
+            that says why.
+          </p>
+        </div>
+        <figure class="orbit-shot">
+          <img src="{{ '/assets/orbit/mac-album-versions.webp' | url }}"
+               alt="Album page with two pressings of Die Mensch·Maschine — German 1978 and European 2020 — shown as switchable versions"
+               loading="lazy" width="1800" height="1117">
+        </figure>
+      </section>
+
+      <!-- 02 Vinyl -->
+      <section class="orbit-feature orbit-feature-reverse">
+        <div class="orbit-feature-text">
+          <p class="orbit-kicker">02 — Vinyl</p>
+          <h2>Vinyl is a first-class citizen</h2>
+          <p>
+            Label, catalog number, matrix etching, condition grade — and the turntable and
+            cartridge that made the rip. Orbit keeps the full provenance of every record,
+            down to DSD128 needle-drops that play on every device you own.
+          </p>
+        </div>
+        <div class="orbit-shot-pair">
+          <figure class="orbit-shot orbit-shot-phone">
+            <img src="{{ '/assets/orbit/ios-vinyl-equipment.webp' | url }}"
+                 alt="iPhone showing vinyl specifications, pressing information, condition and digitization equipment for a record"
+                 loading="lazy" width="900" height="1956">
+          </figure>
+          <figure class="orbit-shot">
+            <img src="{{ '/assets/orbit/mac-album-dsd.webp' | url }}"
+                 alt="Ghost — Prequelle as a DSD128 vinyl rip with side-numbered tracks"
+                 loading="lazy" width="1800" height="1117">
+          </figure>
+        </div>
+      </section>
+
+      <!-- 03 Classical -->
+      <section class="orbit-feature">
+        <div class="orbit-feature-text">
+          <p class="orbit-kicker">03 — Classical</p>
+          <h2>Classical, done properly</h2>
+          <p>
+            Composer → Work → Movement — not “Track 7”. Opera acts and scenes, conductors,
+            orchestras and soloists, with authoritative catalog data from OpenOpus.
+            Your Beethoven shelf finally makes sense.
+          </p>
+        </div>
+        <figure class="orbit-shot">
+          <img src="{{ '/assets/orbit/web-composers.webp' | url }}"
+               alt="Composer browser listing Bach, Beethoven and others with their works"
+               loading="lazy" width="1800" height="1125">
+        </figure>
+      </section>
+
+      <!-- 04 Playback -->
+      <section class="orbit-feature orbit-feature-reverse">
+        <div class="orbit-feature-text">
+          <p class="orbit-kicker">04 — Playback</p>
+          <h2>Bit-perfect, to the last bit</h2>
+          <p>
+            Exclusive mode hands your USB DAC to Orbit and nobody else: no system mixer,
+            no resampling, automatic sample-rate switching, DSD. Gapless playback and
+            loudness analysis come standard — and effective-bit-depth checks call out
+            fake hi-res before you shelve it.
+          </p>
+        </div>
+        <figure class="orbit-shot">
+          <img src="{{ '/assets/orbit/mac-player-radar.webp' | url }}"
+               alt="Radar player layout showing sonic dimensions and the signal chain: format, pressing, condition, equipment"
+               loading="lazy" width="1800" height="1117">
+        </figure>
+      </section>
+
+      <!-- 05 Everywhere -->
+      <section class="orbit-feature">
+        <div class="orbit-feature-text">
+          <p class="orbit-kicker">05 — Everywhere</p>
+          <h2>Everywhere you listen</h2>
+          <p>
+            Native apps for iPhone, iPad, Mac, Apple&nbsp;Watch, Apple&nbsp;TV and CarPlay.
+            Download albums for offline. Away from home, your library follows you through an
+            end-to-end encrypted relay — your server stays private, your music doesn’t stop.
+            Multiroom zones today; OSP, our sub-millisecond streaming protocol, coming soon.
+          </p>
+        </div>
+        <div class="orbit-shot-pair orbit-shot-pair-phones">
+          <figure class="orbit-shot orbit-shot-phone">
+            <img src="{{ '/assets/orbit/ios-player-oxygene.webp' | url }}"
+                 alt="iPhone player showing Jean-Michel Jarre — Oxygène in FLAC 24-bit / 96 kHz"
+                 loading="lazy" width="900" height="1956">
+          </figure>
+          <figure class="orbit-shot orbit-shot-phone">
+            <img src="{{ '/assets/orbit/ios-home.webp' | url }}"
+                 alt="iPhone home screen with recently added and recently released albums"
+                 loading="lazy" width="900" height="1956">
+          </figure>
+        </div>
+      </section>
+
+      <!-- 06 Collection -->
+      <section class="orbit-feature-full">
+        <p class="orbit-kicker">06 — Your collection</p>
+        <h2>A collection you can see</h2>
+        <p class="orbit-feature-full-lede">
+          Groove and Spine map your library by era, intensity and sound.
+          Crate-digging, without the dust.
+        </p>
+        <div class="orbit-shot-trio orbit-shot-duo">
+          <figure class="orbit-shot orbit-shot-phone">
+            <img src="{{ '/assets/orbit/ios-collection-groove.webp' | url }}"
+                 alt="Groove view: albums plotted by year and intensity" loading="lazy" width="900" height="1956">
+          </figure>
+          <figure class="orbit-shot orbit-shot-phone">
+            <img src="{{ '/assets/orbit/ios-collection-spine.webp' | url }}"
+                 alt="Spine view: albums as vinyl discs on a decade timeline" loading="lazy" width="900" height="1956">
+          </figure>
+        </div>
+      </section>
+
+      <!-- Dark interlude -->
+      <section class="orbit-dark-band">
+        <figure class="orbit-shot orbit-shot-dark">
+          <img src="{{ '/assets/orbit/mac-player-cinematic-dark.webp' | url }}"
+               alt="The Cinematic player in dark mode with true black background"
+               loading="lazy" width="1800" height="1170">
+        </figure>
+        <p class="orbit-dark-caption">Dark mode, with true black for OLED. Your listening room, undisturbed.</p>
+      </section>
+
+      <!-- Formats -->
+      <section class="orbit-formats">
+        <p class="orbit-kicker">07 — Formats</p>
+        <h2>If you can collect it, Orbit can play it</h2>
+        <table class="orbit-format-table">
+          <tbody>
+            <tr>
+              <th scope="row">Lossless</th>
+              <td>FLAC · ALAC · WAV · AIFF · APE · WavPack</td>
+            </tr>
+            <tr>
+              <th scope="row">Hi-res &amp; DSD</th>
+              <td>DSF / DFF (DSD64–DSD256) · SACD ISO extraction · up to 384 kHz / 32-bit</td>
+            </tr>
+            <tr>
+              <th scope="row">Lossy</th>
+              <td>MP3 · AAC · OGG Vorbis · Opus</td>
+            </tr>
+            <tr>
+              <th scope="row">And the rest</th>
+              <td>CUE sheets · multi-disc sets · on-the-fly transcoding for the road</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Pricing strip -->
+      <section class="orbit-pricing-strip">
+        <p class="orbit-kicker">08 — Pricing</p>
+        <h2>Free at home. Pro everywhere else.</h2>
+        <p>
+          The server and every app are free on your home network. <strong>Orbit&nbsp;Pro</strong> —
+          $2.99 a month or $24 a year — unlocks bit-perfect exclusive mode, gapless playback,
+          offline downloads, remote listening and multi-zone audio.
+        </p>
+        <div class="orbit-cta">
+          <a href="{{ '/apps/orbit/pricing/' | url }}" class="orbit-btn">See full pricing</a>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>{{ site.site.title }}</p>
+      <p><a href="mailto:hello@cosmique.io">hello@cosmique.io</a></p>
+    </div>
+  </footer>
+</div>

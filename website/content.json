@@ -66,22 +66,23 @@
       "name": "Orbit",
       "description": "The music server built for serious collectors.",
       "slug": "orbit",
-      "fullDescription": "Orbit is a self-hosted music server designed for audiophiles, vinyl collectors, and classical music enthusiasts who demand more than basic playback. Most music servers treat your library as a flat collection of files. They don't understand that your 1975 original pressing sounds different from your 2015 Mobile Fidelity remaster. They can't tell the difference between Beethoven's Symphony No. 5 conducted by Karajan versus Furtwängler. Orbit does.",
+      "fullDescription": "Orbit is a self-hosted music system for audiophiles, vinyl collectors, and classical listeners. A server that runs on your hardware, with native apps for iPhone, iPad, Mac, Apple Watch, Apple TV and CarPlay. Most music servers treat your library as a flat collection of files. Orbit knows your 1978 original pressing and its 2020 remaster are different records — and it can tell Karajan's Fifth from Furtwängler's.",
       "features": [
-        "Multiple versions per album — Every pressing, remaster, and edition tracked separately. Mark your favorite with a note explaining why.",
-        "Vinyl-first design — Track pressing details, label, matrix number, condition, equipment chain. Full Discogs integration.",
-        "Classical hierarchy — Proper Composer → Work → Movement → Recording structure. OpenOpus integration for authoritative metadata.",
-        "Hi-res audio support — Native DSD, SACD ISO extraction, full sample rate and bit depth tracking from 44.1kHz to 384kHz.",
-        "In-place mode — Read your existing library without moving or renaming files. Your organization, your rules.",
-        "Smart playlists — Filter by format, source, quality, ratings, custom tags. Combine rules with AND/OR logic.",
-        "Self-hosted — Your music, your hardware, no cloud required. SQLite or PostgreSQL. Full GraphQL API."
+        "Multiple versions per album — every pressing, remaster and edition tracked separately, with your favourite marked and a note saying why.",
+        "Vinyl first — pressing details, matrix numbers, condition grades, and the equipment chain behind every needle-drop. Full Discogs integration.",
+        "Classical done properly — Composer → Work → Movement structure, opera acts and scenes, OpenOpus metadata.",
+        "Bit-perfect playback — exclusive mode on macOS, automatic sample-rate switching, DSD, gapless, and fake hi-res detection.",
+        "Hi-res everywhere — FLAC, DSF/DFF (DSD64–256), SACD ISO extraction, up to 384 kHz / 32-bit.",
+        "Listen anywhere — offline downloads on iPhone and iPad, end-to-end encrypted remote access, multiroom zones.",
+        "Self-hosted — your music, your hardware. SQLite or PostgreSQL, Docker images for amd64 and arm64, full GraphQL API."
       ],
-      "platform": "macOS, Linux, Windows & Docker",
+      "platform": "Server: Docker, Linux, macOS · Apps: iPhone, iPad, Mac, Watch, TV, CarPlay",
       "link": "",
       "hasSupport": true,
       "hasPricing": true,
       "hasTerms": true,
-      "icon": "orbit-icon.svg"
+      "icon": "orbit-icon.svg",
+      "heroImage": "hero-player-cinematic.webp"
     }
   ]
 }

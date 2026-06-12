@@ -514,3 +514,270 @@ footer {
     break-inside: avoid;
   }
 }
+
+/* ============================================================
+   Orbit product page
+   ============================================================ */
+
+.orbit-product h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: var(--space-sm);
+}
+
+.orbit-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: var(--space-xs);
+}
+
+/* Hero */
+.orbit-hero {
+  border-bottom: none;
+  padding: var(--space-lg) 0 var(--space-md);
+  text-align: center;
+}
+
+.orbit-hero-icon {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto var(--space-md);
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.orbit-hero-title {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  max-width: 18em;
+  margin: 0 auto var(--space-sm);
+}
+
+.orbit-lede {
+  font-size: 1.125rem;
+  color: var(--color-muted);
+  max-width: 38em;
+  margin: 0 auto var(--space-md);
+}
+
+.orbit-cta {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+}
+
+.orbit-btn {
+  display: inline-block;
+  padding: 0.65rem 1.5rem;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: opacity 0.2s ease;
+}
+
+.orbit-btn:hover { opacity: 0.8; }
+
+.orbit-btn-ghost {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+/* Screenshots */
+.orbit-shot {
+  margin: 0;
+}
+
+.orbit-shot img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.orbit-shot figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-muted);
+  margin-top: var(--space-xs);
+  text-align: center;
+}
+
+/* Alternating feature sections */
+.orbit-feature {
+  display: grid;
+  grid-template-columns: minmax(16rem, 2fr) 3fr;
+  gap: var(--space-lg);
+  align-items: center;
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.orbit-feature-reverse .orbit-feature-text { order: 2; }
+.orbit-feature-reverse .orbit-shot,
+.orbit-feature-reverse .orbit-shot-pair { order: 1; }
+
+.orbit-feature-text p {
+  color: var(--color-muted);
+}
+
+.orbit-shot-pair {
+  display: grid;
+  grid-template-columns: 1fr 2.2fr;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.orbit-shot-pair-phones {
+  grid-template-columns: 1fr 1fr;
+  max-width: 560px;
+}
+
+.orbit-shot-phone img {
+  border-radius: 24px;
+}
+
+/* Full-width section (visualizations) */
+.orbit-feature-full {
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.orbit-feature-full-lede {
+  color: var(--color-muted);
+  max-width: 34em;
+  margin: 0 auto var(--space-md);
+}
+
+.orbit-shot-trio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.orbit-shot-duo {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 620px;
+}
+
+/* Dark interlude */
+.orbit-dark-band {
+  background: #0a0a0a;
+  margin: var(--space-lg) calc(-1 * var(--space-md)) 0;
+  padding: var(--space-lg) var(--space-md);
+}
+
+.orbit-shot-dark {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.orbit-shot-dark img {
+  border-color: #2a2a2a;
+  box-shadow: 0 12px 60px rgba(0, 0, 0, 0.6);
+}
+
+.orbit-dark-caption {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #777;
+  text-align: center;
+  margin-top: var(--space-sm);
+}
+
+/* Formats table */
+.orbit-formats {
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.orbit-format-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--space-md);
+}
+
+.orbit-format-table th,
+.orbit-format-table td {
+  text-align: left;
+  padding: var(--space-sm) var(--space-sm) var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+.orbit-format-table th {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  font-weight: 400;
+  width: 11rem;
+  white-space: nowrap;
+}
+
+.orbit-format-table td {
+  font-size: 0.9375rem;
+}
+
+/* Pricing strip */
+.orbit-pricing-strip {
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.orbit-pricing-strip p {
+  color: var(--color-muted);
+  max-width: 38em;
+  margin: 0 auto var(--space-md);
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .orbit-feature {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .orbit-feature-reverse .orbit-feature-text { order: 1; }
+  .orbit-feature-reverse .orbit-shot,
+  .orbit-feature-reverse .orbit-shot-pair { order: 2; }
+
+  .orbit-shot-trio {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+  }
+
+  .orbit-shot-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .orbit-shot-pair .orbit-shot-phone {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .orbit-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+}
