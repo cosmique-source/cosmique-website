@@ -129,6 +129,12 @@ ingestion:
   classical:
     use_open_opus: true
     open_opus_api_url: https://api.openopus.org
+# Orbit Cloud — connect this server to your Orbit Account for remote
+# access from paired devices (Orbit Pro). Pair it from Settings → Orbit
+# Account in the web UI. Blank out base_url to run fully standalone.
+cloud:
+  base_url: https://cloud.cosmique.io
+  relay_url: wss://relay.cosmique.io/server/connect
 scanner:
   enabled: false
 auth:
