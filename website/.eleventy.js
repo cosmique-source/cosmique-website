@@ -4,6 +4,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/CNAME");
+  // Orbit turnkey installer — served raw at /orbit/install.sh
+  // (curl -fsSL https://cosmique.io/orbit/install.sh | bash).
+  // Source of truth is the orbit repo's deploy/docker-installer branch.
+  eleventyConfig.addPassthroughCopy("src/orbit/install.sh");
 
   // Add content.json as global data
   const content = require("./content.json");
