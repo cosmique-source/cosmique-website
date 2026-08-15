@@ -1,8 +1,13 @@
 ---
 permalink: "/apps/orbit/"
 layout: cosmique.njk
-pageTitle: "Orbit — The music server built for serious collectors"
-pageDescription: "Self-hosted music server with native apps for iPhone, iPad, Mac, Apple Watch, Apple TV and CarPlay. Bit-perfect playback, vinyl-grade metadata, classical structure."
+# Orbit hasn't shipped. While this is true the page is a coming-soon stub: the
+# launch page below (features, screenshots, formats, pricing) is kept intact in
+# the else branch untouched. Flip to false at launch to bring all of it back.
+comingSoon: true
+eleventyComputed:
+  pageTitle: "{% if comingSoon %}Orbit — Coming soon{% else %}Orbit — The music server built for serious collectors{% endif %}"
+  pageDescription: "{% if comingSoon %}Orbit is a self-hosted music server for serious collectors, in development at Cosmique.{% else %}Self-hosted music server with native apps for iPhone, iPad, Mac, Apple Watch, Apple TV and CarPlay. Bit-perfect playback, vinyl-grade metadata, classical structure.{% endif %}"
 ---
 
 <div class="wrap">
@@ -15,9 +20,11 @@ pageDescription: "Self-hosted music server with native apps for iPhone, iPad, Ma
       <b>ORBIT</b>
     </div>
     <nav class="nav">
+      {%- if not comingSoon %}
       <a href="#features">Features</a>
       <a href="#formats">Formats</a>
       <a href="#pricing">Pricing</a>
+      {%- endif %}
       <a href="{{ '/apps/orbit/support/' | url }}">Support</a>
     </nav>
     <button class="theme-toggle" aria-label="Toggle dark mode">◐</button>
@@ -32,6 +39,13 @@ pageDescription: "Self-hosted music server with native apps for iPhone, iPad, Ma
       Apple&nbsp;Watch, Apple&nbsp;TV and CarPlay. For people who can hear the difference
       between pressings — and want a server that can too.
     </p>
+    {% if comingSoon %}
+    <div class="o2-cta">
+      <span class="chip"><span class="dot"></span>In development — coming soon</span>
+    </div>
+  </section>
+
+  {% else %}
     <div class="o2-cta">
       <a class="btn" href="#pricing">See pricing</a>
       <a class="btn-secondary" href="{{ '/apps/orbit/support/' | url }}">Get started →</a>
@@ -299,12 +313,15 @@ pageDescription: "Self-hosted music server with native apps for iPhone, iPad, Ma
       <a class="btn-secondary" href="{{ '/apps/orbit/pricing/' | url }}">Full pricing &amp; FAQ →</a>
     </p>
   </section>
+  {% endif %}
 
   <!-- Footer -->
   <footer class="ds-footer">
     <div class="brand"><a href="{{ '/' | url }}">COSMIQUE</a> <span>/</span> <b>ORBIT</b></div>
     <div class="links">
+      {%- if not comingSoon %}
       <a href="{{ '/apps/orbit/pricing/' | url }}">Pricing</a>
+      {%- endif %}
       <a href="{{ '/apps/orbit/support/' | url }}">Support</a>
       <a href="{{ '/apps/orbit/privacy/' | url }}">Privacy</a>
       <a href="{{ '/apps/orbit/terms/' | url }}">Terms</a>

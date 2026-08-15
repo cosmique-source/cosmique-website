@@ -20,7 +20,7 @@ layout: base.njk
             <img src="{{ ('/assets/' + app.slug + '/' + app.icon) | url }}" alt="{{ app.name }} icon" class="app-card-icon">
             {% endif %}
             <div class="app-card-text">
-              <h2 class="app-name">{{ app.name }}</h2>
+              <h2 class="app-name">{{ app.name }}{% if app.comingSoon %} <span class="app-soon">Coming soon</span>{% endif %}</h2>
               <p class="app-description">{{ app.description }}</p>
             </div>
           </div>

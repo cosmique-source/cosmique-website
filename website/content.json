@@ -66,6 +66,7 @@
       "name": "Orbit",
       "description": "The music server built for serious collectors.",
       "slug": "orbit",
+      "comingSoon": true,
       "fullDescription": "Orbit is a self-hosted music system for audiophiles, vinyl collectors, and classical listeners. A server that runs on your hardware, with native apps for iPhone, iPad, Mac, Apple Watch, Apple TV and CarPlay. Most music servers treat your library as a flat collection of files. Orbit knows your 1978 original pressing and its 2020 remaster are different records — and it can tell Karajan's Fifth from Furtwängler's.",
       "features": [
         "Multiple versions per album — every pressing, remaster and edition tracked separately, with your favourite marked and a note saying why.",
