@@ -1,57 +1,46 @@
 ---
 permalink: "/apps/punkt/support/"
-layout: base.njk
+layout: cosmique.njk
+pageTitle: "punkt — Support"
+pageDescription: "Get help with punkt, the minimalist RSS reader for Apple Watch."
 ---
 
-<div class="container">
-  <header>
-    <a href="{{ '/' | url }}">
-      <img src="{{ '/assets/logo.svg' | url }}" alt="{{ site.site.title }}" class="logo">
-    </a>
-  </header>
+<div class="wrap">
 
-  <main>
-    <nav class="breadcrumb">
-      <a href="{{ '/' | url }}">apps</a> / <a href="{{ '/apps/punkt/' | url }}">punkt</a> / support
-    </nav>
+  {% set crumbName = "PUNKT" %}
+  {% set crumbUrl = "/apps/punkt/" %}
+  {% set navLinks = [
+    { url: "/apps/punkt/", label: "Overview" },
+    { url: "/apps/punkt/privacy/", label: "Privacy" }
+  ] %}
+  {% include "ds-header.njk" %}
 
-    <article class="app-detail">
-      <h1 class="app-detail-title">Support</h1>
-      <p class="app-detail-tagline">We're here to help with punkt</p>
+  <article class="doc">
+    <p class="kick">Support</p>
+    <h1 class="h1">We're here to help</h1>
+    <p class="doc-lede">Having trouble with punkt? Found a bug? Have a feature request? We'd love to hear from you.</p>
 
-      <div class="app-detail-content">
-        <section class="app-section">
-          <h2 class="section-title">Contact Us</h2>
-          <p class="app-detail-description">Having trouble with punkt? Found a bug? Have a feature request? We'd love to hear from you.</p>
-        </section>
+    <section>
+      <a class="btn" href="mailto:support@cosmique.io?subject=punkt%20support">Email support@cosmique.io</a>
+    </section>
 
-        <section class="app-section">
-          <a href="mailto:support@cosmique.io?subject=punkt%20support" class="app-link">
-            Email support@cosmique.io →
-          </a>
-        </section>
+    <section>
+      <h2>When contacting us</h2>
+      <p>Please include:</p>
+      <ul>
+        <li>A description of the issue or your feedback</li>
+        <li>Your device model and watchOS/iOS version</li>
+        <li>Steps to reproduce the issue (if applicable)</li>
+      </ul>
+    </section>
 
-        <section class="app-section">
-          <h2 class="section-title">When contacting us</h2>
-          <p class="app-detail-description">Please include:</p>
-          <ul class="feature-list">
-            <li>A description of the issue or your feedback</li>
-            <li>Your device model and watchOS/iOS version</li>
-            <li>Steps to reproduce the issue (if applicable)</li>
-          </ul>
-        </section>
-      </div>
+    <a class="btn-secondary" href="{{ '/apps/punkt/' | url }}">← Back to punkt</a>
+  </article>
 
-      <nav class="app-nav">
-        <a href="{{ '/apps/punkt/' | url }}" class="back-link">← Back to punkt</a>
-      </nav>
-    </article>
-  </main>
+  {% set footerLinks = [
+    { url: "/apps/punkt/", label: "punkt" },
+    { url: "/apps/punkt/privacy/", label: "Privacy" }
+  ] %}
+  {% include "ds-footer.njk" %}
 
-  <footer>
-    <div class="footer-content">
-      <p>{{ site.site.title }}</p>
-      <p><a href="mailto:hello@cosmique.io">hello@cosmique.io</a></p>
-    </div>
-  </footer>
 </div>

@@ -1,0 +1,60 @@
+---
+permalink: "/apps/orbit/releases/"
+layout: cosmique.njk
+pageTitle: "Orbit — Releases"
+pageDescription: "What changed in each release of the Orbit apps and Orbit Server."
+---
+
+<div class="wrap">
+
+  {% set crumbName = "ORBIT" %}
+  {% set crumbUrl = "/apps/orbit/" %}
+  {% if orbitLive %}
+    {% set navLinks = [
+      { url: "/apps/orbit/", label: "Overview" },
+      { url: "/apps/orbit/pricing/", label: "Pricing" },
+      { url: "/apps/orbit/support/", label: "Support" },
+      { url: "/apps/orbit/privacy/", label: "Privacy" },
+      { url: "/apps/orbit/terms/", label: "Terms" }
+    ] %}
+  {% else %}
+    {% set navLinks = [
+      { url: "/apps/orbit/", label: "Overview" },
+      { url: "/apps/orbit/support/", label: "Support" },
+      { url: "/apps/orbit/privacy/", label: "Privacy" },
+      { url: "/apps/orbit/terms/", label: "Terms" }
+    ] %}
+  {% endif %}
+  {% include "ds-header.njk" %}
+
+  <article class="doc">
+    <p class="kick">Releases</p>
+    <h1 class="h1">What's new in Orbit</h1>
+    <p class="doc-lede">Release notes for the Orbit apps on the App Store and for Orbit Server. Newest first.</p>
+
+    <section>
+      <h2>Orbit 1.0 — apps for iPhone, Mac, Apple TV and Apple Watch</h2>
+      <p class="doc-updated">First release</p>
+      <p>Orbit is the native client for your Orbit Server: vinyl pressings, classical hierarchy, several versions per album, and bit-perfect playback on iPhone, Mac, Apple TV and Apple Watch.</p>
+      <ul>
+        <li>Your whole library at home for free: albums, artists, genres, tags, plus the classical and vinyl views, full-quality playback including DSD, lock screen, AirPlay, Apple Watch remote, home-screen widgets.</li>
+        <li>Orbit Pro adds remote access over the Orbit Cloud relay, offline downloads, the Apple TV app and CarPlay, Editorial mode, Music Dimensions, exclusive-mode output on Mac, Siri and alternate icons.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Orbit Server</h2>
+      <p>The server ships as a Docker image and as native builds for Linux and macOS. Server release notes accompany each tagged release; the one-line installer at <code>cosmique.io/orbit/install.sh</code> always fetches the latest.</p>
+    </section>
+
+    <a class="btn-secondary" href="{{ '/apps/orbit/' | url }}">← Back to Orbit</a>
+  </article>
+
+  {% set footerLinks = [
+    { url: "/apps/orbit/support/", label: "Support" },
+    { url: "/apps/orbit/privacy/", label: "Privacy" },
+    { url: "/apps/orbit/terms/", label: "Terms" }
+  ] %}
+  {% include "ds-footer.njk" %}
+
+</div>

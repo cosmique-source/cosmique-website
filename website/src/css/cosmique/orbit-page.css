@@ -78,6 +78,41 @@
   font-weight:var(--weight-regular);width:11rem;white-space:nowrap}
 .o2-format-table td{font-size:15px}
 
+/* --- Get started --- */
+.o2-install{padding:var(--space-xl) 0 var(--space-lg);border-top:1px solid var(--color-hair)}
+.o2-install .h2{margin-bottom:var(--space-sm)}
+.o2-install-lede{color:var(--color-muted);max-width:40em;margin-bottom:var(--space-lg)}
+
+.o2-tabs{display:flex;gap:var(--space-xs);margin-bottom:var(--space-md)}
+.o2-tab{font-family:var(--font-mono);font-size:var(--size-kicker);letter-spacing:var(--tracking-label);
+        text-transform:uppercase;color:var(--color-muted);background:none;cursor:pointer;
+        border:1px solid var(--color-hair);border-radius:var(--radius-sm);padding:8px 14px;
+        transition:color .18s,border-color .18s}
+.o2-tab:hover{color:var(--color-ink)}
+.o2-tab.is-active{color:var(--color-ink);border-color:var(--color-ink)}
+
+.o2-panel{display:none}
+.o2-panel.is-active{display:block}
+
+.o2-term{max-width:820px}
+.o2-copy{margin-left:auto;font-family:var(--font-mono);font-size:var(--size-kicker);
+         letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--color-muted);
+         background:none;border:0;padding:0;cursor:pointer;transition:color .18s}
+.o2-copy:hover{color:var(--color-accent)}
+
+.o2-code{margin:0;padding:var(--space-md);font-family:var(--font-mono);font-size:13px;
+         line-height:1.75;overflow-x:auto;color:var(--color-ink)}
+.o2-code .c{color:var(--color-muted)}
+
+.o2-install-points{list-style:none;margin:var(--space-md) 0 0;padding:0;max-width:44em}
+.o2-install-points li{position:relative;padding-left:22px;margin-bottom:var(--space-xs);
+        font-size:15px;line-height:1.7;color:var(--color-muted)}
+.o2-install-points li::before{content:"";position:absolute;left:0;top:.62em;
+        width:6px;height:6px;border-radius:50%;background:var(--color-accent)}
+.o2-install-points code{font-family:var(--font-mono);font-size:.88em;color:var(--color-ink);
+        background:var(--color-card);border:1px solid var(--color-hair);
+        border-radius:4px;padding:1px 5px;white-space:nowrap}
+
 /* --- Pricing --- */
 .o2-pricing{padding:var(--space-xl) 0 var(--space-md);border-top:1px solid var(--color-hair)}
 .o2-pricing .h2{margin-bottom:var(--space-sm)}
@@ -97,5 +132,6 @@
   .o2-pair-phones{grid-template-columns:1fr}
   .o2-cta{flex-direction:column;gap:var(--space-sm)}
   .o2-format-table th{width:7rem;white-space:normal}
+  .o2-code{font-size:12px}
   .tiers{grid-template-columns:1fr}
 }

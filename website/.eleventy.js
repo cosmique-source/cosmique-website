@@ -9,6 +9,9 @@ module.exports = function(eleventyConfig) {
   // Source of truth is the orbit repo's deploy/docker-installer branch.
   eleventyConfig.addPassthroughCopy("src/orbit/install.sh");
 
+  // Split "Title — body" feature strings in templates
+  eleventyConfig.addFilter("split", (str, sep) => String(str).split(sep));
+
   // Add content.json as global data
   const content = require("./content.json");
   eleventyConfig.addGlobalData("site", content);
@@ -19,6 +22,10 @@ module.exports = function(eleventyConfig) {
     "appsStandard",
     content.apps.filter((app) => app.slug !== "orbit")
   );
+
+  // Orbit is live (2026-09-10). `orbitLive` is kept for the legal/support pages,
+  // whose nav shows the Pricing link only when the product page is published.
+  eleventyConfig.addGlobalData("orbitLive", true);
 
   return {
     dir: {

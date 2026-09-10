@@ -1,0 +1,16 @@
+{# Shared design-system footer.
+   Set before including:
+     crumbName   — optional app name shown after COSMIQUE /
+     footerLinks — optional list of { url, label } (urls passed through | url) #}
+<footer class="ds-footer">
+  <div class="brand">
+    <a href="{{ '/' | url }}">COSMIQUE</a>
+    {%- if crumbName %} <span>/</span> <b>{{ crumbName }}</b>{% endif %}
+  </div>
+  <div class="links">
+    {%- for link in footerLinks %}
+    <a href="{{ link.url | url }}">{{ link.label }}</a>
+    {%- endfor %}
+    <a href="mailto:hello@cosmique.io">hello@cosmique.io</a>
+  </div>
+</footer>

@@ -4,123 +4,109 @@ pagination:
   size: 1
   alias: app
 permalink: "/apps/{{ app.slug }}/"
-layout: base.njk
+layout: cosmique.njk
+eleventyComputed:
+  pageTitle: "{{ app.name }} — {{ app.description }}"
+  pageDescription: "{{ app.description }}"
 ---
 
-<div class="container">
-  <header>
-    <a href="{{ '/' | url }}">
-      <img src="{{ '/assets/logo.svg' | url }}" alt="{{ site.site.title }}" class="logo">
-    </a>
-  </header>
+<div class="wrap">
 
-  <main>
-    <nav class="breadcrumb">
-      <a href="{{ '/' | url }}">apps</a> / {{ app.name }}
-    </nav>
+  {% set crumbName = app.name | upper %}
+  {% if app.hasSupport %}
+  {% set navLinks = [
+    { url: "/apps/" + app.slug + "/#features", label: "Features" },
+    { url: "/apps/" + app.slug + "/support/", label: "Support" },
+    { url: "/apps/" + app.slug + "/privacy/", label: "Privacy" }
+  ] %}
+  {% else %}
+  {% set navLinks = [{ url: "/apps/" + app.slug + "/#features", label: "Features" }] %}
+  {% endif %}
+  {% include "ds-header.njk" %}
 
-    <article class="app-detail">
-      <header class="app-header">
-        {% if app.icon %}
-        <img src="{{ ('/assets/' + app.slug + '/' + app.icon) | url }}" alt="{{ app.name }} icon" class="app-icon">
-        {% endif %}
-        <div class="app-header-text">
-          <h1 class="app-detail-title">{{ app.name }}</h1>
-          <p class="app-detail-tagline">{{ app.description }}</p>
-        </div>
-      </header>
-
-      {% if app.watchScreenshots %}
-      <section class="app-screenshots app-screenshots-featured">
-        <div class="screenshots-watch-grid">
-          {% for screenshot in app.watchScreenshots %}
-          <div class="screenshot-item screenshot-watch">
-            <img src="{{ ('/assets/' + app.slug + '/' + screenshot) | url }}" alt="{{ app.name }} on Apple Watch" loading="lazy">
-          </div>
-          {% endfor %}
-        </div>
-      </section>
+  <!-- Hero -->
+  <section class="app-hero">
+    {% if app.icon %}
+    <img src="{{ ('/assets/' + app.slug + '/' + app.icon) | url }}" alt="{{ app.name }} icon" class="app-icon" width="88" height="88">
+    {% endif %}
+    <p class="eyebrow">{{ app.platform }}</p>
+    <h1 class="h1">{{ app.description }}</h1>
+    <p class="lead">{{ app.fullDescription }}</p>
+    <div class="app-cta">
+      {% if app.link %}
+      <a class="btn" href="{{ app.link }}" target="_blank" rel="noopener">View on the App&nbsp;Store</a>
       {% endif %}
-
-      {% if app.iphoneScreenshots %}
-      <section class="app-screenshots {% if app.watchScreenshots %}app-screenshots-companion{% else %}app-screenshots-featured{% endif %}">
-        {% if app.watchScreenshots %}
-        <h2 class="section-title">iPhone Companion App</h2>
-        <p class="companion-description">Manage your feeds on iPhone. They sync instantly to your watch.</p>
-        {% endif %}
-        <div class="screenshots-row">
-          {% for screenshot in app.iphoneScreenshots %}
-          <div class="screenshot-item screenshot-phone">
-            <img src="{{ ('/assets/' + app.slug + '/' + screenshot) | url }}" alt="{{ app.name }} on iPhone" loading="lazy">
-          </div>
-          {% endfor %}
-        </div>
-      </section>
+      {% if app.hasSupport %}
+      <a class="btn-secondary" href="{{ ('/apps/' + app.slug + '/support/') | url }}">Support →</a>
       {% endif %}
-
-      <div class="app-detail-content">
-        <section class="app-section">
-          <h2 class="section-title">About</h2>
-          <p class="app-detail-description">{{ app.fullDescription }}</p>
-        </section>
-
-        <section class="app-section">
-          <h2 class="section-title">Features</h2>
-          <ul class="feature-list">
-            {% for feature in app.features %}
-            <li>{{ feature }}</li>
-            {% endfor %}
-          </ul>
-        </section>
-
-        <section class="app-section">
-          <h2 class="section-title">Platform</h2>
-          <p class="platform-badge">{{ app.platform }}</p>
-        </section>
-
-        {% if app.link %}
-        <section class="app-section">
-          <a href="{{ app.link }}" class="app-link" target="_blank" rel="noopener">
-            View on App Store →
-          </a>
-        </section>
-        {% endif %}
-
-        {% if app.hasPricing %}
-        <section class="app-section app-links-row">
-          <a href="{{ '/apps/' + app.slug + '/pricing/' | url }}" class="app-link">
-            Pricing →
-          </a>
-        </section>
-        {% endif %}
-
-        {% if app.hasSupport %}
-        <section class="app-section app-links-row">
-          <a href="{{ '/apps/' + app.slug + '/support/' | url }}" class="app-link">
-            Support →
-          </a>
-          <a href="{{ '/apps/' + app.slug + '/privacy/' | url }}" class="app-link app-link-secondary">
-            Privacy Policy →
-          </a>
-          {% if app.hasTerms %}
-          <a href="{{ '/apps/' + app.slug + '/terms/' | url }}" class="app-link app-link-secondary">
-            Terms of Service →
-          </a>
-          {% endif %}
-        </section>
-        {% endif %}
-      </div>
-
-      <nav class="app-nav">
-        <a href="{{ '/' | url }}" class="back-link">← Back to all apps</a>
-      </nav>
-    </article>
-  </main>
-
-  <footer>
-    <div class="footer-content">
-      <p>{{ site.site.title }}</p>
-      <p><a href="mailto:hello@cosmique.io">hello@cosmique.io</a></p>
     </div>
-  </footer>
+  </section>
+
+  <!-- Screenshots -->
+  {% if app.watchScreenshots %}
+  <section class="app-shots">
+    <p class="kick">On your wrist</p>
+    <div class="gallery">
+      {% for screenshot in app.watchScreenshots %}
+      <figure class="shot">
+        <img src="{{ ('/assets/' + app.slug + '/' + screenshot) | url }}" alt="{{ app.name }} on Apple Watch" loading="lazy">
+      </figure>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if app.iphoneScreenshots %}
+  <section class="app-shots">
+    {% if app.watchScreenshots %}
+    <p class="kick">The iPhone companion</p>
+    <p class="shots-note">Manage your feeds on iPhone. They sync instantly to your watch.</p>
+    {% else %}
+    <p class="kick">Screenshots</p>
+    {% endif %}
+    <div class="gallery">
+      {% for screenshot in app.iphoneScreenshots %}
+      <figure class="shot">
+        <img src="{{ ('/assets/' + app.slug + '/' + screenshot) | url }}" alt="{{ app.name }} on iPhone" loading="lazy">
+      </figure>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Features -->
+  <section class="app-features" id="features">
+    <p class="kick">Features</p>
+    <div class="feature-grid">
+      {% for feature in app.features %}
+      {% if " — " in feature %}
+      {% set parts = feature | split(" — ") %}
+      <div class="feature">
+        <span class="no">0{{ loop.index }}</span>
+        <h3>{{ parts[0] }}</h3>
+        <p>{{ parts[1] }}</p>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% for feature in app.features %}
+    {% if " — " not in feature %}
+    <div class="callout app-features-note">
+      <span class="dot"></span>
+      <p>{{ feature }}</p>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </section>
+
+  {% if app.hasSupport %}
+  {% set footerLinks = [
+    { url: "/apps/" + app.slug + "/support/", label: "Support" },
+    { url: "/apps/" + app.slug + "/privacy/", label: "Privacy" }
+  ] %}
+  {% else %}
+  {% set footerLinks = [] %}
+  {% endif %}
+  {% include "ds-footer.njk" %}
+
 </div>

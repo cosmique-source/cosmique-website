@@ -1,74 +1,74 @@
 ---
 permalink: "/apps/orbit/support/"
-layout: base.njk
+layout: cosmique.njk
+pageTitle: "Orbit — Support"
+pageDescription: "Get help with Orbit, the self-hosted music server."
 ---
 
-<div class="container">
-  <header>
-    <a href="{{ '/' | url }}">
-      <img src="{{ '/assets/logo.svg' | url }}" alt="{{ site.site.title }}" class="logo">
-    </a>
-  </header>
+<div class="wrap">
 
-  <main>
-    <nav class="breadcrumb">
-      <a href="{{ '/' | url }}">apps</a> / <a href="{{ '/apps/orbit/' | url }}">Orbit</a> / support
-    </nav>
+  {% set crumbName = "ORBIT" %}
+  {% set crumbUrl = "/apps/orbit/" %}
+  {% if orbitLive %}
+    {% set navLinks = [
+      { url: "/apps/orbit/", label: "Overview" },
+      { url: "/apps/orbit/pricing/", label: "Pricing" },
+      { url: "/apps/orbit/privacy/", label: "Privacy" },
+      { url: "/apps/orbit/terms/", label: "Terms" }
+    ] %}
+  {% else %}
+    {% set navLinks = [
+      { url: "/apps/orbit/", label: "Overview" },
+      { url: "/apps/orbit/privacy/", label: "Privacy" },
+      { url: "/apps/orbit/terms/", label: "Terms" }
+    ] %}
+  {% endif %}
+  {% include "ds-header.njk" %}
 
-    <article class="app-detail">
-      <h1 class="app-detail-title">Support</h1>
-      <p class="app-detail-tagline">We're here to help with Orbit</p>
+  <article class="doc">
+    <p class="kick">Support</p>
+    <h1 class="h1">We're here to help</h1>
+    <p class="doc-lede">Having trouble with Orbit? Found a bug? Have a feature request? We'd love to hear from you.</p>
 
-      <div class="app-detail-content">
-        <section class="app-section">
-          <h2 class="section-title">Contact Us</h2>
-          <p class="app-detail-description">Having trouble with Orbit? Found a bug? Have a feature request? We'd love to hear from you.</p>
-        </section>
+    <section>
+      <a class="btn" href="mailto:support@cosmique.io?subject=Orbit%20support">Email support@cosmique.io</a>
+    </section>
 
-        <section class="app-section">
-          <a href="mailto:support@cosmique.io?subject=Orbit%20support" class="app-link">
-            Email support@cosmique.io
-          </a>
-        </section>
+    <section>
+      <h2>When contacting us</h2>
+      <p>Please include:</p>
+      <ul>
+        <li>A description of the issue or your feedback</li>
+        <li>Your operating system and version (macOS, Linux, Windows)</li>
+        <li>Your Orbit version number</li>
+        <li>Whether you're running natively or with Docker</li>
+        <li>Relevant log output (if applicable)</li>
+        <li>Steps to reproduce the issue (if applicable)</li>
+      </ul>
+    </section>
 
-        <section class="app-section">
-          <h2 class="section-title">When contacting us</h2>
-          <p class="app-detail-description">Please include:</p>
-          <ul class="feature-list">
-            <li>A description of the issue or your feedback</li>
-            <li>Your operating system and version (macOS, Linux, Windows)</li>
-            <li>Your Orbit version number</li>
-            <li>Whether you're running natively or with Docker</li>
-            <li>Relevant log output (if applicable)</li>
-            <li>Steps to reproduce the issue (if applicable)</li>
-          </ul>
-        </section>
+    <section>
+      <h2>Documentation</h2>
+      <p>For setup guides, configuration options, and API documentation, visit the official documentation.</p>
+    </section>
 
-        <section class="app-section">
-          <h2 class="section-title">Documentation</h2>
-          <p class="app-detail-description">For setup guides, configuration options, and API documentation, visit the official documentation.</p>
-        </section>
+    <section>
+      <h2>Common issues</h2>
+      <ul>
+        <li><strong>Library not scanning</strong> — Check that the music directory path in your config file is correct and accessible.</li>
+        <li><strong>Metadata not matching</strong> — Ensure your files have basic tags. Orbit uses these for initial matching against MusicBrainz.</li>
+        <li><strong>DSD files not playing</strong> — Verify your playback device supports native DSD or enable transcoding in settings.</li>
+      </ul>
+    </section>
 
-        <section class="app-section">
-          <h2 class="section-title">Common Issues</h2>
-          <ul class="feature-list">
-            <li><strong>Library not scanning</strong> — Check that the music directory path in your config file is correct and accessible.</li>
-            <li><strong>Metadata not matching</strong> — Ensure your files have basic tags. Orbit uses these for initial matching against MusicBrainz.</li>
-            <li><strong>DSD files not playing</strong> — Verify your playback device supports native DSD or enable transcoding in settings.</li>
-          </ul>
-        </section>
-      </div>
+    <a class="btn-secondary" href="{{ '/apps/orbit/' | url }}">← Back to Orbit</a>
+  </article>
 
-      <nav class="app-nav">
-        <a href="{{ '/apps/orbit/' | url }}" class="back-link">Back to Orbit</a>
-      </nav>
-    </article>
-  </main>
+  {% set footerLinks = [
+    { url: "/apps/orbit/privacy/", label: "Privacy" },
+    { url: "/apps/orbit/terms/", label: "Terms" },
+    { url: "/apps/orbit/releases/", label: "Releases" }
+  ] %}
+  {% include "ds-footer.njk" %}
 
-  <footer>
-    <div class="footer-content">
-      <p>{{ site.site.title }}</p>
-      <p><a href="mailto:hello@cosmique.io">hello@cosmique.io</a></p>
-    </div>
-  </footer>
 </div>

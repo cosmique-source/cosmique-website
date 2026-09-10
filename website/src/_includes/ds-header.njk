@@ -1,0 +1,26 @@
+{# Shared design-system header.
+   Set before including:
+     crumbName  — optional app name shown after COSMIQUE /
+     crumbUrl   — optional link for the crumb (omit on the app's own page)
+     navLinks   — optional list of { url, label } (urls passed through | url) #}
+<header class="ds-header">
+  <div class="brand">
+    <a href="{{ '/' | url }}">COSMIQUE</a>
+    {%- if crumbName %}
+    <span>/</span>
+    {%- if crumbUrl %}
+    <a href="{{ crumbUrl | url }}"><b>{{ crumbName }}</b></a>
+    {%- else %}
+    <b>{{ crumbName }}</b>
+    {%- endif %}
+    {%- endif %}
+  </div>
+  {%- if navLinks %}
+  <nav class="nav">
+    {%- for link in navLinks %}
+    <a href="{{ link.url | url }}">{{ link.label }}</a>
+    {%- endfor %}
+  </nav>
+  {%- endif %}
+  <button class="theme-toggle" aria-label="Toggle dark mode">◐</button>
+</header>

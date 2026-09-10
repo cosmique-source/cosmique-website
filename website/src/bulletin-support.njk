@@ -1,63 +1,52 @@
 ---
 permalink: "/apps/bulletin/support/"
-layout: base.njk
+layout: cosmique.njk
+pageTitle: "Bulletin — Support"
+pageDescription: "Get help with Bulletin, the RSS reader for Miniflux."
 ---
 
-<div class="container">
-  <header>
-    <a href="{{ '/' | url }}">
-      <img src="{{ '/assets/logo.svg' | url }}" alt="{{ site.site.title }}" class="logo">
-    </a>
-  </header>
+<div class="wrap">
 
-  <main>
-    <nav class="breadcrumb">
-      <a href="{{ '/' | url }}">apps</a> / <a href="{{ '/apps/bulletin/' | url }}">Bulletin</a> / support
-    </nav>
+  {% set crumbName = "BULLETIN" %}
+  {% set crumbUrl = "/apps/bulletin/" %}
+  {% set navLinks = [
+    { url: "/apps/bulletin/", label: "Overview" },
+    { url: "/apps/bulletin/privacy/", label: "Privacy" }
+  ] %}
+  {% include "ds-header.njk" %}
 
-    <article class="app-detail">
-      <h1 class="app-detail-title">Support</h1>
-      <p class="app-detail-tagline">We're here to help with Bulletin</p>
+  <article class="doc">
+    <p class="kick">Support</p>
+    <h1 class="h1">We're here to help</h1>
+    <p class="doc-lede">Having trouble with Bulletin? Found a bug? Have a feature request? We'd love to hear from you.</p>
 
-      <div class="app-detail-content">
-        <section class="app-section">
-          <h2 class="section-title">Contact Us</h2>
-          <p class="app-detail-description">Having trouble with Bulletin? Found a bug? Have a feature request? We'd love to hear from you.</p>
-        </section>
+    <section>
+      <a class="btn" href="mailto:support@cosmique.io?subject=Bulletin%20support">Email support@cosmique.io</a>
+    </section>
 
-        <section class="app-section">
-          <a href="mailto:support@cosmique.io?subject=Bulletin%20support" class="app-link">
-            Email support@cosmique.io →
-          </a>
-        </section>
+    <section>
+      <h2>When contacting us</h2>
+      <p>Please include:</p>
+      <ul>
+        <li>A description of the issue or your feedback</li>
+        <li>Your device model and iOS/iPadOS version</li>
+        <li>Your Miniflux server version (if relevant)</li>
+        <li>Steps to reproduce the issue (if applicable)</li>
+      </ul>
+    </section>
 
-        <section class="app-section">
-          <h2 class="section-title">When contacting us</h2>
-          <p class="app-detail-description">Please include:</p>
-          <ul class="feature-list">
-            <li>A description of the issue or your feedback</li>
-            <li>Your device model and iOS/iPadOS version</li>
-            <li>Your Miniflux server version (if relevant)</li>
-            <li>Steps to reproduce the issue (if applicable)</li>
-          </ul>
-        </section>
+    <section>
+      <h2>Miniflux setup</h2>
+      <p>Bulletin requires a Miniflux server. If you need help setting up Miniflux, visit the official documentation at <a href="https://miniflux.app/docs/" target="_blank" rel="noopener">miniflux.app/docs</a>.</p>
+    </section>
 
-        <section class="app-section">
-          <h2 class="section-title">Miniflux Setup</h2>
-          <p class="app-detail-description">Bulletin requires a Miniflux server. If you need help setting up Miniflux, visit the official documentation at <a href="https://miniflux.app/docs/" target="_blank" rel="noopener">miniflux.app/docs</a>.</p>
-        </section>
-      </div>
+    <a class="btn-secondary" href="{{ '/apps/bulletin/' | url }}">← Back to Bulletin</a>
+  </article>
 
-      <nav class="app-nav">
-        <a href="{{ '/apps/bulletin/' | url }}" class="back-link">← Back to Bulletin</a>
-      </nav>
-    </article>
-  </main>
+  {% set footerLinks = [
+    { url: "/apps/bulletin/", label: "Bulletin" },
+    { url: "/apps/bulletin/privacy/", label: "Privacy" }
+  ] %}
+  {% include "ds-footer.njk" %}
 
-  <footer>
-    <div class="footer-content">
-      <p>{{ site.site.title }}</p>
-      <p><a href="mailto:hello@cosmique.io">hello@cosmique.io</a></p>
-    </div>
-  </footer>
 </div>

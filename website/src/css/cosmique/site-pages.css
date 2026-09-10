@@ -1,0 +1,94 @@
+/* Cosmique — site pages (homepage, generic app pages, document pages).
+   Layout helpers on top of the design system; every value comes from tokens. */
+
+/* --- Homepage --- */
+.home-hero{padding:var(--space-xxl) 0 var(--space-xl);text-align:center}
+.home-hero .eyebrow{justify-content:center;margin-bottom:var(--space-md)}
+.home-hero .h1{margin-bottom:var(--space-md)}
+.home-hero .lead{max-width:34em;margin:0 auto}
+
+/* Orbit showcase — the lead product gets the big-screenshot band.
+   Parked while Orbit is pre-launch; the homepage lists it as a mini card. */
+.home-orbit{padding:var(--space-lg) 0 var(--space-xl)}
+.home-orbit-head{display:flex;justify-content:space-between;align-items:flex-end;
+     gap:var(--space-lg);margin-bottom:var(--space-md)}
+.home-orbit-title .kick{margin-bottom:var(--space-sm)}
+.home-orbit-cta{display:flex;gap:var(--space-md);align-items:center;flex:none;padding-bottom:4px}
+.home-orbit-shot{box-shadow:0 18px 50px rgb(var(--color-ink-rgb) / 0.10)}
+.home-orbit-caption{font-size:var(--size-kicker);letter-spacing:var(--tracking-label);
+     color:var(--color-muted);text-align:center;margin-top:var(--space-md)}
+@media (max-width:880px){
+  .home-orbit-head{flex-direction:column;align-items:flex-start;gap:var(--space-md)}
+}
+
+/* Compact row cards for the rest of the lineup — scales as apps are added. */
+.home-minis{padding:var(--space-lg) 0 var(--space-xl)}
+.home-minis .kick{margin-bottom:var(--space-lg)}
+.home-mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.home-mini{display:flex;align-items:center;gap:20px;padding:22px 24px;
+     border:1px solid var(--color-hair);background:var(--color-card);
+     transition:border-color .18s}
+.home-mini:hover{border-color:var(--color-ink)}
+.home-mini .app-icon{width:52px;height:52px;border-radius:12px;flex:none}
+.home-mini h3{font-size:16px;font-weight:var(--weight-bold);letter-spacing:-.01em;
+     margin-bottom:2px}
+.home-mini p{font-size:13.5px;line-height:1.5;
+     color:color-mix(in srgb,var(--color-ink) 72%,var(--color-paper))}
+.home-mini .go{margin-left:auto;color:var(--color-muted);transition:color .18s,transform .18s}
+.home-mini:hover .go{color:var(--color-accent);transform:translateX(4px)}
+/* Pre-launch apps: listed, but visibly not shipping yet. */
+.home-mini .soon{margin-left:auto;flex:none;font-size:var(--size-kicker);
+     letter-spacing:var(--tracking-label);text-transform:uppercase;
+     color:var(--color-muted);border:1px solid var(--color-hair);padding:5px 10px}
+.home-mini-soon .app-icon{opacity:.75}
+.home-mini-soon:hover .soon{color:var(--color-ink);border-color:var(--color-ink)}
+@media (max-width:880px){ .home-mini-grid{grid-template-columns:1fr} }
+
+/* --- Generic app page (punkt, Bulletin) --- */
+.app-hero{padding:var(--space-xl) 0;text-align:center}
+.app-hero .eyebrow{justify-content:center;margin-bottom:var(--space-md)}
+.app-hero .app-icon{width:88px;height:88px;border-radius:20px;margin:0 auto var(--space-md)}
+.app-hero .h1{margin-bottom:var(--space-md)}
+.app-hero .lead{max-width:36em;margin:0 auto var(--space-lg)}
+.app-cta{display:flex;gap:var(--space-md);justify-content:center;align-items:center;flex-wrap:wrap}
+
+.app-shots{padding:var(--space-lg) 0}
+.app-shots .kick{margin-bottom:var(--space-lg)}
+.app-shots + .app-shots{padding-top:0}
+.shots-note{color:var(--color-muted);max-width:38em;margin:calc(-1 * var(--space-sm)) 0 var(--space-lg)}
+
+.app-about{padding:var(--space-xl) 0 var(--space-lg);border-top:1px solid var(--color-hair)}
+.app-about .h2{margin-bottom:var(--space-sm)}
+.app-about p{font-size:15px;line-height:1.75;max-width:44em;
+     color:color-mix(in srgb,var(--color-ink) 78%,var(--color-paper))}
+
+.app-features{padding:var(--space-lg) 0 var(--space-xl)}
+.app-features .kick{margin-bottom:var(--space-lg)}
+.app-features-note{margin-top:var(--space-md)}
+
+/* --- Document pages (support, privacy, terms, pricing FAQ) --- */
+.doc{max-width:46rem;padding:var(--space-xl) 0 var(--space-md)}
+.doc .h1{margin-bottom:var(--space-sm)}
+.doc-updated{font-family:var(--font-mono);font-size:var(--size-kicker);
+     letter-spacing:var(--tracking-label);text-transform:uppercase;
+     color:var(--color-muted);margin-bottom:var(--space-lg)}
+.doc-lede{color:var(--color-muted);margin-bottom:var(--space-lg)}
+.doc section{margin-bottom:var(--space-lg)}
+.doc h2{font-size:var(--size-h3);font-weight:var(--weight-bold);letter-spacing:-.01em;
+     margin-bottom:var(--space-sm)}
+.doc p{font-size:15px;line-height:1.75;margin-bottom:var(--space-sm);
+     color:color-mix(in srgb,var(--color-ink) 78%,var(--color-paper))}
+.doc strong{color:var(--color-ink)}
+.doc em{color:var(--color-muted)}
+.doc p a,.doc li a{border-bottom:1px solid var(--color-accent)}
+.doc p a:hover,.doc li a:hover{color:var(--color-accent)}
+.doc ul{list-style:none;margin:var(--space-sm) 0;padding:0}
+.doc li{position:relative;padding-left:22px;margin-bottom:var(--space-xs);
+     font-size:15px;line-height:1.7;
+     color:color-mix(in srgb,var(--color-ink) 78%,var(--color-paper))}
+.doc li::before{content:"";position:absolute;left:0;top:.62em;
+     width:6px;height:6px;border-radius:50%;background:var(--color-accent)}
+.doc .btn,.doc .btn-secondary{margin-top:var(--space-xs)}
+
+/* Pricing page: tiers grid lives outside .doc so it can go full-width */
+.doc-tiers{padding:var(--space-lg) 0}

@@ -1,106 +1,112 @@
 ---
 permalink: "/apps/orbit/privacy/"
-layout: base.njk
+layout: cosmique.njk
+pageTitle: "Orbit — Privacy Policy"
+pageDescription: "Privacy policy for the Orbit apps, Orbit Pro, Orbit Cloud and Orbit Server. Your music and library stay on your hardware; here is the little that reaches us."
 ---
 
-<div class="container">
-  <header>
-    <a href="{{ '/' | url }}">
-      <img src="{{ '/assets/logo.svg' | url }}" alt="{{ site.site.title }}" class="logo">
-    </a>
-  </header>
+<div class="wrap">
 
-  <main>
-    <nav class="breadcrumb">
-      <a href="{{ '/' | url }}">apps</a> / <a href="{{ '/apps/orbit/' | url }}">Orbit</a> / privacy policy
-    </nav>
+  {% set crumbName = "ORBIT" %}
+  {% set crumbUrl = "/apps/orbit/" %}
+  {% if orbitLive %}
+    {% set navLinks = [
+      { url: "/apps/orbit/", label: "Overview" },
+      { url: "/apps/orbit/pricing/", label: "Pricing" },
+      { url: "/apps/orbit/support/", label: "Support" },
+      { url: "/apps/orbit/terms/", label: "Terms" }
+    ] %}
+  {% else %}
+    {% set navLinks = [
+      { url: "/apps/orbit/", label: "Overview" },
+      { url: "/apps/orbit/support/", label: "Support" },
+      { url: "/apps/orbit/terms/", label: "Terms" }
+    ] %}
+  {% endif %}
+  {% include "ds-header.njk" %}
 
-    <article class="app-detail">
-      <h1 class="app-detail-title">Privacy Policy for Orbit</h1>
-      <p class="app-detail-tagline">Last updated: January 8, 2026</p>
+  <article class="doc">
+    <p class="kick">Privacy</p>
+    <h1 class="h1">Privacy Policy for Orbit</h1>
+    <p class="doc-updated">Last updated: 10 September 2026</p>
 
-      <div class="app-detail-content">
-        <section class="app-section">
-          <h2 class="section-title">Overview</h2>
-          <p class="app-detail-description">Orbit is committed to protecting your privacy. This privacy policy explains our data practices for the Orbit music server application.</p>
-        </section>
+    <section>
+      <h2>The short version</h2>
+      <p>Orbit is built so that your music, your library and your listening never leave your own hardware. The Orbit apps talk to a server you run. The only data that reaches Cosmique is what is needed to verify an Orbit Pro subscription and to run Orbit Cloud for subscribers, and none of it includes your name, email, music or listening history. There are no ads, no analytics SDKs and no tracking.</p>
+    </section>
 
-        <section class="app-section">
-          <h2 class="section-title">Self-Hosted Software</h2>
-          <p class="app-detail-description"><strong>Orbit runs entirely on your own hardware.</strong> Your music library, metadata, and all configuration data remain on your computer or server. We have no access to your system or any data you create with Orbit.</p>
-        </section>
+    <section>
+      <h2>Orbit Server: nothing reaches us</h2>
+      <p>Orbit Server runs on your computer or server. Your music files, library database, artwork, ratings, tags, playlists, vinyl and equipment details, and play history are stored there and nowhere else. The Server does not send telemetry, usage data or crash reports to us.</p>
+      <p>The Server can optionally look up metadata from third-party providers: <strong>MusicBrainz</strong> and <strong>Discogs</strong> for releases and pressings, <strong>OpenOpus</strong> for classical works, and <strong>Wikipedia</strong> for artist and album notes. Those requests go directly from your Server to the provider and carry only the artist, album or track names needed for the lookup. Each provider's own privacy policy applies to them.</p>
+    </section>
 
-        <section class="app-section">
-          <h2 class="section-title">Data Collection</h2>
-          <p class="app-detail-description"><strong>We do not collect any data.</strong> Orbit does not phone home, send telemetry, or transmit any information to our servers. There are no analytics, no usage tracking, and no crash reporting sent to us.</p>
-        </section>
+    <section>
+      <h2>The Orbit apps</h2>
+      <p>The apps for iPhone, Mac, Apple&nbsp;TV and Apple&nbsp;Watch connect to the Orbit Server you choose. The server address, username and password you enter are sent to that server only, and the sign-in tokens it returns are kept in your device's keychain.</p>
+      <ul>
+        <li><strong>Local network</strong> access is used to find and reach your server at home.</li>
+        <li><strong>Camera</strong> access is used only to scan the pairing code your server shows when you link it to Orbit Pro. No images are stored or uploaded.</li>
+        <li>Widgets, Siri shortcuts, CarPlay and the Watch app all run on your device and talk to your server; they do not talk to us.</li>
+      </ul>
+      <p>The apps contain no advertising, analytics or crash-reporting SDKs. If you have chosen to share crash data with app developers in your Apple settings, Apple may send us anonymised crash logs under Apple's own privacy terms.</p>
+    </section>
 
-        <section class="app-section">
-          <h2 class="section-title">Third-Party Services</h2>
-          <p class="app-detail-description">Orbit can optionally connect to external services for metadata enrichment. These connections are made directly from your server to these services:</p>
-          <ul class="feature-list">
-            <li><strong>MusicBrainz</strong> — For album and track identification</li>
-            <li><strong>Discogs</strong> — For vinyl pressing information (requires your own API key)</li>
-            <li><strong>OpenOpus</strong> — For classical music metadata</li>
-            <li><strong>fanart.tv</strong> — For artist images (optional)</li>
-            <li><strong>Spotify</strong> — For library comparison (optional, requires your authorization)</li>
-          </ul>
-          <p class="app-detail-description">Each integration is optional and can be disabled. When enabled, these services receive only the queries necessary for metadata matching. Refer to each service's privacy policy for their data practices.</p>
-        </section>
+    <section>
+      <h2>Orbit Pro and Orbit Cloud: what we do collect</h2>
+      <p>When you subscribe to Orbit Pro, the app sends the App&nbsp;Store's signed transaction to Orbit Cloud so we can confirm the subscription is genuine and active. From that point, we hold:</p>
+      <ul>
+        <li><strong>A subscription record</strong> keyed to the App&nbsp;Store transaction identifier: the product, its status and expiry. Apple does not give us your name, email address, Apple Account or payment details, and we do not ask for them. Orbit has no user accounts and no sign-up.</li>
+        <li><strong>Devices linked to that subscription</strong>: a cryptographic key generated on each device, the platform (iPhone, Mac or Apple&nbsp;TV) and the app version, so the relay can tell your devices from everyone else's.</li>
+        <li><strong>Servers linked to that subscription</strong>: an identifier for each Orbit Server you pair, so the relay can route your devices to it. We do not receive your server's address, credentials or contents.</li>
+        <li><strong>Relay usage</strong>: connection times and the amount of data relayed, used to run the service and apply fair-use limits. The relay carries your audio and data encrypted end to end between your device and your server; we cannot read it.</li>
+        <li><strong>Encrypted backups</strong>, if you turn them on: your Server encrypts the backup with a passphrase only you hold before uploading it. We store the encrypted file and cannot decrypt it.</li>
+      </ul>
+      <p>We use this data only to provide Orbit Pro and Orbit Cloud. We do not sell it, use it for advertising, or combine it with data from other sources. It is kept while it is needed to provide the service, and you can ask us to delete it at any time; unlinking a server or letting the subscription lapse removes its access to Orbit Cloud.</p>
+    </section>
 
-        <section class="app-section">
-          <h2 class="section-title">Local Data Storage</h2>
-          <p class="app-detail-description">All data created by Orbit is stored locally on your system:</p>
-          <ul class="feature-list">
-            <li>Your music library database (SQLite or PostgreSQL)</li>
-            <li>Cached metadata and artwork</li>
-            <li>Your ratings, tags, and preferences</li>
-            <li>Vinyl pressing and equipment chain documentation</li>
-            <li>Play history and statistics</li>
-          </ul>
-        </section>
+    <section>
+      <h2>Where it is stored</h2>
+      <p>Orbit Cloud runs on infrastructure we rent from hosting providers in Australia and Europe, with backups stored in encrypted form. Those providers process data on our behalf and are not permitted to use it for their own purposes.</p>
+    </section>
 
-        <section class="app-section">
-          <h2 class="section-title">License Validation</h2>
-          <p class="app-detail-description">Orbit validates your license key at the time of activation. This is a one-time check that verifies your license is valid. No personal information is transmitted during this process, and no ongoing connection to our servers is required after activation.</p>
-        </section>
+    <section>
+      <h2>This website</h2>
+      <p>cosmique.io uses Cloudflare Web Analytics, which counts page views without cookies and without identifying individual visitors.</p>
+    </section>
 
-        <section class="app-section">
-          <h2 class="section-title">Updates</h2>
-          <p class="app-detail-description">Orbit may check for available updates. This check transmits only your current version number to determine if an update is available. No personal information or usage data is included.</p>
-        </section>
+    <section>
+      <h2>Children</h2>
+      <p>Orbit is not directed at children under 13 and we do not knowingly collect data from them.</p>
+    </section>
 
-        <section class="app-section">
-          <h2 class="section-title">Data Sharing</h2>
-          <p class="app-detail-description">Since we do not collect any data, we do not share, sell, or transfer any data to third parties.</p>
-        </section>
+    <section>
+      <h2>Your rights</h2>
+      <p>Depending on where you live, you may have the right to access, correct or delete data we hold about you, or to object to how we use it. Because we hold no name or contact details, we will ask you for the transaction or device identifier shown in the app's Orbit Pro settings to find your record. Write to us at the address below.</p>
+    </section>
 
-        <section class="app-section">
-          <h2 class="section-title">Changes to This Policy</h2>
-          <p class="app-detail-description">We may update this privacy policy from time to time. Any changes will be posted on this page with an updated "Last updated" date.</p>
-        </section>
+    <section>
+      <h2>Changes to this policy</h2>
+      <p>We may update this policy from time to time. Changes are posted on this page with a new "Last updated" date.</p>
+    </section>
 
-        <section class="app-section">
-          <h2 class="section-title">Contact Us</h2>
-          <p class="app-detail-description">If you have any questions about this privacy policy, please contact us at:</p>
-          <p class="app-detail-description"><strong><a href="mailto:support@cosmique.io">support@cosmique.io</a></strong></p>
-        </section>
+    <section>
+      <h2>Contact</h2>
+      <p>Questions about privacy: <strong><a href="mailto:support@cosmique.io">support@cosmique.io</a></strong></p>
+    </section>
 
-        <section class="app-section">
-          <p class="app-detail-description"><em>Orbit is developed independently and is not affiliated with MusicBrainz, Discogs, OpenOpus, or any other metadata providers.</em></p>
-        </section>
-      </div>
+    <section>
+      <p><em>Orbit is developed independently and is not affiliated with Apple, MusicBrainz, Discogs, OpenOpus, Wikipedia or any other provider mentioned here.</em></p>
+    </section>
 
-      <nav class="app-nav">
-        <a href="{{ '/apps/orbit/' | url }}" class="back-link">Back to Orbit</a>
-      </nav>
-    </article>
-  </main>
+    <a class="btn-secondary" href="{{ '/apps/orbit/' | url }}">← Back to Orbit</a>
+  </article>
 
-  <footer>
-    <div class="footer-content">
-      <p>{{ site.site.title }}</p>
-      <p><a href="mailto:hello@cosmique.io">hello@cosmique.io</a></p>
-    </div>
-  </footer>
+  {% set footerLinks = [
+    { url: "/apps/orbit/support/", label: "Support" },
+    { url: "/apps/orbit/terms/", label: "Terms" },
+    { url: "/apps/orbit/releases/", label: "Releases" }
+  ] %}
+  {% include "ds-footer.njk" %}
+
 </div>

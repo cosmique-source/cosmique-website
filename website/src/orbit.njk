@@ -2,7 +2,7 @@
 permalink: "/apps/orbit/"
 layout: cosmique.njk
 pageTitle: "Orbit — The music server built for serious collectors"
-pageDescription: "Self-hosted music server with native apps for iPhone, iPad, Mac, Apple Watch, Apple TV and CarPlay. Bit-perfect playback, vinyl-grade metadata, classical structure."
+pageDescription: "Self-hosted music server with native apps for iPhone, Mac, Apple Watch, Apple TV and CarPlay. Bit-perfect playback, vinyl-grade metadata, classical structure."
 ---
 
 <div class="wrap">
@@ -17,6 +17,7 @@ pageDescription: "Self-hosted music server with native apps for iPhone, iPad, Ma
     <nav class="nav">
       <a href="#features">Features</a>
       <a href="#formats">Formats</a>
+      <a href="#get-started">Install</a>
       <a href="#pricing">Pricing</a>
       <a href="{{ '/apps/orbit/support/' | url }}">Support</a>
     </nav>
@@ -28,28 +29,28 @@ pageDescription: "Self-hosted music server with native apps for iPhone, iPad, Ma
     <p class="eyebrow">Self-hosted music system</p>
     <h1 class="h1">The music server built<br>for serious collectors.</h1>
     <p class="lead o2-hero-lead">
-      A server that runs on your hardware. Native apps for iPhone, iPad, Mac,
+      A server that runs on your hardware. Native apps for iPhone, Mac,
       Apple&nbsp;Watch, Apple&nbsp;TV and CarPlay. For people who can hear the difference
       between pressings — and want a server that can too.
     </p>
     <div class="o2-cta">
       <a class="btn" href="#pricing">See pricing</a>
-      <a class="btn-secondary" href="{{ '/apps/orbit/support/' | url }}">Get started →</a>
+      <a class="btn-secondary" href="#get-started">Get started →</a>
     </div>
     <div class="o2-chips">
-      <span class="chip"><span class="dot"></span>Server · Docker / Linux / macOS</span>
-      <span class="chip"><span class="dot"></span>Apps · iPhone / iPad / Mac / Watch / TV / CarPlay</span>
+      <span class="chip"><span class="dot"></span>Server · Docker / Linux / macOS · available now</span>
+      <span class="chip"><span class="dot"></span>Apps · iPhone / Mac / Watch / TV / CarPlay · in App Store review</span>
     </div>
 
     <figure class="macwin o2-hero-shot">
       <div class="bar"><div class="dots"><i></i><i></i><i></i></div></div>
       <div class="viewport">
-        <img src="{{ '/assets/orbit/hero-player-cinematic.webp' | url }}"
-             alt="Orbit's Mac app playing a 1978 German pressing of Kraftwerk — Die Mensch·Maschine, with label, catalog number, condition and playback equipment in the side rail"
-             width="2000" height="1242">
+        <img src="{{ '/assets/orbit/hero-now-playing-cinematic.webp' | url }}"
+             alt="Orbit's Mac app in the cinematic player layout, with release year, format, dynamic range and genre in the side rail and the format readout in the transport bar"
+             width="2000" height="1256">
       </div>
     </figure>
-    <p class="o2-caption mono">THE MAC PLAYER — PRESSING DETAILS AND THE EQUIPMENT BEHIND THE RIP, WHERE THEY BELONG.</p>
+    <p class="o2-caption mono">THE MAC PLAYER — RELEASE, FORMAT AND DYNAMIC RANGE, WHERE THEY BELONG.</p>
   </section>
 
   <!-- 01 Versions -->
@@ -64,12 +65,11 @@ pageDescription: "Self-hosted music server with native apps for iPhone, iPad, Ma
         that says why.
       </p>
     </div>
-    <figure class="macwin">
-      <div class="bar"><div class="dots"><i></i><i></i><i></i></div></div>
-      <div class="viewport">
-        <img src="{{ '/assets/orbit/mac-album-versions.webp' | url }}"
-             alt="Album page with two switchable pressings of Die Mensch·Maschine — German 1978 and European 2020"
-             loading="lazy" width="1800" height="1117">
+    <figure class="device--iphone">
+      <div class="screen">
+        <img src="{{ '/assets/orbit/ios-album-versions.webp' | url }}"
+             alt="Album page on iPhone with two versions of the same record — the digital release and the vinyl rip, both FLAC 24-bit / 96 kHz — ready to switch or mark as preferred"
+             loading="lazy" width="900" height="1951">
       </div>
     </figure>
   </section>
@@ -85,23 +85,15 @@ pageDescription: "Self-hosted music server with native apps for iPhone, iPad, Ma
         down to DSD128 needle-drops that play on every device you own.
       </p>
     </div>
-    <div class="o2-pair">
-      <figure class="device--iphone">
-        <div class="screen">
-          <img src="{{ '/assets/orbit/ios-vinyl-equipment.webp' | url }}"
-               alt="iPhone showing vinyl specifications, pressing information, condition and digitization equipment"
-               loading="lazy" width="900" height="1956">
-        </div>
-      </figure>
-      <figure class="macwin">
-        <div class="bar"><div class="dots"><i></i><i></i><i></i></div></div>
-        <div class="viewport">
-          <img src="{{ '/assets/orbit/mac-album-dsd.webp' | url }}"
-               alt="Ghost — Prequelle as a DSD128 vinyl rip with side-numbered tracks"
-               loading="lazy" width="1800" height="1117">
-        </div>
-      </figure>
-    </div>
+    {# TODO: swap in a pressing-detail capture (label, matrix, condition, rip chain) from the promo library #}
+    <figure class="macwin">
+      <div class="bar"><div class="dots"><i></i><i></i><i></i></div></div>
+      <div class="viewport">
+        <img src="{{ '/assets/orbit/mac-album-tracks.webp' | url }}"
+             alt="Album page on Mac: the version bar with its format and bit depth, a Prefer control, and every track listed with its own format and length"
+             loading="lazy" width="1800" height="1130">
+      </div>
+    </figure>
   </section>
 
   <!-- 03 Classical -->
@@ -115,15 +107,12 @@ pageDescription: "Self-hosted music server with native apps for iPhone, iPad, Ma
         Your Beethoven shelf finally makes sense.
       </p>
     </div>
-    <figure class="browser">
-      <div class="bar">
-        <div class="dots"><i></i><i></i><i></i></div>
-        <div class="addr">orbit.local/composers</div>
-      </div>
+    <figure class="macwin">
+      <div class="bar"><div class="dots"><i></i><i></i><i></i></div></div>
       <div class="viewport">
-        <img src="{{ '/assets/orbit/web-composers.webp' | url }}"
-             alt="Composer browser listing Bach, Beethoven and others with period and lifespan"
-             loading="lazy" width="1800" height="1125">
+        <img src="{{ '/assets/orbit/mac-composers.webp' | url }}"
+             alt="Composer browser in the Mac app — Beethoven, Berlioz, Dvořák, Saint-Saëns, Bach and others, each with their period"
+             loading="lazy" width="1800" height="1130">
       </div>
     </figure>
   </section>
@@ -143,9 +132,9 @@ pageDescription: "Self-hosted music server with native apps for iPhone, iPad, Ma
     <figure class="macwin">
       <div class="bar"><div class="dots"><i></i><i></i><i></i></div></div>
       <div class="viewport">
-        <img src="{{ '/assets/orbit/mac-player-radar.webp' | url }}"
-             alt="Radar player layout with sonic dimensions and the full signal chain: format, pressing, condition, equipment"
-             loading="lazy" width="1800" height="1117">
+        <img src="{{ '/assets/orbit/mac-player-sound-profile.webp' | url }}"
+             alt="The Mac player showing an album's Sound Profile radar — heaviness, atmosphere, technicality, production, tempo — with FLAC 96 kHz / 24 bit in the transport bar"
+             loading="lazy" width="1800" height="1130">
       </div>
     </figure>
   </section>
@@ -164,16 +153,16 @@ pageDescription: "Self-hosted music server with native apps for iPhone, iPad, Ma
     <div class="o2-pair o2-pair-phones">
       <figure class="device--iphone">
         <div class="screen">
-          <img src="{{ '/assets/orbit/ios-player-oxygene.webp' | url }}"
-               alt="iPhone player: Jean-Michel Jarre — Oxygène in FLAC 24-bit / 96 kHz"
-               loading="lazy" width="900" height="1956">
+          <img src="{{ '/assets/orbit/ios-player-relay.webp' | url }}"
+               alt="iPhone player streaming FLAC 24-bit / 96 kHz through the Orbit Cloud relay"
+               loading="lazy" width="900" height="1951">
         </div>
       </figure>
       <figure class="device--iphone">
         <div class="screen">
-          <img src="{{ '/assets/orbit/ios-editorial.webp' | url }}"
-               alt="Editorial mode: the library as a magazine, with featured albums and liner notes"
-               loading="lazy" width="900" height="1956">
+          <img src="{{ '/assets/orbit/ios-editorial-dark.webp' | url }}"
+               alt="Editorial mode on iPhone, in dark mode: today's editor's pick and the vinyl spotlight"
+               loading="lazy" width="900" height="1951">
         </div>
       </figure>
     </div>
@@ -182,8 +171,8 @@ pageDescription: "Self-hosted music server with native apps for iPhone, iPad, Ma
   <!-- OSP callout -->
   <div class="callout o2-callout">
     <span class="dot"></span>
-    <p>Multiroom zones today. <strong>OSP</strong> — our bit-perfect, sub-millisecond
-    multiroom streaming protocol — coming soon.</p>
+    <p><strong>OSP</strong> — our bit-perfect, sub-millisecond multiroom streaming
+    protocol — is coming. Multiroom zones arrive with it.</p>
   </div>
 
   <!-- 06 Collection -->
@@ -197,14 +186,14 @@ pageDescription: "Self-hosted music server with native apps for iPhone, iPad, Ma
     <div class="o2-pair o2-pair-phones o2-pair-center">
       <figure class="device--iphone">
         <div class="screen">
-          <img src="{{ '/assets/orbit/ios-collection-groove.webp' | url }}"
-               alt="Groove view: albums plotted by year and intensity" loading="lazy" width="900" height="1956">
+          <img src="{{ '/assets/orbit/ios-groove.webp' | url }}"
+               alt="Groove view: albums plotted by year and intensity" loading="lazy" width="900" height="1951">
         </div>
       </figure>
       <figure class="device--iphone">
         <div class="screen">
-          <img src="{{ '/assets/orbit/ios-collection-spine.webp' | url }}"
-               alt="Spine view: albums as vinyl discs on a decade timeline" loading="lazy" width="900" height="1956">
+          <img src="{{ '/assets/orbit/ios-spine.webp' | url }}"
+               alt="Spine view: albums as vinyl discs on a decade timeline" loading="lazy" width="900" height="1951">
         </div>
       </figure>
     </div>
@@ -218,9 +207,9 @@ pageDescription: "Self-hosted music server with native apps for iPhone, iPad, Ma
     <figure class="macwin">
       <div class="bar"><div class="dots"><i></i><i></i><i></i></div></div>
       <div class="viewport">
-        <img src="{{ '/assets/orbit/mac-player-cinematic-dark.webp' | url }}"
-             alt="The Cinematic player in dark mode with true black background"
-             loading="lazy" width="1800" height="1170">
+        <img src="{{ '/assets/orbit/mac-home-dark.webp' | url }}"
+             alt="The Mac home screen in dark mode: recently added and recently released albums on true black"
+             loading="lazy" width="1800" height="1130">
       </div>
     </figure>
     <p class="o2-caption mono">DARK MODE, WITH TRUE BLACK FOR OLED. YOUR LISTENING ROOM, UNDISTURBED.</p>
@@ -255,9 +244,72 @@ pageDescription: "Self-hosted music server with native apps for iPhone, iPad, Ma
     </table>
   </section>
 
+  <!-- Get started -->
+  <section class="o2-install" id="get-started">
+    <p class="kick">08 — Get started</p>
+    <h2 class="h2">Up and running in one command</h2>
+    <p class="o2-install-lede">
+      All you need is a box that runs Docker — a Linux server, a NAS, or the
+      Mac&nbsp;mini in the corner. Let the installer do the work, or write the
+      compose file yourself.
+    </p>
+
+    <div class="o2-tabs" role="tablist" aria-label="Installation method">
+      <button class="o2-tab is-active" role="tab" aria-selected="true" data-panel="oneliner">One-liner</button>
+      <button class="o2-tab" role="tab" aria-selected="false" data-panel="compose">Docker Compose</button>
+    </div>
+
+    <div class="o2-panel is-active" id="panel-oneliner" role="tabpanel">
+      <figure class="macwin o2-term">
+        <div class="bar">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <button class="o2-copy" data-copy="code-oneliner" aria-label="Copy install command">Copy</button>
+        </div>
+        <div class="viewport">
+          <pre class="o2-code" id="code-oneliner">curl -fsSL https://cloud.orbit.cosmique.io/install.sh | bash</pre>
+        </div>
+      </figure>
+      <ul class="o2-install-points">
+        <li>Checks for Docker, writes a compose stack to <code>/opt/orbit</code>, pulls the image and starts the server.</li>
+        <li>Give it a domain and it provisions HTTPS automatically. Skip it and you get plain HTTP on port&nbsp;9899.</li>
+        <li>No magic left behind — the result is a plain <code>docker-compose.yml</code> you own from day one.</li>
+      </ul>
+    </div>
+
+    <div class="o2-panel" id="panel-compose" role="tabpanel">
+      <figure class="macwin o2-term">
+        <div class="bar">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <button class="o2-copy" data-copy="code-compose" aria-label="Copy compose file">Copy</button>
+        </div>
+        <div class="viewport">
+          <pre class="o2-code" id="code-compose">services:
+  orbit:
+    image: ghcr.io/cosmique-source/orbit:edge
+    container_name: orbit
+    restart: unless-stopped
+    ports:
+      - "9899:9899"
+    environment:
+      - TZ=UTC
+    volumes:
+      - /path/to/your/music:/music:ro   <span class="c"># your library</span>
+      - orbit_data:/data                <span class="c"># database &amp; server keys</span>
+volumes:
+  orbit_data:</pre>
+        </div>
+      </figure>
+      <ul class="o2-install-points">
+        <li>Save as <code>docker-compose.yml</code>, point the volume at your collection, then <code>docker compose up&nbsp;-d</code>.</li>
+        <li>Orbit is at <code>http://localhost:9899</code> — open it, scan your library, pair your apps.</li>
+        <li>Drop the <code>:ro</code> if you want Orbit to organize files during import.</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- Pricing -->
   <section class="o2-pricing" id="pricing">
-    <p class="kick">08 — Pricing</p>
+    <p class="kick">09 — Pricing</p>
     <h2 class="h2">Free at home. Pro everywhere else.</h2>
     <p class="o2-pricing-lede">
       The server and every app are free on your home network. Orbit&nbsp;Pro unlocks the
@@ -279,9 +331,9 @@ pageDescription: "Self-hosted music server with native apps for iPhone, iPad, Ma
         <div class="price">$2.99<small> / month</small></div>
         <ul>
           <li>Bit-perfect exclusive mode</li>
-          <li>Gapless · crossfade · loudness normalization</li>
+          <li>Gapless · loudness normalization</li>
           <li>Offline downloads &amp; remote listening</li>
-          <li>Multi-zone &amp; multi-server</li>
+          <li>Multi-server switching</li>
         </ul>
       </div>
       <div class="tier feature-tier">
@@ -313,3 +365,41 @@ pageDescription: "Self-hosted music server with native apps for iPhone, iPad, Ma
   </footer>
 
 </div>
+
+<script>
+  document.querySelectorAll('.o2-tab').forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      document.querySelectorAll('.o2-tab').forEach(function (t) {
+        t.classList.toggle('is-active', t === tab);
+        t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
+      });
+      document.querySelectorAll('.o2-panel').forEach(function (p) {
+        p.classList.toggle('is-active', p.id === 'panel-' + tab.dataset.panel);
+      });
+    });
+  });
+
+  document.querySelectorAll('.o2-copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = document.getElementById(btn.dataset.copy).textContent;
+      var done = function () {
+        btn.textContent = 'Copied';
+        setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+      };
+      var fallback = function () {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done(); } finally { ta.remove(); }
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } else {
+        fallback();
+      }
+    });
+  });
+</script>

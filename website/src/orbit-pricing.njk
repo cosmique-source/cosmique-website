@@ -1,99 +1,110 @@
 ---
 permalink: "/apps/orbit/pricing/"
-layout: base.njk
+layout: cosmique.njk
+pageTitle: "Orbit — Pricing"
+pageDescription: "Orbit is free at home. Orbit Pro unlocks bit-perfect playback, remote listening, and more — $2.99/month or $24/year."
 ---
 
-<div class="container">
-  <header>
-    <a href="{{ '/' | url }}">
-      <img src="{{ '/assets/logo.svg' | url }}" alt="{{ site.site.title }}" class="logo">
-    </a>
-  </header>
+<div class="wrap">
 
-  <main>
-    <nav class="breadcrumb">
-      <a href="{{ '/' | url }}">apps</a> / <a href="{{ '/apps/orbit/' | url }}">Orbit</a> / pricing
-    </nav>
+  {% set crumbName = "ORBIT" %}
+  {% set crumbUrl = "/apps/orbit/" %}
+  {% set navLinks = [
+    { url: "/apps/orbit/", label: "Overview" },
+    { url: "/apps/orbit/support/", label: "Support" },
+    { url: "/apps/orbit/privacy/", label: "Privacy" },
+    { url: "/apps/orbit/terms/", label: "Terms" }
+  ] %}
+  {% include "ds-header.njk" %}
 
-    <article class="app-detail">
-      <h1 class="app-detail-title">Pricing</h1>
-      <p class="app-detail-tagline">Free to start. One subscription for everything else.</p>
+  <article class="doc">
+    <p class="kick">Pricing</p>
+    <h1 class="h1">Free to start. One subscription for everything else.</h1>
+    <p class="doc-lede">The server and every app are free on your home network. Orbit&nbsp;Pro unlocks the rest — one subscription, every Apple device, Family Sharing included.</p>
+  </article>
 
-      <div class="app-detail-content">
-        <section class="app-section">
-          <h2 class="section-title">Free</h2>
-          <p class="app-detail-description"><strong>The server and the apps cost nothing.</strong> Run Orbit on your own hardware, browse your library, and play your music at home.</p>
-          <ul class="feature-list">
-            <li>Self-hosted server (Docker, Linux, macOS, Raspberry Pi)</li>
-            <li>Native apps for iPhone, iPad, Mac, Apple Watch, and Apple TV</li>
-            <li>Full library import and management</li>
-            <li>Playback on your home network</li>
-            <li>No account required</li>
-          </ul>
-        </section>
-
-        <section class="app-section">
-          <h2 class="section-title">Orbit Pro</h2>
-          <p class="app-detail-description"><strong>$2.99 / month, or $24 / year.</strong> The annual plan includes a 7-day free trial.</p>
-          <ul class="feature-list">
-            <li>Bit-perfect exclusive mode on macOS (USB DAC, DSD)</li>
-            <li>Gapless playback, crossfade, loudness normalization</li>
-            <li>Listen anywhere — encrypted remote access via Orbit Cloud</li>
-            <li>Multi-zone playback and multi-server support</li>
-            <li>Offline downloads on iPhone and iPad</li>
-            <li>Editorial mode and CarPlay</li>
-            <li>One purchase unlocks iPhone, iPad, Mac, Watch, and TV</li>
-            <li>Family Sharing supported</li>
-          </ul>
-          <p class="app-detail-description" style="margin-top: 1rem;"><strong>Perfect for:</strong> Audiophiles with USB DACs, vinyl archivists, classical collectors, and anyone who wants their library with them outside the house.</p>
-        </section>
-
-        <section class="app-section">
-          <h2 class="section-title">Frequently Asked Questions</h2>
-
-          <p class="app-detail-description"><strong>What stays free?</strong></p>
-          <p class="app-detail-description">Everything you need to run Orbit at home: the server, the apps, library import and management, and local playback on a single server.</p>
-
-          <p class="app-detail-description" style="margin-top: 1rem;"><strong>How does the subscription work?</strong></p>
-          <p class="app-detail-description">Orbit Pro is purchased through the App Store and managed from your Apple account. One subscription unlocks Pro on all your Apple devices, and you can cancel anytime.</p>
-
-          <p class="app-detail-description" style="margin-top: 1rem;"><strong>What happens if I cancel?</strong></p>
-          <p class="app-detail-description">Your library and all your data stay exactly where they are — on your server. Pro features lock back to the free tier; nothing is deleted.</p>
-
-          <p class="app-detail-description" style="margin-top: 1rem;"><strong>Is there a free trial?</strong></p>
-          <p class="app-detail-description">Yes. The annual plan starts with a 7-day free trial with all Pro features unlocked.</p>
-
-          <p class="app-detail-description" style="margin-top: 1rem;"><strong>Do I need an internet connection?</strong></p>
-          <p class="app-detail-description">No. Orbit runs entirely on your home network. Internet is only used for metadata lookups, and for remote listening through Orbit Cloud if you choose to enable it.</p>
-
-          <p class="app-detail-description" style="margin-top: 1rem;"><strong>Can I use Orbit commercially?</strong></p>
-          <p class="app-detail-description">Orbit is for personal, non-commercial use. Contact us for commercial licensing.</p>
-        </section>
-
-        <section class="app-section">
-          <h2 class="section-title">Enterprise & Commercial</h2>
-          <p class="app-detail-description">Want to use Orbit commercially? We offer commercial use rights, priority support, and custom integrations.</p>
-          <p class="app-detail-description" style="margin-top: 1rem;"><a href="mailto:support@cosmique.io?subject=Orbit%20Commercial%20Licensing">Contact us for commercial licensing</a></p>
-        </section>
-
-        <section class="app-section">
-          <h2 class="section-title">Questions?</h2>
-          <a href="mailto:support@cosmique.io?subject=Orbit%20Pricing%20Question" class="app-link">
-            Email support@cosmique.io
-          </a>
-        </section>
+  <section class="doc-tiers">
+    <div class="tiers">
+      <div class="tier">
+        <div class="name">Free</div>
+        <div class="price free">$0</div>
+        <ul>
+          <li>Self-hosted server (Docker, Linux, macOS, Raspberry&nbsp;Pi)</li>
+          <li>Native apps for iPhone, Mac, Apple&nbsp;Watch, and Apple&nbsp;TV</li>
+          <li>Full library import and management</li>
+          <li>Playback on your home network</li>
+          <li>No account required</li>
+        </ul>
       </div>
-
-      <nav class="app-nav">
-        <a href="{{ '/apps/orbit/' | url }}" class="back-link">Back to Orbit</a>
-      </nav>
-    </article>
-  </main>
-
-  <footer>
-    <div class="footer-content">
-      <p>{{ site.site.title }}</p>
-      <p><a href="mailto:hello@cosmique.io">hello@cosmique.io</a></p>
+      <div class="tier">
+        <div class="name">Orbit Pro · Monthly</div>
+        <div class="price">$2.99<small> / month</small></div>
+        <ul>
+          <li>Bit-perfect exclusive mode on macOS (USB DAC, DSD)</li>
+          <li>Gapless playback and loudness normalization</li>
+          <li>Listen anywhere — encrypted remote access via Orbit&nbsp;Cloud</li>
+          <li>Multi-server switching</li>
+          <li>Offline downloads on iPhone and Apple&nbsp;Watch</li>
+          <li>Editorial mode and CarPlay</li>
+        </ul>
+      </div>
+      <div class="tier feature-tier">
+        <div class="name">Orbit Pro · Annual</div>
+        <div class="price">$24<small> / year</small></div>
+        <ul>
+          <li>Everything in Pro</li>
+          <li>7-day free trial</li>
+          <li>Two months free vs monthly</li>
+          <li>One subscription unlocks iPhone, Mac, Watch, and TV</li>
+          <li>Family Sharing supported</li>
+        </ul>
+      </div>
     </div>
-  </footer>
+  </section>
+
+  <article class="doc">
+    <p><strong>Perfect for:</strong> Audiophiles with USB DACs, vinyl archivists, classical collectors, and anyone who wants their library with them outside the house.</p>
+
+    <section>
+      <h2>Frequently asked questions</h2>
+
+      <p><strong>What stays free?</strong></p>
+      <p>Everything you need to run Orbit at home: the server, the apps, library import and management, and local playback on a single server.</p>
+
+      <p><strong>How does the subscription work?</strong></p>
+      <p>Orbit Pro is purchased through the App Store and managed from your Apple account. One subscription unlocks Pro on all your Apple devices, and you can cancel anytime.</p>
+
+      <p><strong>What happens if I cancel?</strong></p>
+      <p>Your library and all your data stay exactly where they are — on your server. Pro features lock back to the free tier; nothing is deleted.</p>
+
+      <p><strong>Is there a free trial?</strong></p>
+      <p>Yes. The annual plan starts with a 7-day free trial with all Pro features unlocked.</p>
+
+      <p><strong>Do I need an internet connection?</strong></p>
+      <p>No. Orbit runs entirely on your home network. Internet is only used for metadata lookups, and for remote listening through Orbit Cloud if you choose to enable it.</p>
+
+      <p><strong>Can I use Orbit commercially?</strong></p>
+      <p>Orbit is for personal, non-commercial use. Contact us for commercial licensing.</p>
+    </section>
+
+    <section>
+      <h2>Enterprise &amp; commercial</h2>
+      <p>Want to use Orbit commercially? We offer commercial use rights, priority support, and custom integrations. <a href="mailto:support@cosmique.io?subject=Orbit%20Commercial%20Licensing">Contact us for commercial licensing</a>.</p>
+    </section>
+
+    <section>
+      <h2>Questions?</h2>
+      <a class="btn" href="mailto:support@cosmique.io?subject=Orbit%20Pricing%20Question">Email support@cosmique.io</a>
+    </section>
+
+    <a class="btn-secondary" href="{{ '/apps/orbit/' | url }}">← Back to Orbit</a>
+  </article>
+
+  {% set footerLinks = [
+    { url: "/apps/orbit/support/", label: "Support" },
+    { url: "/apps/orbit/privacy/", label: "Privacy" },
+    { url: "/apps/orbit/terms/", label: "Terms" }
+  ] %}
+  {% include "ds-footer.njk" %}
+
 </div>

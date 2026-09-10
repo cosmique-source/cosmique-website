@@ -1,93 +1,88 @@
 ---
 permalink: "/apps/punkt/privacy/"
-layout: base.njk
+layout: cosmique.njk
+pageTitle: "punkt — Privacy Policy"
+pageDescription: "Privacy policy for punkt, the minimalist RSS reader for Apple Watch. We do not collect any data."
 ---
 
-<div class="container">
-  <header>
-    <a href="{{ '/' | url }}">
-      <img src="{{ '/assets/logo.svg' | url }}" alt="{{ site.site.title }}" class="logo">
-    </a>
-  </header>
+<div class="wrap">
 
-  <main>
-    <nav class="breadcrumb">
-      <a href="{{ '/' | url }}">apps</a> / <a href="{{ '/apps/punkt/' | url }}">punkt</a> / privacy policy
-    </nav>
+  {% set crumbName = "PUNKT" %}
+  {% set crumbUrl = "/apps/punkt/" %}
+  {% set navLinks = [
+    { url: "/apps/punkt/", label: "Overview" },
+    { url: "/apps/punkt/support/", label: "Support" }
+  ] %}
+  {% include "ds-header.njk" %}
 
-    <article class="app-detail">
-      <h1 class="app-detail-title">Privacy Policy for punkt</h1>
-      <p class="app-detail-tagline">Last updated: October 29, 2025</p>
+  <article class="doc">
+    <p class="kick">Privacy</p>
+    <h1 class="h1">Privacy Policy for punkt</h1>
+    <p class="doc-updated">Last updated: October 29, 2025</p>
 
-      <div class="app-detail-content">
-        <section class="app-section">
-          <h2 class="section-title">Overview</h2>
-          <p class="app-detail-description">punkt is committed to protecting your privacy. This privacy policy explains our data practices for the punkt RSS feed reader application.</p>
-        </section>
+    <section>
+      <h2>Overview</h2>
+      <p>punkt is committed to protecting your privacy. This privacy policy explains our data practices for the punkt RSS feed reader application.</p>
+    </section>
 
-        <section class="app-section">
-          <h2 class="section-title">Data Collection</h2>
-          <p class="app-detail-description"><strong>We do not collect any data.</strong> punkt does not collect, store, transmit, or process any personal information or usage data from our users.</p>
-        </section>
+    <section>
+      <h2>Data collection</h2>
+      <p><strong>We do not collect any data.</strong> punkt does not collect, store, transmit, or process any personal information or usage data from our users.</p>
+    </section>
 
-        <section class="app-section">
-          <h2 class="section-title">Local Data Storage</h2>
-          <p class="app-detail-description">All data in punkt is stored locally on your device, including:</p>
-          <ul class="feature-list">
-            <li>RSS feed URLs you choose to add</li>
-            <li>Your reading preferences and settings</li>
-            <li>Feed content cached for offline reading</li>
-            <li>Playback state and history</li>
-          </ul>
-          <p class="app-detail-description">If you enable iCloud sync on your device, this data may be synchronized across your Apple devices through Apple's iCloud service. We do not have access to any data stored in iCloud.</p>
-        </section>
+    <section>
+      <h2>Local data storage</h2>
+      <p>All data in punkt is stored locally on your device, including:</p>
+      <ul>
+        <li>RSS feed URLs you choose to add</li>
+        <li>Your reading preferences and settings</li>
+        <li>Feed content cached for offline reading</li>
+        <li>Playback state and history</li>
+      </ul>
+      <p>If you enable iCloud sync on your device, this data may be synchronized across your Apple devices through Apple's iCloud service. We do not have access to any data stored in iCloud.</p>
+    </section>
 
-        <section class="app-section">
-          <h2 class="section-title">Third-Party Content</h2>
-          <p class="app-detail-description">When you add an RSS feed to punkt, the app connects directly from your device to the feed's server to retrieve content. These connections are made directly between your device and the feed provider - we are not involved in these connections and do not see or store this data.</p>
-        </section>
+    <section>
+      <h2>Third-party content</h2>
+      <p>When you add an RSS feed to punkt, the app connects directly from your device to the feed's server to retrieve content. These connections are made directly between your device and the feed provider — we are not involved in these connections and do not see or store this data.</p>
+    </section>
 
-        <section class="app-section">
-          <h2 class="section-title">Analytics and Tracking</h2>
-          <p class="app-detail-description">punkt does not use any analytics, tracking, or advertising services. We do not track your usage, behavior, or any other metrics.</p>
-        </section>
+    <section>
+      <h2>Analytics and tracking</h2>
+      <p>punkt does not use any analytics, tracking, or advertising services. We do not track your usage, behavior, or any other metrics.</p>
+    </section>
 
-        <section class="app-section">
-          <h2 class="section-title">Data Sharing</h2>
-          <p class="app-detail-description">Since we do not collect any data, we do not share, sell, or transfer any data to third parties.</p>
-        </section>
+    <section>
+      <h2>Data sharing</h2>
+      <p>Since we do not collect any data, we do not share, sell, or transfer any data to third parties.</p>
+    </section>
 
-        <section class="app-section">
-          <h2 class="section-title">Children's Privacy</h2>
-          <p class="app-detail-description">punkt does not knowingly collect any information from anyone, including children under the age of 13.</p>
-        </section>
+    <section>
+      <h2>Children's privacy</h2>
+      <p>punkt does not knowingly collect any information from anyone, including children under the age of 13.</p>
+    </section>
 
-        <section class="app-section">
-          <h2 class="section-title">Changes to This Policy</h2>
-          <p class="app-detail-description">We may update this privacy policy from time to time. Any changes will be posted on this page with an updated "Last updated" date.</p>
-        </section>
+    <section>
+      <h2>Changes to this policy</h2>
+      <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated "Last updated" date.</p>
+    </section>
 
-        <section class="app-section">
-          <h2 class="section-title">Contact Us</h2>
-          <p class="app-detail-description">If you have any questions about this privacy policy, please contact us at:</p>
-          <p class="app-detail-description"><strong><a href="mailto:support@cosmique.io">support@cosmique.io</a></strong></p>
-        </section>
+    <section>
+      <h2>Contact us</h2>
+      <p>If you have any questions about this privacy policy, please contact us at <strong><a href="mailto:support@cosmique.io">support@cosmique.io</a></strong>.</p>
+    </section>
 
-        <section class="app-section">
-          <p class="app-detail-description"><em>punkt is developed independently and is not affiliated with any RSS feed providers.</em></p>
-        </section>
-      </div>
+    <section>
+      <p><em>punkt is developed independently and is not affiliated with any RSS feed providers.</em></p>
+    </section>
 
-      <nav class="app-nav">
-        <a href="{{ '/apps/punkt/' | url }}" class="back-link">← Back to punkt</a>
-      </nav>
-    </article>
-  </main>
+    <a class="btn-secondary" href="{{ '/apps/punkt/' | url }}">← Back to punkt</a>
+  </article>
 
-  <footer>
-    <div class="footer-content">
-      <p>{{ site.site.title }}</p>
-      <p><a href="mailto:hello@cosmique.io">hello@cosmique.io</a></p>
-    </div>
-  </footer>
+  {% set footerLinks = [
+    { url: "/apps/punkt/", label: "punkt" },
+    { url: "/apps/punkt/support/", label: "Support" }
+  ] %}
+  {% include "ds-footer.njk" %}
+
 </div>

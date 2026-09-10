@@ -1,0 +1,25 @@
+---
+# The apps and the App Store listing once linked https://cosmique.io/orbit/{terms,privacy,releases};
+# the canonical pages live under /apps/orbit/. Keep these stubs so old links land.
+pagination:
+  data: redirects
+  size: 1
+  alias: r
+redirects:
+  - { from: "/orbit/terms/",    to: "/apps/orbit/terms/" }
+  - { from: "/orbit/privacy/",  to: "/apps/orbit/privacy/" }
+  - { from: "/orbit/releases/", to: "/apps/orbit/releases/" }
+  - { from: "/orbit/support/",  to: "/apps/orbit/support/" }
+permalink: "{{ r.from }}index.html"
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0; url={{ r.to }}">
+  <link rel="canonical" href="https://cosmique.io{{ r.to }}">
+  <title>Redirecting…</title>
+</head>
+<body><p>This page moved to <a href="{{ r.to }}">cosmique.io{{ r.to }}</a>.</p></body>
+</html>
