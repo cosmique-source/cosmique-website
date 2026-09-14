@@ -23,6 +23,12 @@ module.exports = function(eleventyConfig) {
     content.apps.filter((app) => app.slug !== "orbit")
   );
 
+  // The homepage's featured band reads Orbit's name and one-liner from content.json.
+  eleventyConfig.addGlobalData(
+    "orbitApp",
+    content.apps.find((app) => app.slug === "orbit")
+  );
+
   // Orbit is live (2026-09-10). `orbitLive` is kept for the legal/support pages,
   // whose nav shows the Pricing link only when the product page is published.
   eleventyConfig.addGlobalData("orbitLive", true);

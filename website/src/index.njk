@@ -1,12 +1,13 @@
 ---
 layout: cosmique.njk
 pageTitle: "Cosmique — Native apps for Apple platforms"
-pageDescription: "Cosmique builds native apps for Apple platforms — punkt, Bulletin, and Orbit. No accounts, no tracking, no lock-in."
+pageDescription: "Cosmique builds native apps for Apple platforms — Orbit, punkt and Bulletin. No accounts, no tracking, no lock-in."
 ---
 
 <div class="wrap">
 
   {% set navLinks = [
+    { url: "/apps/orbit/", label: "Orbit" },
     { url: "/#apps", label: "Apps" },
     { url: "mailto:hello@cosmique.io", label: "Contact" }
   ] %}
@@ -22,11 +23,61 @@ pageDescription: "Cosmique builds native apps for Apple platforms — punkt, Bul
     </p>
   </section>
 
-  <!-- Apps -->
+  <!-- Orbit showcase — the lead product gets the big-screenshot band -->
+  <section class="home-orbit" id="orbit">
+    <div class="home-orbit-head">
+      <div class="home-orbit-title">
+        <p class="kick">Featured — {{ orbitApp.name }}</p>
+        <h2 class="h2">{{ orbitApp.description }}</h2>
+        <p class="home-orbit-lede">
+          Self-hosted on your hardware. Native on iPhone, Mac, Apple&nbsp;Watch,
+          Apple&nbsp;TV and CarPlay. Every pressing tracked, bit-perfect to the last bit.
+        </p>
+      </div>
+      <div class="home-orbit-cta">
+        <a class="btn" href="{{ '/apps/orbit/' | url }}">Explore Orbit</a>
+        <a class="btn-secondary" href="{{ '/apps/orbit/pricing/' | url }}">Pricing →</a>
+      </div>
+    </div>
+
+    <figure class="macwin home-orbit-shot">
+      <div class="bar"><div class="dots"><i></i><i></i><i></i></div></div>
+      <div class="viewport">
+        <img src="{{ '/assets/orbit/hero-now-playing-cinematic.webp' | url }}"
+             alt="Orbit's Mac app in the cinematic player layout, with release year, format, dynamic range and genre in the side rail and the format readout in the transport bar"
+             width="2000" height="1256">
+      </div>
+    </figure>
+    <p class="home-orbit-caption mono">THE MAC PLAYER — RELEASE, FORMAT AND DYNAMIC RANGE, WHERE THEY BELONG.</p>
+
+    <div class="home-orbit-devices">
+      <figure class="device--iphone">
+        <div class="screen">
+          <img src="{{ '/assets/orbit/ios-player-relay.webp' | url }}"
+               alt="iPhone player streaming FLAC 24-bit / 96 kHz through the Orbit Cloud relay"
+               loading="lazy" width="900" height="1951">
+        </div>
+      </figure>
+      <figure class="tvscreen">
+        <img src="{{ '/assets/orbit/tv-now-playing.webp' | url }}"
+             alt="Apple TV: Now Playing with the album artwork, track and artist, and transport controls"
+             loading="lazy" width="1600" height="900">
+      </figure>
+      <figure class="device--watch">
+        <div class="case"><div class="screen">
+          <img src="{{ '/assets/orbit/watch-now-playing.webp' | url }}"
+               alt="Apple Watch: Now Playing with artwork and play controls" loading="lazy" width="416" height="496">
+        </div></div><div class="crown"></div>
+      </figure>
+    </div>
+    <p class="home-orbit-caption mono">THE SAME LIBRARY ON iPHONE, APPLE TV AND APPLE WATCH — AND CARPLAY ON THE ROAD.</p>
+  </section>
+
+  <!-- The rest of the lineup -->
   <section class="home-minis" id="apps">
-    <p class="kick">Apps</p>
+    <p class="kick">More apps</p>
     <div class="home-mini-grid">
-      {% for app in site.apps %}
+      {% for app in appsStandard %}
       <a href="{{ ('/apps/' + app.slug + '/') | url }}" class="home-mini{% if app.status == 'soon' %} home-mini-soon{% endif %}">
         {% if app.icon %}
         <img src="{{ ('/assets/' + app.slug + '/' + app.icon) | url }}" alt="{{ app.name }} icon" class="app-icon" width="52" height="52">
@@ -45,7 +96,11 @@ pageDescription: "Cosmique builds native apps for Apple platforms — punkt, Bul
     </div>
   </section>
 
-  {% set footerLinks = [] %}
+  {% set footerLinks = [
+    { url: "/apps/orbit/", label: "Orbit" },
+    { url: "/apps/orbit/pricing/", label: "Pricing" },
+    { url: "/apps/orbit/support/", label: "Support" }
+  ] %}
   {% include "ds-footer.njk" %}
 
 </div>
