@@ -43,8 +43,18 @@ pageDescription: "What changed in each release of the Orbit apps and Orbit Serve
     </section>
 
     <section>
-      <h2>Orbit Server</h2>
-      <p>The server ships as a Docker image and as native builds for Linux and macOS. Server release notes accompany each tagged release; the one-line installer at <code>cosmique.io/orbit/install.sh</code> always fetches the latest.</p>
+      <h2>Orbit Server 0.2.0</h2>
+      <p class="doc-updated">The server the 1.0 apps launch with</p>
+      <p>The server ships as a Docker image. Install it, or update an existing server, with the one-line installer, which always fetches the latest release:</p>
+      <pre class="o2-code">curl -fsSL https://cloud.orbit.cosmique.io/install.sh | bash</pre>
+      <p>Back up before updating: once 0.2.0 has updated its database, an older server will not open it.</p>
+      <ul>
+        <li>Remote playback encodes each track in one continuous pass, so tracks start and seek faster and play without pops over Orbit Cloud.</li>
+        <li>Files with no readable tags keep their duration and play remotely.</li>
+        <li>Only an administrator can add, change or delete a library, and the web interface asks visitors to sign in before it shows anything.</li>
+        <li>Imports ride out a slow MusicBrainz, vinyl and digital copies of an album stay separate, and covers load faster.</li>
+        <li>Playlists take several tracks in one step, and smart-playlist rules are fixed.</li>
+      </ul>
     </section>
 
     <a class="btn-secondary" href="{{ '/apps/orbit/' | url }}">← Back to Orbit</a>
