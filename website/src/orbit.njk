@@ -34,12 +34,17 @@ pageDescription: "Self-hosted music server with native apps for iPhone, Mac, App
       between pressings — and want a server that can too.
     </p>
     <div class="o2-cta">
-      <a class="btn" href="#pricing">See pricing</a>
+      <a class="o2-store" href="https://apps.apple.com/app/id6765548610">
+        <img class="o2-store-light" src="{{ '/assets/orbit/app-store-badge-black.svg' | url }}"
+             alt="Download on the App Store" width="144" height="48">
+        <span class="o2-store-dark" hidden><img src="{{ '/assets/orbit/app-store-badge-white.svg' | url }}"
+             alt="Download on the App Store" width="144" height="48"></span>
+      </a>
       <a class="btn-secondary" href="#get-started">Get started →</a>
     </div>
     <div class="o2-chips">
       <span class="chip"><span class="dot"></span>Server · Docker / Linux / macOS · available now</span>
-      <span class="chip"><span class="dot"></span>Apps · iPhone / Mac / Watch / TV / CarPlay · in App Store review</span>
+      <span class="chip"><span class="dot"></span>Apps · iPhone / Mac / Watch / TV / CarPlay · on the App Store</span>
     </div>
 
     <figure class="macwin o2-hero-shot">
@@ -323,7 +328,7 @@ pageDescription: "Self-hosted music server with native apps for iPhone, Mac, App
         <div class="viewport">
           <pre class="o2-code" id="code-compose">services:
   orbit:
-    image: ghcr.io/cosmique-source/orbit:edge
+    image: ghcr.io/cosmique-source/orbit:latest
     container_name: orbit
     restart: unless-stopped
     ports:
@@ -376,11 +381,11 @@ volumes:
       </div>
       <div class="tier feature-tier">
         <div class="name">Orbit Pro · Annual</div>
-        <div class="price">$24<small> / year</small></div>
+        <div class="price">$24.99<small> / year</small></div>
         <ul>
           <li>Everything in Pro</li>
           <li>7-day free trial</li>
-          <li>Two months free vs monthly</li>
+          <li>About 30% less than monthly</li>
           <li>Family Sharing</li>
         </ul>
       </div>

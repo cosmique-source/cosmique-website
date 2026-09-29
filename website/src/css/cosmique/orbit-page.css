@@ -26,6 +26,16 @@
   margin-bottom:var(--space-md)}
 .o2-chips{display:flex;gap:var(--space-sm);justify-content:center;flex-wrap:wrap;
   margin-bottom:var(--space-xl)}
+/* Apple's badge artwork, unmodified: black on the light theme, white on
+   the dark one. Apple asks for at least 40px onscreen and clear space of a
+   quarter of the badge's height around it (the flex gap covers that). The
+   white badge sits in a `hidden` span (base.css's img{display:block} would
+   override `hidden` on the img itself), so a stylesheet cached from before
+   the badge still shows just one. */
+.o2-store{display:inline-flex;line-height:0}
+.o2-store img{height:48px;width:auto}
+[data-theme="dark"] .o2-store-light{display:none}
+[data-theme="dark"] .o2-store-dark{display:inline-flex}
 .o2-hero-shot{max-width:980px;margin:0 auto}
 
 .o2-caption{font-size:var(--size-kicker);letter-spacing:var(--tracking-label);
